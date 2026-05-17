@@ -1,8 +1,16 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import type { SiteEntry } from '@/lib/types'
 
+const IS_TEMPLATE = process.env.NEXT_PUBLIC_IS_TEMPLATE === 'true'
+
 export default function SitesPage() {
+  const router = useRouter()
+
+  useEffect(() => {
+    if (!IS_TEMPLATE) router.replace('/admin/editor')
+  }, [router])
   const [sites, setSites] = useState<SiteEntry[]>([])
   const [loading, setLoading] = useState(true)
   const [creating, setCreating] = useState(false)
