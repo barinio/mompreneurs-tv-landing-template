@@ -13,8 +13,7 @@ function headers() {
 export async function createVercelProject(
   name: string,
   githubOwner: string,
-  githubRepo: string,
-  githubToken: string
+  githubRepo: string
 ): Promise<{ id: string; name: string }> {
   const res = await fetch(`${VERCEL_API}/v9/projects`, {
     method: 'POST',
@@ -50,13 +49,21 @@ export async function setEnvVars(
   }
 }
 
-export async function triggerDeploy(projectId: string): Promise<string> {
+export async function triggerDeploy(projectId: string, githubOwner: string, githubRepo: string): Promise<string> {
   const res = await fetch(`${VERCEL_API}/v13/deployments`, {
     method: 'POST',
     headers: headers(),
-    body: JSON.stringify({ name: projectId, target: 'production' }),
+    body: JSON.stringify({
+      name: githubRepo,
+      gitSource: {
+        type: 'github',
+        repoId: `${githubOwner}/${githubRepo}`,
+        ref: 'main',
+      },
+      target: 'production',
+    }),
   })
   const data = await res.json()
   if (!res.ok) throw new Error(data?.error?.message ?? 'Failed to trigger deploy')
-  return `https://${data.url}`
+  return data.url ? `https://${data.url}` : `https://${githubRepo}.vercel.app`
 }

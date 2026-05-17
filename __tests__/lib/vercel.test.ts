@@ -14,7 +14,7 @@ describe('createVercelProject', () => {
       json: async () => ({ id: 'proj_123', name: 'my-site', link: { deployHooks: [] } }),
     })
 
-    const result = await createVercelProject('my-site', 'owner', 'my-site-repo', 'ghp_token')
+    const result = await createVercelProject('my-site', 'owner', 'my-site-repo')
     expect(mockFetch).toHaveBeenCalledWith(
       expect.stringContaining('/v9/projects'),
       expect.objectContaining({ method: 'POST' })
@@ -24,7 +24,7 @@ describe('createVercelProject', () => {
 
   it('throws when Vercel API returns non-ok', async () => {
     mockFetch.mockResolvedValue({ ok: false, json: async () => ({ error: { message: 'Bad' } }) })
-    await expect(createVercelProject('x', 'o', 'r', 'g')).rejects.toThrow('Bad')
+    await expect(createVercelProject('x', 'o', 'r')).rejects.toThrow('Bad')
   })
 })
 
