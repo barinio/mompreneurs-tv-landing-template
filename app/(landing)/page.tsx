@@ -10,6 +10,11 @@ import ProblemSolution from '@/components/sections/ProblemSolution'
 import AboutShow from '@/components/sections/AboutShow'
 import TvPackages from '@/components/sections/TvPackages'
 import StreamingPlatforms from '@/components/sections/StreamingPlatforms'
+import MediaCredibility from '@/components/sections/MediaCredibility'
+import WomenInPower from '@/components/sections/WomenInPower'
+import HowItWorks from '@/components/sections/HowItWorks'
+import ThreePackageOptions from '@/components/sections/ThreePackageOptions'
+import WhyTvStats from '@/components/sections/WhyTvStats'
 
 const c = content as ContentJson
 
@@ -26,6 +31,11 @@ export default function LandingPage() {
       <AboutShow aboutShow={c.aboutShow} theme={c.theme} />
       <TvPackages tvPackages={c.tvPackages} hero={c.hero} theme={c.theme} />
       <StreamingPlatforms streamingPlatforms={c.streamingPlatforms} />
+      <MediaCredibility mediaCredibility={c.mediaCredibility} theme={c.theme} />
+      <WomenInPower womenInPower={c.womenInPower} theme={c.theme} />
+      <HowItWorks howItWorks={c.howItWorks} theme={c.theme} />
+      <ThreePackageOptions threePackages={c.threePackages} hero={c.hero} theme={c.theme} />
+      <WhyTvStats whyTvStats={c.whyTvStats} theme={c.theme} />
     </div>
   )
 }
