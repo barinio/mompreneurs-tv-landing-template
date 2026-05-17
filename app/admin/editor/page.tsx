@@ -1,10 +1,12 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import type { ContentJson, SectionKey } from '@/lib/types'
 import SectionNav from '@/components/admin/SectionNav'
 import FieldEditor from '@/components/admin/FieldEditor'
 import LivePreview from '@/components/admin/LivePreview'
+
+const IS_TEMPLATE = process.env.NEXT_PUBLIC_IS_TEMPLATE === 'true'
 
 export default function EditorPage() {
   const router = useRouter()
@@ -13,7 +15,13 @@ export default function EditorPage() {
   const [activeSection, setActiveSection] = useState<SectionKey>('hero')
   const [saving, setSaving] = useState(false)
   const [toast, setToast] = useState('')
-  const isTemplate = process.env.NEXT_PUBLIC_IS_TEMPLATE === 'true'
+  const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  function showToast(msg: string) {
+    if (toastTimer.current) clearTimeout(toastTimer.current)
+    setToast(msg)
+    toastTimer.current = setTimeout(() => setToast(''), 4000)
+  }
 
   useEffect(() => {
     fetch('/api/content')
@@ -22,6 +30,13 @@ export default function EditorPage() {
         setContent(c)
         setSha(s)
       })
+      .catch(() => setToast('Помилка завантаження контенту.'))
+  }, [])
+
+  useEffect(() => {
+    return () => {
+      if (toastTimer.current) clearTimeout(toastTimer.current)
+    }
   }, [])
 
   function handleChange(key: SectionKey, value: unknown) {
@@ -31,21 +46,26 @@ export default function EditorPage() {
   async function handleSave() {
     if (!content) return
     setSaving(true)
-    const res = await fetch('/api/content', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ section: activeSection, data: content[activeSection], sha }),
-    })
-    if (res.ok) {
-      const { sha: newSha } = await fetch('/api/content').then((r) => r.json())
-      setSha(newSha)
-      setToast('Збережено! Сайт оновиться за ~30 сек')
-      setTimeout(() => setToast(''), 4000)
-    } else {
-      setToast('Save failed. Please try again.')
-      setTimeout(() => setToast(''), 4000)
+    try {
+      const res = await fetch('/api/content', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ section: activeSection, data: content[activeSection], sha }),
+      })
+      if (res.ok) {
+        try {
+          const { sha: newSha } = await fetch('/api/content').then((r) => r.json())
+          setSha(newSha)
+        } catch {
+          // sha re-fetch failed — next save may conflict; non-fatal
+        }
+        showToast('Збережено! Сайт оновиться за ~30 сек')
+      } else {
+        showToast('Помилка збереження. Спробуйте ще раз.')
+      }
+    } finally {
+      setSaving(false)
     }
-    setSaving(false)
   }
 
   async function handleLogout() {
@@ -70,7 +90,7 @@ export default function EditorPage() {
           <a href="/admin/editor" className="text-blue-300 text-xs border-b border-blue-300 pb-0.5">
             ✏️ Editor
           </a>
-          {isTemplate && (
+          {IS_TEMPLATE && (
             <a href="/admin/sites" className="text-gray-400 text-xs hover:text-gray-200">
               🌐 My Sites
             </a>
@@ -118,9 +138,7 @@ export default function EditorPage() {
           <div className="absolute top-2 left-2 text-xs text-gray-400 bg-white rounded px-2 py-0.5 shadow z-10">
             Live Preview
           </div>
-          <div className="h-full overflow-y-auto">
-            <LivePreview content={content} activeSection={activeSection} />
-          </div>
+          <LivePreview content={content} />
         </div>
       </div>
 

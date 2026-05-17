@@ -21,9 +21,9 @@ import Faq from '@/components/sections/Faq'
 import NineConsiderations from '@/components/sections/NineConsiderations'
 import Footer from '@/components/sections/Footer'
 
-type Props = { content: ContentJson; activeSection: string }
+type Props = { content: ContentJson }
 
-export default function LivePreview({ content: c, activeSection }: Props) {
+export default function LivePreview({ content: c }: Props) {
   const sectionIds: Record<string, string> = {
     hero: 'preview-hero',
     cast: 'preview-cast',
