@@ -57,7 +57,7 @@ export async function triggerDeploy(projectId: string, githubOwner: string, gith
       name: githubRepo,
       gitSource: {
         type: 'github',
-        repoId: `${githubOwner}/${githubRepo}`,
+        repoSlug: `${githubOwner}/${githubRepo}`,
         ref: 'main',
       },
       target: 'production',
