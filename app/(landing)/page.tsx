@@ -15,6 +15,11 @@ import WomenInPower from '@/components/sections/WomenInPower'
 import HowItWorks from '@/components/sections/HowItWorks'
 import ThreePackageOptions from '@/components/sections/ThreePackageOptions'
 import WhyTvStats from '@/components/sections/WhyTvStats'
+import AboutNetwork from '@/components/sections/AboutNetwork'
+import Team from '@/components/sections/Team'
+import Faq from '@/components/sections/Faq'
+import NineConsiderations from '@/components/sections/NineConsiderations'
+import Footer from '@/components/sections/Footer'
 
 const c = content as ContentJson
 
@@ -36,6 +41,11 @@ export default function LandingPage() {
       <HowItWorks howItWorks={c.howItWorks} theme={c.theme} />
       <ThreePackageOptions threePackages={c.threePackages} hero={c.hero} theme={c.theme} />
       <WhyTvStats whyTvStats={c.whyTvStats} theme={c.theme} />
+      <AboutNetwork aboutNetwork={c.aboutNetwork} theme={c.theme} />
+      <Team team={c.team} theme={c.theme} />
+      <Faq faq={c.faq} theme={c.theme} />
+      <NineConsiderations nineConsiderations={c.nineConsiderations} theme={c.theme} />
+      <Footer footer={c.footer} />
     </div>
   )
 }
