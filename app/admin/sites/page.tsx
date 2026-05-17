@@ -11,37 +11,47 @@ export default function SitesPage() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [newSite, setNewSite] = useState<{ url: string; adminUrl: string } | null>(null)
+  const [loadError, setLoadError] = useState(false)
 
   useEffect(() => {
-    fetch('/api/sites')
+    const controller = new AbortController()
+    fetch('/api/sites', { signal: controller.signal })
       .then((r) => r.json())
       .then(({ sites: s }) => { setSites(s ?? []); setLoading(false) })
-      .catch(() => setLoading(false))
+      .catch((err) => {
+        if (err.name !== 'AbortError') { setLoadError(true); setLoading(false) }
+      })
+    return () => controller.abort()
   }, [])
 
   async function handleCreate(e: React.FormEvent) {
     e.preventDefault()
     setCreating(true)
     setError('')
-    const res = await fetch('/api/sites/create', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, adminPassword: password }),
-    })
-    const data = await res.json()
-    if (res.ok) {
-      setNewSite(data)
-      setSites((prev) => [
-        ...prev,
-        { name, url: data.url, adminUrl: data.adminUrl, createdAt: new Date().toISOString(), status: 'deploying' as const },
-      ])
-      setShowForm(false)
-      setName('')
-      setPassword('')
-    } else {
-      setError(data.error ?? 'Unknown error')
+    try {
+      const res = await fetch('/api/sites/create', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, adminPassword: password }),
+      })
+      const data = await res.json()
+      if (res.ok) {
+        setNewSite(data)
+        setSites((prev) => [
+          ...prev,
+          { name, url: data.url, adminUrl: data.adminUrl, createdAt: new Date().toISOString(), status: 'deploying' as const },
+        ])
+        setShowForm(false)
+        setName('')
+        setPassword('')
+      } else {
+        setError(data.error ?? 'Unknown error')
+      }
+    } catch {
+      setError('Network error. Please try again.')
+    } finally {
+      setCreating(false)
     }
-    setCreating(false)
   }
 
   return (
@@ -122,7 +132,8 @@ export default function SitesPage() {
                   <button
                     type="button"
                     onClick={() => setShowForm(false)}
-                    className="px-4 py-2 border border-gray-300 rounded text-sm hover:bg-gray-50"
+                    disabled={creating}
+                    className="px-4 py-2 border border-gray-300 rounded text-sm hover:bg-gray-50 disabled:opacity-50"
                   >
                     Cancel
                   </button>
@@ -135,10 +146,12 @@ export default function SitesPage() {
         {/* Sites table */}
         {loading ? (
           <p className="text-gray-500 text-sm">Loading...</p>
+        ) : loadError ? (
+          <p className="text-red-500 text-sm">Failed to load sites. Please refresh.</p>
         ) : sites.length === 0 ? (
           <div className="text-center py-16 text-gray-400">
-            <p className="text-4xl mb-3">o</p>
-            <p>No sites yet. Create your first one!</p>
+            <p className="text-2xl mb-3">No sites yet</p>
+            <p>Create your first one!</p>
           </div>
         ) : (
           <div className="bg-white rounded-lg shadow overflow-hidden">
