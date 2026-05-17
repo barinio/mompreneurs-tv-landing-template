@@ -8,6 +8,10 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],
     globals: true,
+    env: {
+      GITHUB_OWNER: 'test-owner',
+      GITHUB_REPO: 'test-repo',
+    },
   },
   resolve: {
     alias: { '@': path.resolve(__dirname, '.') },
