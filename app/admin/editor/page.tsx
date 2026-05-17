@@ -39,7 +39,7 @@ export default function EditorPage() {
     if (res.ok) {
       const { sha: newSha } = await fetch('/api/content').then((r) => r.json())
       setSha(newSha)
-      setToast('Saved! Site will update in ~30 seconds.')
+      setToast('Збережено! Сайт оновиться за ~30 сек')
       setTimeout(() => setToast(''), 4000)
     } else {
       setToast('Save failed. Please try again.')
@@ -92,7 +92,7 @@ export default function EditorPage() {
         <SectionNav active={activeSection} onChange={setActiveSection} />
 
         {/* Center: field editor */}
-        <div className="w-72 bg-white border-r border-gray-200 flex flex-col flex-shrink-0">
+        <div className="w-[260px] bg-white border-r border-gray-200 flex flex-col flex-shrink-0">
           <div className="px-4 py-3 border-b border-gray-100 bg-gray-50">
             <h2 className="text-sm font-semibold text-gray-700 capitalize">
               {activeSection.replace(/([A-Z])/g, ' $1')}
@@ -107,7 +107,7 @@ export default function EditorPage() {
               disabled={saving}
               className="w-full bg-green-600 hover:bg-green-700 disabled:opacity-50 text-white text-sm font-semibold py-2 rounded transition"
             >
-              {saving ? 'Saving...' : '💾 Save & Deploy'}
+              {saving ? 'Збереження...' : 'Зберегти і Деплоїти'}
             </button>
             <p className="text-xs text-gray-400 text-center mt-1">~30 sec to publish</p>
           </div>
