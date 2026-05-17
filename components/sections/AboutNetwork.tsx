@@ -1,6 +1,6 @@
 import type { ContentJson } from '@/lib/types'
 
-type Props = { aboutNetwork: ContentJson['aboutNetwork']; theme: ContentJson['theme'] }
+type Props = { aboutNetwork: ContentJson['aboutNetwork'] }
 
 export default function AboutNetwork({ aboutNetwork }: Props) {
   return (
