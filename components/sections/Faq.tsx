@@ -10,12 +10,12 @@ export default function Faq({ faq, theme }: Props) {
   return (
     <div
       className="container fullContainer noTopMargin padding20-top padding20-bottom padding40H noBorder cornersAll radius0 shadow0 emptySection"
-      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: '#f5f0eb' }}
+      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: 'rgb(102, 69, 46)' }}
     >
       <div className="containerInner" style={{ maxWidth: 800, margin: '0 auto', padding: '0 20px' }}>
         <h2
           className="ne elHeadline"
-          style={{ textAlign: 'center', fontSize: 32, fontWeight: 700, marginBottom: 40, color: '#1a1a1a' }}
+          style={{ textAlign: 'center', fontSize: 32, fontWeight: 700, marginBottom: 40, color: 'rgb(255, 255, 255)' }}
         >
           FREQUENTLY ASKED QUESTIONS
         </h2>
@@ -23,7 +23,7 @@ export default function Faq({ faq, theme }: Props) {
           {faq.map((item, i) => (
             <div
               key={i}
-              style={{ backgroundColor: '#fff', borderRadius: 6, overflow: 'hidden', border: '1px solid #e5e0da' }}
+              style={{ backgroundColor: 'rgba(255, 253, 246, 0.08)', borderRadius: 6, overflow: 'hidden', border: '1px solid rgba(255, 255, 255, 0.2)' }}
             >
               <button
                 onClick={() => setOpen(open === i ? null : i)}
@@ -39,7 +39,7 @@ export default function Faq({ faq, theme }: Props) {
                   alignItems: 'center',
                   fontSize: 16,
                   fontWeight: 600,
-                  color: '#1a1a1a',
+                  color: 'rgb(255, 255, 255)',
                 }}
               >
                 {item.question}
@@ -48,7 +48,7 @@ export default function Faq({ faq, theme }: Props) {
                 </span>
               </button>
               {open === i && (
-                <div style={{ padding: '0 20px 18px', fontSize: 15, color: '#555', lineHeight: 1.7 }}>
+                <div style={{ padding: '0 20px 18px', fontSize: 15, color: 'rgba(255, 255, 255, 0.85)', lineHeight: 1.7 }}>
                   {item.answer}
                 </div>
               )}

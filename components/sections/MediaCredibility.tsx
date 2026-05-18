@@ -6,12 +6,12 @@ export default function MediaCredibility({ mediaCredibility, theme }: Props) {
   return (
     <div
       className="container fullContainer noTopMargin padding20-top padding20-bottom padding40H noBorder cornersAll radius0 shadow0 emptySection"
-      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: '#fff' }}
+      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: 'rgb(29, 29, 29)' }}
     >
       <div className="containerInner" style={{ maxWidth: 1000, margin: '0 auto', padding: '0 20px' }}>
         <h2
           className="ne elHeadline"
-          style={{ textAlign: 'center', fontSize: 30, fontWeight: 700, marginBottom: 36, color: '#1a1a1a' }}
+          style={{ textAlign: 'center', fontSize: 30, fontWeight: 700, marginBottom: 36, color: 'rgb(255, 255, 255)' }}
         >
           AS SEEN ON
         </h2>
@@ -21,7 +21,7 @@ export default function MediaCredibility({ mediaCredibility, theme }: Props) {
               key={i}
               src={s.url}
               alt="Media feature"
-              style={{ maxWidth: 280, width: '100%', borderRadius: 4, border: '1px solid #eee' }}
+              style={{ maxWidth: 280, width: '100%', borderRadius: 4, border: '1px solid #444' }}
             />
           ))}
         </div>
@@ -32,12 +32,12 @@ export default function MediaCredibility({ mediaCredibility, theme }: Props) {
               style={{
                 textAlign: 'center',
                 padding: 20,
-                backgroundColor: '#f8f4f0',
+                backgroundColor: 'rgb(18, 18, 18)',
                 borderRadius: 6,
                 borderTop: `3px solid ${theme.primaryColor}`,
               }}
             >
-              <p style={{ fontSize: 14, color: '#555', lineHeight: 1.6, margin: 0 }}>{stat.text}</p>
+              <p style={{ fontSize: 14, color: '#ccc', lineHeight: 1.6, margin: 0 }}>{stat.text}</p>
             </div>
           ))}
         </div>

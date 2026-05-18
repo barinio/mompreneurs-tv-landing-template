@@ -6,7 +6,7 @@ export default function Footer({ footer }: Props) {
   return (
     <div
       className="container fullContainer noTopMargin padding20-top padding20-bottom padding40H noBorder cornersAll radius0 shadow0 emptySection"
-      style={{ paddingTop: 40, paddingBottom: 40, backgroundColor: '#111' }}
+      style={{ paddingTop: 40, paddingBottom: 40, backgroundColor: 'rgb(0, 0, 0)' }}
     >
       <div className="containerInner" style={{ maxWidth: 860, margin: '0 auto', padding: '0 20px', textAlign: 'center' }}>
         <p style={{ color: '#888', fontSize: 13, marginBottom: 12 }}>{footer.address}</p>

@@ -10,12 +10,12 @@ export default function ThreePackageOptions({ threePackages, hero, theme }: Prop
   return (
     <div
       className="container fullContainer noTopMargin padding20-top padding20-bottom padding40H noBorder cornersAll radius0 shadow0 emptySection"
-      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: '#1a1a1a' }}
+      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: 'rgb(142, 123, 107)' }}
     >
       <div className="containerInner" style={{ maxWidth: 1100, margin: '0 auto', padding: '0 20px' }}>
         <h2
           className="ne elHeadline"
-          style={{ textAlign: 'center', fontSize: 32, fontWeight: 700, color: '#fff', marginBottom: 40 }}
+          style={{ textAlign: 'center', fontSize: 32, fontWeight: 700, color: 'rgb(255, 255, 255)', marginBottom: 40 }}
         >
           YOUR OPTIONS
         </h2>
@@ -24,10 +24,10 @@ export default function ThreePackageOptions({ threePackages, hero, theme }: Prop
             <div
               key={i}
               style={{
-                backgroundColor: '#2a2a2a',
+                backgroundColor: 'rgb(255, 253, 246)',
                 borderRadius: 6,
                 padding: 28,
-                border: i === 1 ? `2px solid ${theme.primaryColor}` : '1px solid #333',
+                border: '1px solid rgb(216, 200, 178)',
                 position: 'relative',
               }}
             >
@@ -50,17 +50,17 @@ export default function ThreePackageOptions({ threePackages, hero, theme }: Prop
                   MOST POPULAR
                 </div>
               )}
-              <h3 style={{ color: theme.primaryColor, fontSize: 18, fontWeight: 700, marginBottom: 12 }}>
+              <h3 style={{ color: 'rgb(255, 255, 255)', fontSize: 18, fontWeight: 700, marginBottom: 12 }}>
                 {pkg.title}
               </h3>
-              <p style={{ color: '#bbb', fontSize: 14, lineHeight: 1.6, marginBottom: 20 }}>
+              <p style={{ color: 'rgb(0, 0, 0)', fontSize: 14, lineHeight: 1.6, marginBottom: 20 }}>
                 {pkg.description}
               </p>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                 {pkg.features.map((f, j) => (
                   <li key={j} style={{ display: 'flex', gap: 10, marginBottom: 8 }}>
-                    <img src="/images/green_check_small.png" alt="✓" style={{ width: 16, flexShrink: 0, marginTop: 2 }} />
-                    <span style={{ color: '#ddd', fontSize: 14 }}>{f}</span>
+                    <span style={{ color: 'rgba(209, 177, 95, 0.98)', flexShrink: 0, marginTop: 2, fontSize: 16 }}>✓</span>
+                    <span style={{ color: 'rgb(255, 255, 255)', fontSize: 14, fontWeight: 700 }}>{f}</span>
                   </li>
                 ))}
               </ul>

@@ -6,12 +6,12 @@ export default function NineConsiderations({ nineConsiderations, theme }: Props)
   return (
     <div
       className="container fullContainer noTopMargin padding20-top padding20-bottom padding40H noBorder cornersAll radius0 shadow0 emptySection"
-      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: '#fff' }}
+      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: 'rgb(255, 253, 246)' }}
     >
       <div className="containerInner" style={{ maxWidth: 860, margin: '0 auto', padding: '0 20px' }}>
         <h2
           className="ne elHeadline"
-          style={{ textAlign: 'center', fontSize: 32, fontWeight: 700, marginBottom: 40, color: '#1a1a1a' }}
+          style={{ textAlign: 'center', fontSize: 32, fontWeight: 700, marginBottom: 40, color: 'rgb(102, 69, 46)' }}
         >
           THINGS TO CONSIDER
         </h2>

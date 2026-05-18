@@ -6,7 +6,7 @@ export default function WhyTvStats({ whyTvStats, theme }: Props) {
   return (
     <div
       className="container fullContainer noTopMargin padding20-top padding20-bottom padding40H noBorder cornersAll radius0 shadow0 emptySection"
-      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: '#f5f0eb' }}
+      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: 'rgb(250, 246, 241)' }}
     >
       <div className="containerInner" style={{ maxWidth: 1000, margin: '0 auto', padding: '0 20px' }}>
         <h2

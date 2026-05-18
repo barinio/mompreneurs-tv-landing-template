@@ -6,7 +6,7 @@ export default function AboutNetwork({ aboutNetwork }: Props) {
   return (
     <div
       className="container fullContainer noTopMargin padding20-top padding20-bottom padding40H noBorder cornersAll radius0 shadow0 emptySection"
-      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: '#1d1d1d' }}
+      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: 'rgb(3, 2, 0)' }}
     >
       <div
         className="containerInner"

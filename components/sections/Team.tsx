@@ -6,12 +6,12 @@ export default function Team({ team, theme }: Props) {
   return (
     <div
       className="container fullContainer noTopMargin padding20-top padding20-bottom padding40H noBorder cornersAll radius0 shadow0 emptySection"
-      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: '#fff' }}
+      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: 'rgb(0, 0, 0)' }}
     >
       <div className="containerInner" style={{ maxWidth: 1100, margin: '0 auto', padding: '0 20px' }}>
         <h2
           className="ne elHeadline"
-          style={{ textAlign: 'center', fontSize: 32, fontWeight: 700, marginBottom: 40, color: '#1a1a1a' }}
+          style={{ textAlign: 'center', fontSize: 32, fontWeight: 700, marginBottom: 40, color: 'rgb(255, 255, 255)' }}
         >
           MEET THE TEAM
         </h2>
@@ -36,8 +36,8 @@ export default function Team({ team, theme }: Props) {
                   marginBottom: 10,
                 }}
               />
-              <div style={{ fontSize: 14, fontWeight: 700, color: '#1a1a1a' }}>{member.name}</div>
-              <div style={{ fontSize: 12, color: '#888', marginTop: 2 }}>{member.role}</div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: 'rgb(255, 255, 255)' }}>{member.name}</div>
+              <div style={{ fontSize: 12, color: 'rgb(255, 255, 255)', marginTop: 2 }}>{member.role}</div>
             </div>
           ))}
         </div>
