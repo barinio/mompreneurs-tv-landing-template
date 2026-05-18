@@ -12,7 +12,7 @@ export default function WhoFor({ whoFor, theme }: Props) {
         <div className="row" style={{ padding: '0 20px' }}>
           <h2
             className="ne elHeadline"
-            style={{ textAlign: 'center', fontSize: 36, fontWeight: 700, marginBottom: 40, color: '#1a1a1a' }}
+            style={{ textAlign: 'center', fontSize: 52, fontWeight: 700, marginBottom: 40, color: 'rgb(102, 69, 46)' }}
           >
             WHO THIS IS FOR
           </h2>
