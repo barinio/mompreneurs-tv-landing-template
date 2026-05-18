@@ -9,7 +9,7 @@ export default function Hero({ hero, theme }: Props) {
   return (
     <div
       className="container fullContainer noTopMargin padding20-top padding20-bottom padding40H noBorder borderSolid border3px cornersAll radius0 shadow0 emptySection bgCover100"
-      style={{ paddingTop: 0, paddingBottom: 60, backgroundColor: '#000', outline: 'none' }}
+      style={{ paddingTop: 0, paddingBottom: 60, backgroundColor: '#000', outline: 'none', backgroundImage: "url('/images/mompreneurs1-mob-1-.png')", backgroundSize: 'cover', backgroundPosition: 'center top' }}
     >
       <div className="containerInner">
         <div className="row" style={{ paddingTop: 20, paddingBottom: 20, textAlign: 'center' }}>
@@ -24,7 +24,7 @@ export default function Hero({ hero, theme }: Props) {
                   style={{
                     textAlign: 'center',
                     color: '#fff',
-                    fontSize: 36,
+                    fontSize: 42,
                     fontWeight: 700,
                     lineHeight: 1.3,
                     whiteSpace: 'pre-line',

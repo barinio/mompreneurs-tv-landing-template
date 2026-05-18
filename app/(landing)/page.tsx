@@ -20,12 +20,14 @@ import Team from '@/components/sections/Team'
 import Faq from '@/components/sections/Faq'
 import NineConsiderations from '@/components/sections/NineConsiderations'
 import Footer from '@/components/sections/Footer'
+import NavBar from '@/components/sections/NavBar'
 
 const c = content as ContentJson
 
 export default function LandingPage() {
   return (
     <div className="containerWrapper" style={{ fontFamily: c.theme.fontFamily + ', Helvetica, sans-serif' }}>
+      <NavBar ctaUrl={c.hero.ctaUrl} />
       <Hero hero={c.hero} theme={c.theme} />
       <Cast cast={c.cast} theme={c.theme} />
       <SeriesInfo seriesInfo={c.seriesInfo} hero={c.hero} theme={c.theme} />
