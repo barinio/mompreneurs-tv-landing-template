@@ -6,13 +6,13 @@ export default function TvPackages({ tvPackages, hero, theme }: Props) {
   return (
     <div
       className="container fullContainer noTopMargin padding20-top padding20-bottom padding40H noBorder cornersAll radius0 shadow0 emptySection"
-      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: '#1a1a1a' }}
+      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: 'rgb(142, 123, 107)' }}
     >
       <div className="containerInner" style={{ maxWidth: 1100, margin: '0 auto' }}>
         <div className="row" style={{ padding: '0 20px' }}>
           <h2
             className="ne elHeadline"
-            style={{ textAlign: 'center', fontSize: 32, fontWeight: 700, color: theme.primaryColor, marginBottom: 40 }}
+            style={{ textAlign: 'center', fontSize: 42, fontWeight: 700, color: 'rgb(255, 255, 255)', marginBottom: 40 }}
           >
             {tvPackages.heading}
           </h2>
@@ -20,7 +20,7 @@ export default function TvPackages({ tvPackages, hero, theme }: Props) {
             {tvPackages.features.map((feature, i) => (
               <div
                 key={i}
-                style={{ backgroundColor: '#2a2a2a', borderRadius: 6, overflow: 'hidden', border: '1px solid #333' }}
+                style={{ backgroundColor: 'rgb(255, 253, 246)', borderRadius: 6, overflow: 'hidden', border: '1px solid rgb(216, 200, 178)' }}
               >
                 <img
                   src={feature.imageUrl}
@@ -28,10 +28,10 @@ export default function TvPackages({ tvPackages, hero, theme }: Props) {
                   style={{ width: '100%', height: 180, objectFit: 'cover' }}
                 />
                 <div style={{ padding: 20 }}>
-                  <h3 style={{ color: theme.primaryColor, fontSize: 17, fontWeight: 700, marginBottom: 8 }}>
+                  <h3 style={{ color: 'rgb(102, 69, 46)', fontSize: 18, fontWeight: 700, marginBottom: 8 }}>
                     {feature.title}
                   </h3>
-                  <p style={{ color: '#bbb', fontSize: 14, lineHeight: 1.6, margin: 0 }}>
+                  <p style={{ color: 'rgb(0, 0, 0)', fontSize: 15, lineHeight: 1.6, margin: 0 }}>
                     {feature.description}
                   </p>
                 </div>
@@ -42,7 +42,7 @@ export default function TvPackages({ tvPackages, hero, theme }: Props) {
             <a href={hero.ctaUrl} target="_blank" rel="noopener noreferrer">
               <button
                 style={{
-                  backgroundColor: theme.accentColor,
+                  backgroundColor: 'rgb(214, 8, 46)',
                   color: '#fff',
                   fontSize: 18,
                   fontWeight: 700,

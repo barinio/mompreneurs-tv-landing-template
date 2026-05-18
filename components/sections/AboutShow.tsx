@@ -6,7 +6,7 @@ export default function AboutShow({ aboutShow, theme }: Props) {
   return (
     <div
       className="container fullContainer noTopMargin padding20-top padding20-bottom padding40H noBorder cornersAll radius0 shadow0 emptySection"
-      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: '#f5f0eb' }}
+      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: 'rgb(0, 0, 0)' }}
     >
       <div className="containerInner" style={{ maxWidth: 1000, margin: '0 auto' }}>
         <div
@@ -24,12 +24,12 @@ export default function AboutShow({ aboutShow, theme }: Props) {
           <div style={{ flex: '1 1 380px' }}>
             <h2
               className="ne elHeadline"
-              style={{ fontSize: 30, fontWeight: 700, color: '#1a1a1a', marginBottom: 20, borderLeft: `4px solid ${theme.primaryColor}`, paddingLeft: 16 }}
+              style={{ fontSize: 30, fontWeight: 700, color: 'rgb(255, 255, 255)', marginBottom: 20, borderLeft: '4px solid rgba(209, 177, 95, 0.98)', paddingLeft: 16 }}
             >
               ABOUT THE SHOW
             </h2>
             {aboutShow.body.split('\n\n').map((p, i) => (
-              <p key={i} style={{ fontSize: 16, lineHeight: 1.8, color: '#444', marginBottom: 16 }}>
+              <p key={i} style={{ fontSize: 16, lineHeight: 1.8, color: 'rgba(255, 255, 255, 0.9)', marginBottom: 16 }}>
                 {p}
               </p>
             ))}

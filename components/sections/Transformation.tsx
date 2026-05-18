@@ -6,7 +6,7 @@ export default function Transformation({ transformation, hero, theme }: Props) {
   return (
     <div
       className="container fullContainer noTopMargin padding20-top padding20-bottom padding40H noBorder cornersAll radius0 shadow0 emptySection"
-      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: '#1a1a1a' }}
+      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: 'rgb(0, 0, 0)' }}
     >
       <div className="containerInner" style={{ maxWidth: 1000, margin: '0 auto' }}>
         <div
@@ -16,15 +16,15 @@ export default function Transformation({ transformation, hero, theme }: Props) {
           <div style={{ flex: '1 1 400px' }}>
             <h2
               className="ne elHeadline"
-              style={{ color: '#fff', fontSize: 28, fontWeight: 700, marginBottom: 24, lineHeight: 1.3 }}
+              style={{ color: 'rgb(255, 255, 255)', fontSize: 52, fontWeight: 700, marginBottom: 24, lineHeight: 1.3 }}
             >
               {transformation.headline}
             </h2>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               {transformation.benefits.map((b, i) => (
                 <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 12 }}>
-                  <img src="/images/green_check_small.png" alt="✓" style={{ width: 18, marginTop: 3, flexShrink: 0 }} />
-                  <span style={{ color: '#e8e0d5', fontSize: 15 }}>{b}</span>
+                  <i className="fas fa-check" style={{ color: 'rgba(255, 234, 180, 0.98)', marginRight: 10, fontSize: 18, flexShrink: 0, marginTop: 3 }} />
+                  <span style={{ color: 'rgb(255, 255, 255)', fontSize: 22 }}>{b}</span>
                 </li>
               ))}
             </ul>
@@ -48,12 +48,12 @@ export default function Transformation({ transformation, hero, theme }: Props) {
               </a>
             </div>
           </div>
-          <div style={{ flex: '0 1 320px', textAlign: 'center' }}>
+          <div className="hidden-xs" style={{ flex: '0 1 350px', textAlign: 'center' }}>
             <img
               src={transformation.posterUrl}
               alt="Show Poster"
               className="elIMG"
-              style={{ maxWidth: '100%', borderRadius: 4 }}
+              style={{ width: 350, maxWidth: '100%', borderRadius: 4 }}
             />
           </div>
         </div>
