@@ -49,6 +49,21 @@ export async function setEnvVars(
   }
 }
 
+// Vercel accepts either the project ID or its name for deletion. Since we only
+// persist the URL (not the project ID), we use the name — which matches the
+// site slug and the GitHub repo name 1:1.
+export async function deleteVercelProject(nameOrId: string): Promise<void> {
+  const res = await fetch(`${VERCEL_API}/v9/projects/${nameOrId}`, {
+    method: 'DELETE',
+    headers: headers(),
+  })
+  // 404 is fine — project already gone (e.g. user deleted it via Vercel UI).
+  if (!res.ok && res.status !== 404) {
+    const data = await res.json().catch(() => ({}))
+    throw new Error(data?.error?.message ?? `Failed to delete Vercel project ${nameOrId}`)
+  }
+}
+
 export async function triggerDeploy(
   projectId: string,
   githubRepo: string,

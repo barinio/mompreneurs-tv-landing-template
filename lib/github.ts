@@ -107,6 +107,20 @@ export async function createFromTemplate(
   return { name: data.name, html_url: data.html_url }
 }
 
+// Delete a GitHub repo. Requires the `delete_repo` scope on the PAT.
+// 404 is treated as success — the repo is already gone.
+export async function deleteRepo(owner: string, repo: string): Promise<void> {
+  const octokit = getOctokit()
+  try {
+    await octokit.repos.delete({ owner, repo })
+  } catch (err: unknown) {
+    if (err && typeof err === 'object' && 'status' in err && (err as { status: number }).status === 404) {
+      return
+    }
+    throw err
+  }
+}
+
 // Mark a repo as a template so it can be used as a source for createUsingTemplate.
 // Needed to enable multi-level cloning: each new clone must itself be a template.
 export async function markAsTemplate(owner: string, repo: string): Promise<void> {

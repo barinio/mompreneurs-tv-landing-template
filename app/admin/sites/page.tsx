@@ -20,6 +20,9 @@ export default function SitesPage() {
   const [error, setError] = useState('')
   const [newSite, setNewSite] = useState<{ url: string; adminUrl: string } | null>(null)
   const [loadError, setLoadError] = useState(false)
+  const [deleteTarget, setDeleteTarget] = useState<SiteEntry | null>(null)
+  const [deleting, setDeleting] = useState<'list-only' | 'full' | null>(null)
+  const [deleteError, setDeleteError] = useState('')
 
   useEffect(() => {
     const controller = new AbortController()
@@ -35,6 +38,30 @@ export default function SitesPage() {
       })
     return () => controller.abort()
   }, [])
+
+  async function handleDelete(mode: 'list-only' | 'full') {
+    if (!deleteTarget) return
+    setDeleting(mode)
+    setDeleteError('')
+    try {
+      const res = await fetch('/api/sites/delete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: deleteTarget.name, url: deleteTarget.url, mode }),
+      })
+      const data = await res.json()
+      if (!res.ok) {
+        setDeleteError(data.error ?? 'Failed to delete')
+        return
+      }
+      setSites((prev) => prev.filter((s) => s.url !== deleteTarget.url))
+      setDeleteTarget(null)
+    } catch {
+      setDeleteError('Network error. Please try again.')
+    } finally {
+      setDeleting(null)
+    }
+  }
 
   async function handleCreate(e: React.FormEvent) {
     e.preventDefault()
@@ -155,6 +182,60 @@ export default function SitesPage() {
           </div>
         )}
 
+        {/* Delete confirmation modal */}
+        {deleteTarget && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-lg shadow-xl p-6 w-full max-w-md">
+              <h2 className="text-lg font-bold mb-2">Delete site: {deleteTarget.name}</h2>
+              <p className="text-sm text-gray-600 mb-4">
+                Choose what to delete. This cannot be undone.
+              </p>
+              <div className="text-xs text-gray-500 mb-4 border border-gray-200 rounded p-3 bg-gray-50">
+                <div className="mb-1">
+                  <span className="font-medium">URL:</span> {deleteTarget.url.replace('https://', '')}
+                </div>
+                <div>
+                  <span className="font-medium">Created:</span>{' '}
+                  {new Date(deleteTarget.createdAt).toLocaleString()}
+                </div>
+              </div>
+              {deleteError && <p className="text-red-500 text-sm mb-3">{deleteError}</p>}
+              <div className="flex flex-col gap-2">
+                <button
+                  type="button"
+                  onClick={() => handleDelete('list-only')}
+                  disabled={deleting !== null}
+                  className="w-full bg-gray-100 hover:bg-gray-200 disabled:opacity-50 text-gray-800 font-semibold py-2 rounded text-sm"
+                >
+                  {deleting === 'list-only' ? 'Removing...' : 'Remove from list only'}
+                </button>
+                <p className="text-xs text-gray-400 -mt-1 mb-1">
+                  Keeps the Vercel project and GitHub repo. The site stays online; just hide it here.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => handleDelete('full')}
+                  disabled={deleting !== null}
+                  className="w-full bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-semibold py-2 rounded text-sm"
+                >
+                  {deleting === 'full' ? 'Deleting...' : 'Delete everything (Vercel + GitHub + list)'}
+                </button>
+                <p className="text-xs text-gray-400 -mt-1 mb-1">
+                  Permanently deletes the Vercel project and GitHub repo, and removes from this list.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setDeleteTarget(null)}
+                  disabled={deleting !== null}
+                  className="w-full mt-1 px-4 py-2 border border-gray-300 rounded text-sm hover:bg-gray-50 disabled:opacity-50"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Sites table */}
         {loading ? (
           <p className="text-gray-500 text-sm">Loading...</p>
@@ -179,7 +260,7 @@ export default function SitesPage() {
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {sites.map((site) => (
-                  <tr key={site.name} className="hover:bg-gray-50">
+                  <tr key={site.url} className="hover:bg-gray-50">
                     <td className="px-4 py-3 font-medium text-gray-800">{site.name}</td>
                     <td className="px-4 py-3">
                       <a href={site.url} target="_blank" className="text-blue-500 hover:underline text-xs">
@@ -204,9 +285,17 @@ export default function SitesPage() {
                       <a href={site.adminUrl} target="_blank" className="text-blue-500 hover:underline text-xs mr-3">
                         Edit
                       </a>
-                      <a href={site.url} target="_blank" className="text-gray-400 hover:text-gray-600 text-xs">
+                      <a href={site.url} target="_blank" className="text-gray-400 hover:text-gray-600 text-xs mr-3">
                         Open
                       </a>
+                      <button
+                        onClick={() => { setDeleteTarget(site); setDeleteError('') }}
+                        className="text-red-500 hover:text-red-700 text-xs"
+                        aria-label={`Delete ${site.name}`}
+                        title="Delete site"
+                      >
+                        🗑
+                      </button>
                     </td>
                   </tr>
                 ))}
