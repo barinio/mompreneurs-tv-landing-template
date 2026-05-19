@@ -23,9 +23,13 @@ export default function SitesPage() {
 
   useEffect(() => {
     const controller = new AbortController()
-    fetch('/api/sites', { signal: controller.signal })
-      .then((r) => r.json())
-      .then(({ sites: s }) => { setSites(s ?? []); setLoading(false) })
+    fetch('/api/sites', { signal: controller.signal, cache: 'no-store' })
+      .then(async (r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`)
+        const body = await r.json()
+        setSites(body.sites ?? [])
+        setLoading(false)
+      })
       .catch((err) => {
         if (err.name !== 'AbortError') { setLoadError(true); setLoading(false) }
       })

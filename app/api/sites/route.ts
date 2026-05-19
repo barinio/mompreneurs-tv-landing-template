@@ -9,6 +9,11 @@ export async function GET() {
   if (!owner || !repo) {
     return NextResponse.json({ error: 'Server misconfiguration' }, { status: 500 })
   }
-  const { sites } = await readSitesJson(owner, repo)
-  return NextResponse.json({ sites })
+  try {
+    const { sites } = await readSitesJson(owner, repo)
+    return NextResponse.json({ sites })
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : 'Failed to read sites'
+    return NextResponse.json({ error: message }, { status: 500 })
+  }
 }

@@ -1,8 +1,18 @@
 import { Octokit } from '@octokit/rest'
 import type { ContentJson, SiteEntry } from './types'
 
+// Next.js 14 patches globalThis.fetch and caches GET responses by default — even
+// with `dynamic = 'force-dynamic'` on the route, third-party libs like Octokit
+// can still hit a stale cached response. Force no-store on every GitHub request
+// so we always see the latest committed sites.json.
 function getOctokit() {
-  return new Octokit({ auth: process.env.GITHUB_TOKEN })
+  return new Octokit({
+    auth: process.env.GITHUB_TOKEN,
+    request: {
+      fetch: (url: RequestInfo | URL, init?: RequestInit) =>
+        fetch(url, { ...init, cache: 'no-store' }),
+    },
+  })
 }
 
 export async function readContentJson(
@@ -142,13 +152,21 @@ export async function readSitesJson(
   const octokit = getOctokit()
   try {
     const { data } = await octokit.repos.getContent({ owner, repo, path: 'sites.json' })
-    if (Array.isArray(data)) throw new Error()
-    if ('type' in data && data.type !== 'file') throw new Error()
+    if (Array.isArray(data) || !('type' in data) || data.type !== 'file') {
+      throw new Error('sites.json is not a regular file')
+    }
     const fileData = data as { content: string; sha: string }
     const decoded = Buffer.from(fileData.content, 'base64').toString('utf-8')
     return { sites: JSON.parse(decoded), sha: fileData.sha }
-  } catch {
-    return { sites: [], sha: '' }
+  } catch (err: unknown) {
+    // Only swallow the "file doesn't exist yet" case (a fresh clone with no
+    // sites.json). Any other error (auth, rate limit, network, parse) must
+    // bubble up — silently returning [] caused the admin panel to show an
+    // empty list while sites.json on GitHub actually had entries.
+    if (err && typeof err === 'object' && 'status' in err && (err as { status: number }).status === 404) {
+      return { sites: [], sha: '' }
+    }
+    throw err
   }
 }
 
