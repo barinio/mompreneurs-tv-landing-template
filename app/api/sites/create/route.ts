@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
     // Each clone becomes a sub-template that can create its own clones.
     // Security: revisit before opening to untrusted users — every clone gets full Vercel token + PAT.
     // Note: Vercel reserves the VERCEL_* env var prefix for system vars, so we use DEPLOY_VERCEL_* instead.
-    await setEnvVars(project.id, {
+    const cloneEnv: Record<string, string> = {
       ADMIN_PASSWORD: adminPassword,
       GITHUB_TOKEN: githubToken,
       GITHUB_OWNER: owner,
@@ -44,8 +44,12 @@ export async function POST(req: NextRequest) {
       IS_TEMPLATE: 'true',
       NEXT_PUBLIC_IS_TEMPLATE: 'true',
       DEPLOY_VERCEL_TOKEN: process.env.DEPLOY_VERCEL_TOKEN ?? '',
-      DEPLOY_VERCEL_TEAM_ID: process.env.DEPLOY_VERCEL_TEAM_ID ?? '',
-    })
+    }
+    // Only propagate team ID if set — Vercel rejects empty string values
+    if (process.env.DEPLOY_VERCEL_TEAM_ID) {
+      cloneEnv.DEPLOY_VERCEL_TEAM_ID = process.env.DEPLOY_VERCEL_TEAM_ID
+    }
+    await setEnvVars(project.id, cloneEnv)
 
     // 5. Trigger first deployment
     const siteUrl = await triggerDeploy(project.id, owner, name)
