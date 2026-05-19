@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createFromTemplate, readContentJson, writeContentJson, readSitesJson, writeSitesJson, waitForRepoReady, getRepoId } from '@/lib/github'
+import { createFromTemplate, readContentJson, writeContentJson, readSitesJson, writeSitesJson, waitForRepoReady, getRepoId, markAsTemplate } from '@/lib/github'
 import { createVercelProject, setEnvVars, triggerDeploy } from '@/lib/vercel'
 import { contentDefault } from '@/lib/content-default'
 import type { SiteEntry } from '@/lib/types'
@@ -30,7 +30,11 @@ export async function POST(req: NextRequest) {
     // 2. Poll until new repo is ready (generation is async on GitHub's side)
     await waitForRepoReady(owner, name)
 
-    // 3. Read existing SHA and reset content.json to blank template
+    // 3. Mark new repo as template too — enables multi-level cloning.
+    //    is_template doesn't propagate automatically through createUsingTemplate.
+    await markAsTemplate(owner, name)
+
+    // 4. Read existing SHA and reset content.json to blank template
     const { sha: contentSha } = await readContentJson(owner, name)
     await writeContentJson(owner, name, contentDefault, contentSha)
 

@@ -97,6 +97,13 @@ export async function createFromTemplate(
   return { name: data.name, html_url: data.html_url }
 }
 
+// Mark a repo as a template so it can be used as a source for createUsingTemplate.
+// Needed to enable multi-level cloning: each new clone must itself be a template.
+export async function markAsTemplate(owner: string, repo: string): Promise<void> {
+  const octokit = getOctokit()
+  await octokit.repos.update({ owner, repo, is_template: true })
+}
+
 // Vercel's v13 deployment API requires the numeric GitHub repo ID, not the slug.
 export async function getRepoId(owner: string, repo: string): Promise<number> {
   const octokit = getOctokit()
