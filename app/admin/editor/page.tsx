@@ -11,6 +11,7 @@ const IS_TEMPLATE = process.env.NEXT_PUBLIC_IS_TEMPLATE === 'true'
 export default function EditorPage() {
   const router = useRouter()
   const [content, setContent] = useState<ContentJson | null>(null)
+  const [loadError, setLoadError] = useState(false)
   const [sha, setSha] = useState('')
   const [activeSection, setActiveSection] = useState<SectionKey>('hero')
   const [saving, setSaving] = useState(false)
@@ -30,7 +31,7 @@ export default function EditorPage() {
         setContent(c)
         setSha(s)
       })
-      .catch(() => setToast('Помилка завантаження контенту.'))
+      .catch(() => setLoadError(true))
   }, [])
 
   useEffect(() => {
@@ -71,6 +72,22 @@ export default function EditorPage() {
   async function handleLogout() {
     await fetch('/api/auth/logout', { method: 'POST' })
     router.push('/admin')
+  }
+
+  if (loadError) {
+    return (
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-red-400 text-sm mb-3">Помилка завантаження контенту.</p>
+          <button
+            onClick={() => { setLoadError(false); window.location.reload() }}
+            className="text-xs text-gray-300 border border-gray-600 rounded px-3 py-1 hover:text-white"
+          >
+            Спробувати ще раз
+          </button>
+        </div>
+      </div>
+    )
   }
 
   if (!content) {
@@ -138,7 +155,7 @@ export default function EditorPage() {
           <div className="absolute top-2 left-2 text-xs text-gray-400 bg-white rounded px-2 py-0.5 shadow z-10">
             Live Preview
           </div>
-          <LivePreview content={content} />
+          <LivePreview content={content} activeSection={activeSection} />
         </div>
       </div>
 

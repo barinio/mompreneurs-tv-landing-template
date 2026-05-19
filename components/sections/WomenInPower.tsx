@@ -25,8 +25,8 @@ export default function WomenInPower({ womenInPower, theme }: Props) {
             </p>
             <a href={womenInPower.ctaUrl} target="_blank" rel="noopener noreferrer">
               <button
+                className="cta-btn"
                 style={{
-                  backgroundColor: theme.accentColor,
                   color: '#fff',
                   fontSize: 16,
                   fontWeight: 700,

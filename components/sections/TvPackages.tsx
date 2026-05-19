@@ -2,7 +2,7 @@ import type { ContentJson } from '@/lib/types'
 
 type Props = { tvPackages: ContentJson['tvPackages']; hero: ContentJson['hero']; theme: ContentJson['theme'] }
 
-export default function TvPackages({ tvPackages, hero, theme }: Props) {
+export default function TvPackages({ tvPackages, hero }: Props) {
   return (
     <div
       className="container fullContainer noTopMargin padding20-top padding20-bottom padding40H noBorder cornersAll radius0 shadow0 emptySection"
@@ -41,8 +41,8 @@ export default function TvPackages({ tvPackages, hero, theme }: Props) {
           <div style={{ textAlign: 'center', marginTop: 40 }}>
             <a href={hero.ctaUrl} target="_blank" rel="noopener noreferrer">
               <button
+                className="cta-btn"
                 style={{
-                  backgroundColor: 'rgb(214, 8, 46)',
                   color: '#fff',
                   fontSize: 18,
                   fontWeight: 700,

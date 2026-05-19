@@ -2,32 +2,61 @@ import type { ContentJson } from '@/lib/types'
 
 type Props = { nineConsiderations: ContentJson['nineConsiderations']; theme: ContentJson['theme'] }
 
-export default function NineConsiderations({ nineConsiderations, theme }: Props) {
+export default function NineConsiderations({ nineConsiderations }: Props) {
   return (
     <div
-      className="container fullContainer noTopMargin padding20-top padding20-bottom padding40H noBorder cornersAll radius0 shadow0 emptySection"
-      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: 'rgb(255, 253, 246)' }}
+      style={{
+        backgroundColor: 'rgb(255, 253, 246)',
+        padding: '60px 80px',
+        margin: '45px auto 0',
+        maxWidth: 1170,
+        width: '100%',
+        boxSizing: 'border-box',
+      }}
     >
-      <div className="containerInner" style={{ maxWidth: 860, margin: '0 auto', padding: '0 20px' }}>
-        <h2
-          className="ne elHeadline"
-          style={{ textAlign: 'center', fontSize: 32, fontWeight: 700, marginBottom: 40, color: 'rgb(102, 69, 46)' }}
-        >
-          THINGS TO CONSIDER
-        </h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
-          {nineConsiderations.map((item, i) => (
-            <div
-              key={i}
-              style={{ padding: '20px 24px', borderLeft: `4px solid ${theme.primaryColor}`, backgroundColor: '#faf7f4' }}
+      <h1
+        style={{
+          textAlign: 'center',
+          fontSize: 60,
+          color: 'rgb(102, 69, 46)',
+          margin: 0,
+          fontFamily: 'Imbue, sans-serif',
+          fontWeight: 500,
+          textTransform: 'uppercase',
+          letterSpacing: '0',
+          lineHeight: 1,
+        }}
+      >
+        {nineConsiderations.headline}
+      </h1>
+      <div style={{ marginTop: 30, maxWidth: 1100, margin: '30px auto 0' }}>
+        {nineConsiderations.items.map((item, i) => (
+          <div key={i} style={{ marginBottom: 28 }}>
+            <h3
+              style={{
+                fontSize: 20,
+                fontFamily: '"PT Sans Narrow", sans-serif',
+                fontWeight: 700,
+                color: 'rgb(102, 69, 46)',
+                margin: '0 0 14px',
+              }}
             >
-              <h3 style={{ fontSize: 17, fontWeight: 700, color: '#1a1a1a', marginBottom: 8 }}>
-                {item.title}
-              </h3>
-              <p style={{ fontSize: 15, color: '#555', lineHeight: 1.7, margin: 0 }}>{item.body}</p>
-            </div>
-          ))}
-        </div>
+              {item.title}
+            </h3>
+            <p
+              style={{
+                fontSize: 20,
+                fontFamily: '"PT Sans Narrow", sans-serif',
+                fontWeight: 400,
+                color: '#000',
+                lineHeight: 1.65,
+                margin: 0,
+              }}
+            >
+              {item.body}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   )

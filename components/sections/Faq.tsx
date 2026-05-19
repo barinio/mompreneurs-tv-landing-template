@@ -4,57 +4,99 @@ import type { ContentJson } from '@/lib/types'
 
 type Props = { faq: ContentJson['faq']; theme: ContentJson['theme'] }
 
-export default function Faq({ faq, theme }: Props) {
-  const [open, setOpen] = useState<number | null>(null)
+export default function Faq({ faq }: Props) {
+  const [open, setOpen] = useState<Set<number>>(new Set())
+  const [hover, setHover] = useState<number | null>(null)
+
+  const toggle = (i: number) => {
+    setOpen((prev) => {
+      const next = new Set(prev)
+      if (next.has(i)) next.delete(i)
+      else next.add(i)
+      return next
+    })
+  }
 
   return (
-    <div
-      className="container fullContainer noTopMargin padding20-top padding20-bottom padding40H noBorder cornersAll radius0 shadow0 emptySection"
-      style={{ paddingTop: 60, paddingBottom: 60, backgroundColor: 'rgb(102, 69, 46)' }}
-    >
-      <div className="containerInner" style={{ maxWidth: 800, margin: '0 auto', padding: '0 20px' }}>
-        <h2
-          className="ne elHeadline"
-          style={{ textAlign: 'center', fontSize: 32, fontWeight: 700, marginBottom: 40, color: 'rgb(255, 255, 255)' }}
-        >
-          FREQUENTLY ASKED QUESTIONS
-        </h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          {faq.map((item, i) => (
-            <div
-              key={i}
-              style={{ backgroundColor: 'rgba(255, 253, 246, 0.08)', borderRadius: 6, overflow: 'hidden', border: '1px solid rgba(255, 255, 255, 0.2)' }}
-            >
+    <div style={{ paddingTop: 30, paddingBottom: 30 }}>
+      <h2
+        style={{
+          textAlign: 'center',
+          fontSize: 90,
+          color: '#fff',
+          margin: '10px 0 30px',
+          fontFamily: 'Imbue, sans-serif',
+          fontWeight: 500,
+          letterSpacing: '-0.01em',
+          textTransform: 'uppercase',
+          lineHeight: 1,
+        }}
+      >
+        FAQ
+      </h2>
+      <div
+        style={{
+          maxWidth: 1200,
+          width: '65%',
+          margin: '0 auto',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 14,
+        }}
+      >
+        {faq.map((item, i) => {
+          const isOpen = open.has(i)
+          const isHover = hover === i
+          const buttonBg = isHover ? '#000' : 'rgb(102, 69, 46)'
+          return (
+            <div key={i}>
               <button
-                onClick={() => setOpen(open === i ? null : i)}
+                onClick={() => toggle(i)}
+                onMouseEnter={() => setHover(i)}
+                onMouseLeave={() => setHover(null)}
                 style={{
                   width: '100%',
                   textAlign: 'left',
-                  padding: '18px 20px',
-                  background: 'none',
+                  padding: '18px 24px',
+                  background: buttonBg,
                   border: 'none',
                   cursor: 'pointer',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  fontSize: 16,
-                  fontWeight: 600,
-                  color: 'rgb(255, 255, 255)',
+                  fontSize: 20,
+                  fontFamily: '"PT Sans Narrow", sans-serif',
+                  fontWeight: 700,
+                  color: '#fff',
+                  transition: 'background-color 0.25s ease',
                 }}
               >
                 {item.question}
-                <span style={{ color: theme.primaryColor, fontSize: 20, lineHeight: 1 }}>
-                  {open === i ? '−' : '+'}
-                </span>
               </button>
-              {open === i && (
-                <div style={{ padding: '0 20px 18px', fontSize: 15, color: 'rgba(255, 255, 255, 0.85)', lineHeight: 1.7 }}>
-                  {item.answer}
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateRows: isOpen ? '1fr' : '0fr',
+                  transition: 'grid-template-rows 0.35s ease',
+                }}
+              >
+                <div style={{ overflow: 'hidden' }}>
+                  <div
+                    style={{
+                      padding: '22px 24px',
+                      fontSize: 19,
+                      fontFamily: '"PT Sans Narrow", sans-serif',
+                      fontWeight: 400,
+                      color: '#000',
+                      backgroundColor: '#fff',
+                      lineHeight: 1.6,
+                      whiteSpace: 'pre-line',
+                    }}
+                  >
+                    {item.answer}
+                  </div>
                 </div>
-              )}
+              </div>
             </div>
-          ))}
-        </div>
+          )
+        })}
       </div>
     </div>
   )

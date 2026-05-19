@@ -70,8 +70,8 @@ export default function ThreePackageOptions({ threePackages, hero, theme }: Prop
         <div style={{ textAlign: 'center', marginTop: 40 }}>
           <a href={hero.ctaUrl} target="_blank" rel="noopener noreferrer">
             <button
+              className="cta-btn"
               style={{
-                backgroundColor: theme.accentColor,
                 color: '#fff',
                 fontSize: 18,
                 fontWeight: 700,

@@ -5,20 +5,16 @@
     "faviconUrl": "/images/Mom_Favicon.png",
     "seoImageUrl": "/images/m-seo-1-.jpg"
   },
+  "navBar": {
+    "announcementText": "APPLY TODAY - THIS CURRENT CASTING COHORT\nCLOSES MAY 24th AT 11:59 PM EST",
+    "ctaText": "APPLY NOW"
+  },
   "hero": {
+    "bgImageUrl": "/images/mompreneurs1-1.jpg",
     "logoUrl": "/images/Mompreneurs-Logo.png",
     "headline": "Now Apply To Be Featured on a New TV Show\nWhere You Could Share Your Journey with the World...",
     "ctaText": "APPLY NOW",
     "ctaUrl": "https://form.typeform.com/to/apply-now"
-  },
-  "cast": {
-    "heading": "STAR-STUDDED CAST",
-    "images": [
-      { "url": "/images/Announced-Soon-1.jpg", "label": "Announced Soon" },
-      { "url": "/images/Announced-Soon-2.jpg", "label": "Announced Soon" },
-      { "url": "/images/Announced-Soon-1.jpg", "label": "Announced Soon" },
-      { "url": "/images/Announced-Soon-2.jpg", "label": "Announced Soon" }
-    ]
   },
   "seriesInfo": {
     "series": "MOMPRENEURS",
@@ -27,159 +23,298 @@
     "filmingDate": "Autumn 2026"
   },
   "whoFor": [
-    { "title": "E-Commerce & Online Business Owners", "description": "Mothers who have built thriving online stores, digital products, or service-based businesses from home." },
-    { "title": "Real Estate Investing Moms", "description": "Women who have leveraged real estate to build wealth and passive income for their families." },
-    { "title": "Service-Based Entrepreneurs", "description": "Coaches, consultants, and agency owners who deliver transformational results for their clients." },
-    { "title": "Product Creators & Sellers", "description": "Moms who have developed physical or digital products solving real-world problems." },
-    { "title": "Content Creators & Influencers", "description": "Women who have built engaged audiences and monetized their personal brand online." },
-    { "title": "Multi-Business Mompreneurs & Financial Educators", "description": "Power moms running multiple ventures or teaching others about wealth and financial freedom." }
+    { "title": "E-Commerce & Online Business Owners", "description": "Building thriving businesses from home while being present for your family..." },
+    { "title": "Real Estate Investing Moms", "description": "Property investors, flippers, landlords building generational wealth..." },
+    { "title": "Service-Based Entrepreneurs", "description": "Coaches, consultants, agency owners serving your clients on your terms..." },
+    { "title": "Product Creators & Sellers", "description": "From Etsy shops to Amazon FBA, direct sales to product lines..." },
+    { "title": "Content Creators & Influencers", "description": "Monetizing your platform while inspiring other mothers..." },
+    { "title": "Multi-Business Mompreneurs", "description": "Juggling multiple income streams and investment strategies..." },
+    { "title": "Financial Educators for Moms", "description": "Teaching other mothers how to build wealth and financial independence..." }
   ],
   "whoNotFor": [
-    { "text": "Anyone who is not currently running an active business generating revenue." },
-    { "text": "Those who are not committed to showing up authentically on camera and sharing their story." },
-    { "text": "Businesses that do not align with our show's values of empowerment, integrity, and inspiration." }
+    { "text": "Stay-at-home moms not currently building a business..." },
+    { "text": "Moms working traditional 9-5 corporate jobs..." },
+    { "text": "Those just starting their business journey..." }
   ],
-  "transformation": {
-    "headline": "One TV Feature Could Elevate Your Authority, Expand Your Reach, and Accelerate Your Business Growth...",
-    "benefits": [
-      "Instant credibility as a recognized TV personality",
-      "Massive media exposure to millions of viewers",
-      "Speaking and podcast invitation opportunities",
-      "Authority positioning in your niche",
-      "Brand recognition that compounds over time",
-      "Exponential audience growth across platforms",
-      "Premium pricing power for your services",
-      "High-value connections with other successful entrepreneurs",
-      "A legacy story your children will be proud of",
-      "Evergreen content asset for years of marketing"
-    ],
-    "posterUrl": "/images/Mompreneurs-Poster-Final-2_Reduced.jpg"
+  "joinShow": {
+    "headline": "JOIN THE SHOW NOW",
+    "subheadline": "COMPLETE YOUR 5 MINUTE APPLICATION",
+    "ctaText": "APPLY TO CAST NOW",
+    "ctaUrl": "https://form.typeform.com/to/QvQuRW1Y"
   },
-  "problemSolution": {
-    "body": "You've built something real. You've put in the late nights, the early mornings — all while raising your family. But the world doesn't know your story yet.\n\nThe biggest challenge most mompreneurs face isn't their business model. It's visibility. It's authority. It's being seen as the expert you truly are.\n\nThat's exactly why we created MOMPRENEURS — a TV series dedicated to showcasing the incredible women who are redefining what it means to be a successful entrepreneur and mother."
+  "transformation": {
+    "headline": "One TV Feature",
+    "subheadline": "Could Elevate Your Authority and Influence Like Never Before...",
+    "benefits": [
+      { "title": "Instant Credibility", "description": "Establish yourself as a recognized expert and thought leader" },
+      { "title": "Powerful Media Exposure", "description": "Get seen on major streaming platforms and unlock new PR opportunities for your brand..." },
+      { "title": "Speaking Invitations", "description": "Get booked on leading podcasts, mompreneur summits, and business panels..." },
+      { "title": "Higher Trust & Authority", "description": "Use your growing trust and authority to turn new inquiries into high-value clients..." },
+      { "title": "Stronger Brand Positioning", "description": "Stand out as the go-to expert in your industry..." },
+      { "title": "Increased Demand", "description": "Attract more premium opportunities, referrals, and partnerships..." },
+      { "title": "Explosive Audience Growth", "description": "Expand your visibility across social media and professional networks..." },
+      { "title": "Premium Pricing Power", "description": "Elevate your reputation and command higher fees..." },
+      { "title": "Game-changing Connections", "description": "Be positioned alongside other successful mompreneurs and business thought leaders..." },
+      { "title": "Create a Lasting Legacy", "description": "Show your children what's possible when you pursue your dreams without sacrificing family..." }
+    ],
+    "posterUrl": "/images/mompreneurs-poster.png"
+  },
+  "beingFeatured": {
+    "backgroundUrl": "/images/mompreneurs3-1.jpg",
+    "headline": "Being Featured on \"Mompreneurs\" Isn't Just About Sharing Your Story.",
+    "intro": "It's about cementing your authority as a mother who built something extraordinary without sacrificing what matters most.",
+    "createsHeadline": "THIS CREATES MORE...",
+    "bullets": [
+      { "title": "Professional Authority", "description": "Clear positioning as a mompreneur who has actually \"walked the walk\"..." },
+      { "title": "Brand Building Power", "description": "A permanent media asset that elevates your business, your platform, and your social media presence..." },
+      { "title": "Teaching & Impact", "description": "Help millions of mothers learn the financial and business strategies they need to build freedom..." },
+      { "title": "Premium Opportunities", "description": "Opens doors to speaking engagements, partnerships, media features, and book deals..." },
+      { "title": "Enduring Legacy", "description": "A permanent record of what you built for your children to see and be inspired by..." }
+    ],
+    "closingTop": "Look, you've already done the work.",
+    "closingBold": "You've already built the business. You've already achieved the results. You've already proven that mothers can have it all…",
+    "closingBottom": "And do it on their own terms.",
+    "closingExtra": "\"Mompreneurs\" simply ensures your story reaches the mothers who need to hear it and positions you as the authority that you truly are."
+  },
+  "trustedMedia": {
+    "headline": "TV is still the most trusted media outlet:",
+    "screenshots": [
+      "/images/Screenshot-2024-10-24-at-14.30.39.png",
+      "/images/Screenshot-2024-10-24-at-14.31.17.png",
+      "/images/Screenshot-2024-10-24-at-14.31.24.png"
+    ]
+  },
+  "legendsLineup": {
+    "headline": "Sit Along Side Other Legends Like These on Inside Success",
+    "featured": [
+      { "url": "/images/legends/assets_tmp_serenawilliams_amazon_keyart_16x9_1920x1080.1773778235.jpg", "alt": "Serena Williams - The Power and the Glory" },
+      { "url": "/images/legends/assets_tmp_cristianoronaldo_art_16x9_1920x1080.1773792306.jpg", "alt": "Cristiano Ronaldo - The World at His Feet" },
+      { "url": "/images/legends/assets_tmp_elon-musk_ironman_1920-x-1080.1773794354.jpg", "alt": "Elon Musk: The Real Life Iron Man" },
+      { "url": "/images/legends/assets_tmp_bezos_landscape_1920x1080.1773850015.jpg", "alt": "Bezos" },
+      { "url": "/images/legends/assets_tmp_1920-x-1080-tom-cruise-2025.1773852536.jpg", "alt": "Tom Cruise" },
+      { "url": "/images/legends/assets_tmp_vf_legendofthe81pointgame_1920x1080.1773852942.jpg", "alt": "The Legend of the 81-Point Game" }
+    ],
+    "grid": [
+      { "url": "/images/legends/assets_tmp_waltbeforemickey_vimeo_1920_x_1080.1773854056.jpg", "alt": "Walt Before Mickey" },
+      { "url": "/images/legends/assets_tmp_wishman_art_16x9_1920x1080.1773790695.jpg", "alt": "Wish Man" },
+      { "url": "/images/legends/assets_tmp_congressmanthe_art_16x9_1920x1080.1773851840.jpg", "alt": "Treat Williams - Congressman" },
+      { "url": "/images/legends/assets_tmp_asdreamersdo_art_16x9_1920x1080.1773796351.jpg", "alt": "As Dreamers Do - The Amazing Life of Walt Disney" },
+      { "url": "/images/legends/assets_tmp_allen-iverson-episode-thumbnail-1.1774563839.jpg", "alt": "Allen Iverson - Unstoppable" },
+      { "url": "/images/legends/assets_tmp_daymond-john-episode-thumbnail-2-1.1775050730.jpg", "alt": "Daymond John" },
+      { "url": "/images/legends/assets_tmp_chad-johnson-episode-thumbnail.1774564086.jpg", "alt": "85 The Showman - Chad Johnson" },
+      { "url": "/images/legends/adam_sandler_funny_guy.jpg", "alt": "Adam Sandler - Funny Guy" },
+      { "url": "/images/legends/beyonce_jay_z_power_love.jpg", "alt": "Beyoncé & Jay-Z - Power Love" },
+      { "url": "/images/legends/denzel_washington_falling_forward.jpg", "alt": "Denzel Washington - Falling Forward" },
+      { "url": "/images/legends/eminem_count_me_in.jpg", "alt": "Eminem - Count Me In" },
+      { "url": "/images/legends/jennifer_lopez_self_made.jpg", "alt": "JLo - Self Made" },
+      { "url": "/images/legends/jennifer_aniston_more_than_friends.jpg", "alt": "Jennifer Aniston - More Than Friends" },
+      { "url": "/images/legends/kevin_hart_standing_tall.jpg", "alt": "Kevin Hart - Standing Tall" },
+      { "url": "/images/legends/ksi_the_pauls_primed_for_success_banner.jpg", "alt": "KSI & The Pauls - Primed for Success" },
+      { "url": "/images/legends/luH17RHHlG4-HD.jpg", "alt": "Michael Phelps - Man & Machine" },
+      { "url": "/images/legends/michelle_obama_life_after_the_white_house.jpg", "alt": "Michelle Obama - Life After the White House" },
+      { "url": "/images/legends/morgan_freeman_breaking_barriers.jpg", "alt": "Morgan Freeman - Breaking Barriers" },
+      { "url": "/images/legends/maxresdefault.jpg", "alt": "Roger Federer - A Champion's Journey" },
+      { "url": "/images/legends/ddded20bb325cbe49fbde2f4cb995065f4c9c25d4b2ddc0badcd86eadd84ef0e.jpg", "alt": "Ryan Reynolds - Funny Business" },
+      { "url": "/images/legends/BTLS-1-.jpg", "alt": "The Beatles - The Sound of a Revolution" },
+      { "url": "/images/legends/taylor_swift_wild_dreams.jpg", "alt": "The Taylor Swift Story - Wild Dreams" },
+      { "url": "/images/legends/RS-1-.jpg", "alt": "The Rolling Stones - Rough Diamonds" },
+      { "url": "/images/legends/maxresdefault-1-.jpg", "alt": "Tony Hawk - Ride The Line" }
+    ]
+  },
+  "otherShows": {
+    "headline": "Other Shows In Production",
+    "posters": [
+      { "url": "/images/shows/LMM-1-.jpg", "alt": "Legacy Makers" },
+      { "url": "/images/shows/WPP-1-.jpg", "alt": "Women In Power" },
+      { "url": "/images/shows/NLCC-1-.jpg", "alt": "Daymond John's Next Level CEO" },
+      { "url": "/images/shows/Operation-CEO_Poster-8_Updated.jpg", "alt": "Operation CEO" },
+      { "url": "/images/shows/Poster.jpg", "alt": "America's Best Doctors" },
+      { "url": "/images/shows/Poster_Low-Res.jpg", "alt": "America's Top Lawyers" }
+    ]
+  },
+  "tvPackageIncluded": {
+    "headlineTop": "Here's What Is Included in Your",
+    "logoUrl": "/images/Mompreneurs-Logo.png",
+    "headlineBottom": "TV Package",
+    "items": [
+      {
+        "title": "Your Own Exclusive TV Episode",
+        "description": "This is your professionally produced, full-length TV episode showcasing your journey, strategies, and impact in the mompreneur world. No shared screen time. This is just you, your brand, and your story brought to life.",
+        "imageUrl": "/images/Mockup-1.jpg"
+      },
+      {
+        "title": "Guaranteed Feature on \"Mompreneurs\"",
+        "description": "Once accepted, your episode is formally scheduled, positioning you alongside other successful mompreneurs selected for their real-world experience and proven results. All production is handled to professional broadcast standards within a controlled, compliance-conscious environment.",
+        "imageUrl": "/images/mompreneurs-mkp3.jpg"
+      },
+      {
+        "title": "Professional Production & Editing",
+        "description": "Our award-winning production team in our state-of-the-art Miami studio handles everything (cinematic filming, lighting, sound, and editing) in order to make sure you look and sound your best.",
+        "imageUrl": "/images/Mockup-3.jpg"
+      },
+      {
+        "title": "High-Quality Social Media Content",
+        "description": "Authority thrives on visibility. We'll provide you with high-impact social media clips from your episode. This is perfect for amplifying your reach, engaging potential clients, and building your professional presence online.",
+        "imageUrl": "/images/mompreneurs-mkp2.jpg"
+      },
+      {
+        "title": "PR Distribution to 100+ Media Networks",
+        "description": "Your story deserves nationwide recognition. Our PR team crafts and distributes a professional press release about your feature to over 100 major media networks, positioning you in front of top publications and audiences across the country.",
+        "imageUrl": "/images/Mockup-5.jpg"
+      },
+      {
+        "title": "Stand Among America's Most Successful Mompreneurs",
+        "description": "\"Mompreneurs\" features mothers selected for their real-world business experience and proven track record of building wealth while raising their families.",
+        "imageUrl": "/images/Mockup-6.jpg"
+      }
+    ],
+    "closingParagraphs": [
+      { "text": "Each episode is produced within a proven editorial framework designed to ensure professional presentation and long-term credibility." },
+      { "text": "\"Mompreneurs\" is designed to present your strategies, your journey, and your expertise in a way that reflects the work you've actually done. And it does it without exaggeration, promotion, or hype." },
+      { "text": "Your episode is structured to communicate how you've built wealth through your business, investments, or entrepreneurial pursuits — all while being an engaged, present mother." },
+      { "text": "This positions you alongside other successful mompreneurs featured in the series." },
+      { "text": "The result isn't just attention.", "boldSuffix": "It's authority." },
+      { "text": "It's a professionally produced media asset that supports trust, reinforces credibility, and strengthens how you're perceived by potential clients, partners, and the millions of mothers who are hungry to learn from someone who has actually done it." },
+      { "text": "This is a long-term positioning asset that reflects the extraordinary balance you've created." }
+    ]
+  },
+  "bigScreen": {
+    "eyebrow": "Take Your Brand to Big Screen",
+    "headline": "Stream Worldwide On",
+    "logosUrl": "/images/pvap-4x.png",
+    "body": [
+      "We help small brands, entrepreneurs and change makers get the visibility their story and mission deserves by producing a full A to Z documentary on their life and publishing it on the biggest TV streaming sites in the world.",
+      "From initial scripting to filming, editing, promotion and publication - we handle it all, and fund most of the process on our end. If you have a story, a mission and a legacy that can impact the world, apply today for one of our shows!"
+    ],
+    "phoneUrl": "/images/Phone-Mockup-1-.png"
+  },
+  "pressAwards": {
+    "seenOnHeadline": "As Seen On",
+    "seenOnLogosUrl": "/images/Logos-Desktop-2.png",
+    "reviewsHeadline": "Reviews from the Media and Critics",
+    "reviewsImageDesktopUrl": "/images/Quotes-Desktop.png",
+    "reviewsImageMobileUrl": "/images/Reviews---Quotes.png",
+    "awardsHeadlineTop": "Our Studio's Other Series Is",
+    "awardsHeadlineBottom": "In The Running for 17+ Awards",
+    "awardsImageUrl": "/images/img-2.png"
   },
   "aboutShow": {
-    "body": "MOMPRENEURS is a groundbreaking TV series produced by Inside Success Network, featuring real mothers who have built real wealth through entrepreneurship. Each episode follows a mompreneur's journey — her challenges, breakthroughs, and the strategies that took her business to the next level.\n\nThe show airs on major streaming platforms reaching millions of viewers worldwide, giving featured entrepreneurs unparalleled exposure and credibility.",
-    "imageUrl": "/images/Mompreneurs-Poster.jpg"
-  },
-  "tvPackages": {
-    "heading": "YOUR TV FEATURE PACKAGE INCLUDES",
-    "features": [
-      { "title": "Exclusive TV Episode", "description": "Your own dedicated episode showcasing your entrepreneurial journey, filmed professionally.", "imageUrl": "/images/Mockup-1.jpg" },
-      { "title": "Guaranteed Feature", "description": "A guaranteed spot in the MOMPRENEURS series — not a maybe, a confirmed feature.", "imageUrl": "/images/Mockup-3.jpg" },
-      { "title": "Professional Production", "description": "Full professional filming, editing, and post-production handled by our award-winning team.", "imageUrl": "/images/Mockup-5.jpg" },
-      { "title": "Social Media Content", "description": "Clips and content from your episode optimized for Instagram, Facebook, and LinkedIn.", "imageUrl": "/images/Mockup-6.jpg" },
-      { "title": "PR Distribution", "description": "Press release distributed to 100+ media networks announcing your TV feature.", "imageUrl": "/images/Mockup-7.png" },
-      { "title": "Elite Positioning", "description": "Your brand positioned alongside other successful mompreneurs, elevating your status.", "imageUrl": "/images/App-Mockup-Mompreneurs.png" }
+    "eyebrow": "ABOUT",
+    "logoUrl": "/images/Mompreneurs-Logo.png",
+    "body": "Behind every successful mompreneur is the knowledge most mothers never learn.\n\n\"Mompreneurs\" is a curated docuseries featuring mothers who have mastered business and wealth-building in the real world. They've often done it while managing e-commerce stores, real estate portfolios, coaching practices, product lines, and investment strategies.\n\nThese aren't corporate executives climbing someone else's ladder.\n\nThey are mothers and entrepreneurs who created their businesses. They found their own path to generating wealth and achieving financial freedom while still being present for their families.\n\nAcross each episode, mompreneurs break down their strategies, share their secrets, and teach practical business and financial wisdom that most mothers never learned.\n\nEach episode is carefully produced with authenticity and intention. The entire series focuses on real experience, proven strategies, and the realities of building wealth as a mother in today's world.\n\nThis is entrepreneurship beyond theory. It's told and shared by the mothers who live it and have mastered it.",
+    "imageUrl": "/images/Mompreneurs-Poster.jpg",
+    "standAmongHeadlineTop": "STAND AMONG AMERICA'S",
+    "standAmongHeadlineBottom": "MOST SUCCESSFUL MOMPRENEURS...",
+    "body2": [
+      { "text": "\"Mompreneurs\" features experienced mothers who don't just talk about building businesses. They share how they've done it while raising their children, managing their households, and creating the life they wanted." },
+      { "text": "Your episode isn't framed as a self-promotional piece or highlight reel." },
+      { "text": "It's a structured conversation that reflects how you've built your business, what strategies worked, what lessons you learned, and what you can teach other mothers who want to follow in your footsteps and do the same." },
+      { "text": "Success as a mompreneur isn't about having it all figured out...", "bold": true },
+      { "text": "It's about results, resilience, and the ability to show other mothers what's possible when you refuse to choose between your dreams and your family." },
+      { "text": "When your story is placed within a carefully curated series of mompreneurs operating at a high level, it reinforces what audiences are looking for. They're craving the real experience, proven strategies, and credibility that mothers like you deeply know." },
+      { "text": "This isn't an invitation to just self-promote.", "bold": true },
+      { "text": "It's an opportunity to be positioned as the kind of mompreneur serious mothers want to learn from and others want to associate with. By doing so, you quickly gain authority and credibility with your audience." }
     ]
   },
-  "streamingPlatforms": {
-    "heading": "Stream Worldwide On",
-    "logosDesktopUrl": "/images/Logos-Desktop-2.png",
-    "logosMobileUrl": "/images/Logos-Mobile-2.png"
-  },
-  "mediaCredibility": {
-    "screenshots": [
-      { "url": "/images/Screenshot-2024-10-24-at-14.30.39.png" },
-      { "url": "/images/Screenshot-2024-10-24-at-14.31.24.png" },
-      { "url": "/images/Screenshot-2026-03-04-at-11.39.00-AM-1--1-.png" }
+  "itsTime": {
+    "headlineTop": "IT'S TIME MORE PEOPLE UNDERSTAND",
+    "headlineBottom": "WHAT YOU'VE ACCOMPLISHED...",
+    "bodyTop": [
+      "While the critics said it couldn't be done, you proved them wrong.",
+      "You didn't choose between career and family. You created both.",
+      "For years, you've been building something extraordinary — starting businesses between school drop-offs, closing deals during naptime, and growing your empire while raising your children.",
+      "You're living proof that mothers can build wealth, scale businesses, and create financial freedom on their own terms without their children or families paying the price.",
+      "You didn't just read about entrepreneurship. You lived it — client by client, launch by launch, investment by investment, all while being fully present for your family."
     ],
-    "stats": [
-      { "text": "44 million people tune into TV annually to discover new brands and entrepreneurs" },
-      { "text": "Television remains the most trusted advertising medium with 80% consumer credibility" },
-      { "text": "TV-featured entrepreneurs see an average 300% increase in social media following" },
-      { "text": "Media-featured businesses command 2-5x higher pricing than non-featured competitors" }
+    "realityIntro": "But here's the reality...",
+    "realityPoints": [
+      "Millions of mothers are stuck in jobs that drain them...",
+      "Living paycheck to paycheck...",
+      "Being told they have to choose between career success or being there for their kids...",
+      "With no roadmap for building wealth while raising a family.",
+      "Just as bad, the loudest voices in the mompreneur space are often those with the least amount of real results."
+    ],
+    "headlineMidTop": "\"MOMPRENEURS\"",
+    "headlineMidBottom": "WAS CREATED TO CHANGE THAT...",
+    "bodyMid": [
+      "This is a curated television series designed to feature mothers who have actually done it. We're talking about the moms who have built real businesses, generated real wealth, and created real financial freedom…",
+      "All while being active and present for their families.",
+      "Our mission is simple: To showcase mothers like you who have mastered both business and motherhood and can inspire others to do the same.",
+      "Imagine a professionally produced feature that captures your journey, your strategies, and your secrets to building wealth as a mom."
+    ],
+    "imageUrl": "/images/App-Mockup-Mompreneurs.png",
+    "imagineHeadline": "Now imagine that same feature being filmed in a private studio environment and distributed as a permanent authority asset that:",
+    "bullets": [
+      "Positions you as an expert and thought leader in the mompreneur community...",
+      "Helps you build your brand, business, and social media presence...",
+      "Opens doors for speaking opportunities, book deals, and partnerships...",
+      "Demonstrates to the world that you've created the ultimate work-life integration...",
+      "Inspires your own children and millions of other mothers..."
     ]
   },
-  "womenInPower": {
-    "heading": "WOMEN IN POWER",
-    "description": "Also from Inside Success Network — Women In Power is our sister series celebrating female leaders across industries. Apply now to be considered for a feature on either show.",
-    "ctaText": "APPLY NOW",
-    "ctaUrl": "https://form.typeform.com/to/apply-now",
-    "imageUrl": "/images/wip-sec-img.png"
+  "howItWorks": {
+    "eyebrow": "Ready To Get Started?",
+    "headline": "Here's How It Works:",
+    "items": [
+      { "title": "Schedule a Call with Our Team", "description": "Click the link below to book a time to speak with us. On the call, we'll see if you're a good fit for this show. We'll talk through your goals. If it feels like a match, we'll move forward with featuring you on the show." },
+      { "title": "Approval from Director", "description": "Once you've been accepted by our team, submitted a Google form, and signed the contract, the next steps begin. The director will run a background check and review your topics before potentially offering a final acceptance." },
+      { "title": "Acceptance Letter & Social Media Post", "description": "Once the director approves, you will be sent an official letter and social media images that you can post about your upcoming TV appearance." },
+      { "title": "Filming & Editing Episode", "description": "Once accepted, you will fly to Miami, FL to film your episode in our professional studio." },
+      { "title": "Your Episode Goes Live!", "description": "Your episode will be produced, polished, and broadcast on major streaming platforms." }
+    ]
   },
-  "howItWorks": [
-    { "step": 1, "title": "Schedule Your Strategy Call", "description": "Book a free 20-minute call with our casting team to discuss your business and vision." },
-    { "step": 2, "title": "Director Review & Approval", "description": "Our director personally reviews your application and approves selected candidates." },
-    { "step": 3, "title": "Acceptance Letter & Social Announcement", "description": "Receive your official acceptance letter and a shareable social media announcement post." },
-    { "step": 4, "title": "Professional Filming & Editing", "description": "Our team handles all filming, whether in our Miami studio or via self-filming kit." },
-    { "step": 5, "title": "Episode Launch & PR Distribution", "description": "Your episode launches on streaming platforms and a press release goes out to 100+ networks." }
-  ],
-  "threePackages": [
-    {
-      "title": "Option 1: Self-Film Package",
-      "description": "Film your episode locally using our professional self-filming kit and detailed instructions. Perfect for entrepreneurs outside Miami.",
-      "features": ["Self-filming equipment guide", "Remote production support", "Full editing included", "Episode on all streaming platforms", "Social media clips"]
-    },
-    {
-      "title": "Option 2: VIP Miami Studio",
-      "description": "Film your episode in our professional Miami studio alongside host Rudy Mawer for the ultimate premium experience.",
-      "features": ["Studio filming in Miami", "Hosted by Rudy Mawer", "Premium production quality", "VIP experience", "All Option 1 inclusions", "Exclusive interview segment"]
-    },
-    {
-      "title": "Option 3: Feature + Sponsorship",
-      "description": "Limited to 3 spots. The ultimate visibility package combining your TV episode with a sponsor position across the full series.",
-      "features": ["Everything in Option 2", "Series sponsor credits", "Cross-promotion in all episodes", "Executive producer credit", "Investor-level brand exposure"]
-    }
-  ],
-  "whyTvStats": [
-    { "stat": "80%", "description": "of consumers say TV advertising is the most credible form of media." },
-    { "stat": "44M", "description": "annual viewers across the streaming platforms we distribute on." },
-    { "stat": "3x", "description": "average increase in social media following after a TV feature." },
-    { "stat": "5x", "description": "higher perceived authority for TV-featured business owners vs. non-featured peers." }
-  ],
   "aboutNetwork": {
-    "body": "Inside Success Network is an entertainment company dedicated to telling the stories of real entrepreneurs building real businesses. Through our TV series, podcasts, and digital content, we shine a spotlight on the people who are changing the world through business — one episode at a time.",
+    "eyebrow": "WHAT IS",
+    "headlineTop": "INSIDE SUCCESS",
+    "headlineBottom": "Network?",
+    "subheadline": "We unite entertainment, brands + visionary creators to share compelling stories ",
+    "subheadlineBold": "THAT SPARK IMPACT.",
+    "body": "At Inside Success, we believe that storytelling through TV is one of the most powerful ways to inspire real change and leave a lasting impact. Every original production is crafted to spotlight essential causes and spark meaningful conversations, drawing in millions to participate, support, and take action.\n\nAs the creative force behind today's thriving brands, we turn entrepreneurs into industry icons. Inside Success believes every entrepreneur has a unique story to share.\n\nOur mission is to channel our passion and expertise to amplify your voice, giving your brand the recognition it deserves and positioning you as a go-to authority. We'll work with you to bring your vision to life, transforming it into an inspiration for audiences around the world.",
     "logoUrl": "/images/Inside-Success-Logo.png"
   },
-  "team": [
-    { "name": "Rudy Mawer", "role": "Host & Executive Director", "imageUrl": "/images/1-Rudy-Mawer.png" },
-    { "name": "Mike Wisner", "role": "Executive Producer", "imageUrl": "/images/2.Mike-Wisner.png" },
-    { "name": "Tyler Mills", "role": "Director of Photography", "imageUrl": "/images/3.Tyler-Mills.png" },
-    { "name": "Rich Allen", "role": "Head of Production", "imageUrl": "/images/4.Rich-Allen.png" },
-    { "name": "Thomas Barnes", "role": "Lead Editor", "imageUrl": "/images/5.Thomas-Barnes.png" },
-    { "name": "Paul Melville", "role": "Sound Engineer", "imageUrl": "/images/6.Paul-Melville.png" },
-    { "name": "Chris Pizzo", "role": "Director of Marketing", "imageUrl": "/images/7.Chris-Pizzo.png" },
-    { "name": "Chad Durfee", "role": "Distribution Manager", "imageUrl": "/images/8.Chad-Durfee.png" },
-    { "name": "Raul Rios", "role": "PR & Media Relations", "imageUrl": "/images/9.Raul-Rios.png" },
-    { "name": "Cassandra Burke", "role": "Casting Director", "imageUrl": "/images/10.Cassandra-Burke.png" },
-    { "name": "Shari Weller", "role": "Talent Relations", "imageUrl": "/images/11.Shari-Weller.png" },
-    { "name": "Mark Jefferson", "role": "Business Development", "imageUrl": "/images/13.Mark-Jefferson.png" },
-    { "name": "Dominique Fraser", "role": "Creative Director", "imageUrl": "/images/14.Dominique-Fraser.png" },
-    { "name": "Amber Rainsberry", "role": "Social Media Manager", "imageUrl": "/images/15.Amber-Rainsberry.png" },
-    { "name": "Gerald McDonald", "role": "Operations Director", "imageUrl": "/images/16.Gerald-McDonald.png" },
-    { "name": "Trey O'Brien", "role": "Sponsorship Manager", "imageUrl": "/images/17.Trey-O_Brien.png" },
-    { "name": "Luke Gent", "role": "Video Producer", "imageUrl": "/images/18.Luke-Gent.png" },
-    { "name": "Alexander Kuzhel", "role": "Tech Lead", "imageUrl": "/images/19.Alexander-Kuzhel.png" }
-  ],
   "faq": [
-    { "question": "How long does the production process take?", "answer": "From acceptance to episode launch, the typical timeline is 6–12 months depending on your package and filming schedule." },
-    { "question": "Do I need to be comfortable on camera?", "answer": "Not at all! Our production team will coach you through every step. Many of our featured entrepreneurs had never been on camera before." },
-    { "question": "What about childcare during filming?", "answer": "We fully support bringing children to set. In fact, many episodes feature beautiful family moments that resonate deeply with our audience." },
-    { "question": "How will my episode be promoted?", "answer": "Your episode receives a full PR distribution to 100+ media networks, social media promotion across our channels, and is permanently hosted on all major streaming platforms." },
-    { "question": "How long is each episode?", "answer": "Episodes run between 15–30 minutes, giving you meaningful screen time to share your story and showcase your business." },
-    { "question": "How do you screen applicants?", "answer": "All applicants go through a personal interview with our casting director. We select entrepreneurs with compelling stories, proven results, and a genuine desire to inspire others." }
+    { "question": "How long will it take for my episode to be produced?", "answer": "Producing high-quality television takes time to deliver the impact your story deserves. The full process, from filming to editing and strategic release, typically takes between 6 to 12 months. This ensures your episode is polished, professionally edited, and launched alongside other successful mompreneurs in the series." },
+    { "question": "What if I'm not comfortable on camera?", "answer": "You don't need to be a media professional to look like one. We've guided countless mompreneurs, experts, and first-time guests through natural, conversational interviews that bring out their confidence and authenticity.\nOur production team makes the process simple, supportive, and stress-free — so you shine on screen." },
+    { "question": "What about childcare during filming?", "answer": "We understand that arranging childcare is part of your planning. Our Miami studio filming is typically completed in one intensive day, making it easier to coordinate someone else to care for your children while you are filming. Many mompreneurs choose to make it a family trip to Miami and arrange local childcare for the filming day." },
+    { "question": "How will my episode be promoted?", "answer": "Your episode will be featured on major streaming platforms and supported by a professional press release distributed to over 100 media networks. You'll also receive tailored social media content to expand your visibility and reach.\n\n\"Mompreneurs\" features some of the nation's most successful mothers in business. On this show, these mothers and business owners are presented on their episodes.\n\nAll episodes are promoted or cross-promoted throughout the season. This ensures your story is seen by thousands, if not millions, of engaged viewers." },
+    { "question": "How long will my episode be?", "answer": "The final runtime will be determined in post-production. But most episodes range between 15 and 30 minutes. This allows your story and journey to be told in a dynamic, high-impact format." }
   ],
-  "nineConsiderations": [
-    { "title": "1. Platform Credibility", "body": "Being featured on a television series distributed worldwide immediately elevates your personal brand above 99% of your competition." },
-    { "title": "2. Return on Investment", "body": "The exposure, authority, and leads generated from a TV feature far exceed the investment for most entrepreneurs within the first year." },
-    { "title": "3. Time Commitment", "body": "We've streamlined the process so the total time commitment is minimal — typically one filming day plus a few preparation calls." },
-    { "title": "4. Production Quality", "body": "Our production team has worked on major network shows. Your episode will look and feel like premium television." },
-    { "title": "5. Camera Presence", "body": "You don't need to be a natural performer. We coach every entrepreneur to present authentically and confidently." },
-    { "title": "6. Exclusivity", "body": "We accept a limited number of entrepreneurs per season to ensure every featured mompreneur receives the attention and quality they deserve." },
-    { "title": "7. Business Results", "body": "Past featured entrepreneurs have reported new clients, speaking invitations, podcast appearances, and business partnerships directly from their TV exposure." },
-    { "title": "8. Long-Term Impact", "body": "Your episode lives permanently on streaming platforms — it's evergreen content that continues to build your authority for years." },
-    { "title": "9. Legitimacy Verification", "body": "Inside Success Network is a registered production company with verifiable credits, network partnerships, and a track record of successful series." }
-  ],
+  "nineConsiderations": {
+    "headline": "Other Key Areas to Consider",
+    "items": [
+      { "title": "1. Credibility of the Platform", "body": "Major streaming platforms aren't just about reach—they're about prestige, authority, and influence. When your episode airs on the same platforms that showcase top CEOs, elite entrepreneurs, and high-level experts, you gain instant validation. Your name will be positioned among the most credible voices in the industry, giving you the kind of brand authority that separates people like you from the rest." },
+      { "title": "2. Value vs. Cost", "body": "This is an investment in your legacy. The exposure alone is worth far more than the cost, but the real power comes from what you do with it. Imagine the ROI when this feature helps you close high-ticket deals, land major speaking opportunities, or secure brand partnerships that multiply your revenue. Time and time again, we've seen people turn a single TV episode into a game-changing moment for their business and brand." },
+      { "title": "3. Time Commitment and Process", "body": "We know you are busy, which is why we handle everything—from scheduling and filming to editing and distribution. All filming takes place at our Miami location, where we manage all technical details to ensure a seamless experience. Our 6–12 month production timeline ensures every episode meets the highest standards, giving your story the polished, professional showcase it deserves." },
+      { "title": "4. Quality Assurance", "body": "Your episode isn't just another piece of content—it's a high-end production designed to match the standards of top-tier media and A-list brands. Our team has worked with some of the biggest names in business, sports, and entertainment, ensuring that every frame, every soundbite, and every edit reflects excellence and credibility. This isn't amateur video content—it's a broadcast-quality asset that cements your authority." },
+      { "title": "5. Comfort and Camera Presence", "body": "No worries—we've got you covered. Rudy Mawer has interviewed countless individuals, and he knows how to make people feel at ease. You'll receive coaching and guidance throughout the process to ensure you feel comfortable and confident. We'll walk you through the entire interview, helping you highlight your strengths and tell your story in the most engaging way possible. Our goal is to bring out the best version of you on camera." },
+      { "title": "6. Exclusivity and Differentiation", "body": "This isn't your typical TV spot or podcast appearance. This is a fully dedicated, professionally produced episode—crafted around your story and your brand. You have the power to control the narrative, and it's presented in a way that sets you apart from the competition. Plus, you'll be featured alongside MAJOR names—athletes, celebrities, and business icons—leveraging the power of association to instantly boost your status and credibility." },
+      { "title": "7. Results Beyond Exposure", "body": "Exposure is just the start—the real impact comes from the doors this opens. TV appearances have been proven to drive real business growth, from higher conversion rates and premium pricing power to massive demand for high-ticket offers. Many of our past features have turned their episodes into lead-generating machines, using their appearance to secure partnerships, new clients, and media attention that keep delivering ROI long after the show airs." },
+      { "title": "8. Long-Term Impact and Opportunities", "body": "Your episode isn't just a one-time event—it's a permanent, high-value asset that continues working for you for years. Once it's released, it becomes a trusted authority piece that gets you booked for podcasts, speaking gigs, and media appearances. The credibility boost alone can transform your business, helping you land bigger deals, grow your brand, and establish yourself as an industry leader for the long haul." },
+      { "title": "9. Legitimacy and Vetting Process", "body": "This isn't just about filling slots—we're curating a world-class series featuring the best of the best. Every applicant goes through a strict vetting process, ensuring that only high-caliber entrepreneurs, leaders, and experts make the cut. If accepted, you'll be part of an elite group of professionals, standing alongside some of the most respected names in business, sports, and innovation, reinforcing both your credibility and the show's prestige." }
+    ]
+  },
   "footer": {
-    "address": "1210 Washington Avenue, Miami Beach, FL 33139",
+    "logoUrl": "/images/Inside-Success-Logo.png",
     "privacyUrl": "/privacy",
+    "privacyLabel": "Privacy Policy",
     "termsUrl": "/terms",
-    "disclaimer": "EARNINGS DISCLAIMER: Results mentioned are not typical. Individual results will vary based on effort, experience, and market conditions. This is not a guarantee of income or success. MOMPRENEURS is a trademark of Inside Success Network. All rights reserved."
+    "termsLabel": "Terms & Conditions / Disclaimer",
+    "disclaimerHeadline": "IMPORTANT: Earnings and Legal Disclaimers",
+    "disclaimerParagraphs": [
+      "Inside Success TV part of Mawer Capital.",
+      "This site is not part of, or endorsed by, Facebook™, Google™, Snapchat™, Twitter™ or any social media platform in any way.",
+      "All product names, logos, and brands are property of their respective owners. All company, product and service names used in this website are for identification purposes only. Use of these names, logos, and brands does not imply endorsement.",
+      "FACEBOOK™ is a trademark of FACEBOOK™, Inc. YOUTUBE™ and GOOGLE™ are trademarks of GOOGLE™, LLC. SNAPCHAT™ is a trademark of SNAP™, Inc. TWITTER™ is a trademark of TWITTER™, Inc.",
+      "All results stated above are not typical, I'm not implying you'll duplicate them (or do anything for that matter). Any of my strategies and case studies are only estimates of what is possible. There is no assurance you'll do as well or even close to as well as I have done or other clients. Results are based on many factors including luck, hard work, effort and years of hard work. We have no way of knowing how well you will do, as we do not know you, your background, your business model, or your work ethic etc. Therefore, we do not guarantee or imply that you will get better results or earn more money, that you will do as well, especially if the techniques are never implemented. If you rely upon our figures; you must accept the risk of not doing as well as we are a large established business developer over many years of research and work.",
+      "All products and services are for educational and informational purposes only. Use caution and seek the advice of qualified professionals. Check with your attorney, accountant or professional advisor, before acting on this or any information and ensure you are within all advertising and legal regulations. If advice concerning legal or related matters is needed, the services of a fully qualified professional should be sought out before any action is taken. All IVW information, products, and services are not intended for use as a source of legal or accounting advice. You should be aware of any laws which govern business transactions or other business practices in your country and state as they can differ greatly.",
+      "The Information on this website and provided from or through this website is general in nature and is not specific to you the user or anyone else. You should not make any decision, financial, investment, trading or otherwise, based on any of the information presented in this video without undertaking independent due diligence and consultation with a professional broker or financial advisory. You understand that you are using any and all Information available on or through this video at your own risk.",
+      "Users of our products, services and web site are advised to do their own due diligence when it comes to making decisions and all information, products, and services that have been provided should be independently verified by your own qualified professionals. Our information, products, and services on Internet Ventures Worldwide should be carefully considered and evaluated, before reaching a decision on whether to rely on them. You agree that our company is not responsible for the success or failure of your decisions relating to any information presented by Mawer Capital or our company products or services."
+    ],
+    "address": "Mawer Capital | 1210 WASHINGTON AVENUE,\nMIAMI BEACH, FL 33139"
   },
   "theme": {
     "primaryColor": "#CAA97A",
     "accentColor": "#D6002A",
-    "fontFamily": "Montserrat"
+    "fontFamily": "'PT Sans Narrow'"
   }
 }

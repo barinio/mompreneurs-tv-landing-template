@@ -5,22 +5,88 @@ type Props = { footer: ContentJson['footer'] }
 export default function Footer({ footer }: Props) {
   return (
     <div
-      className="container fullContainer noTopMargin padding20-top padding20-bottom padding40H noBorder cornersAll radius0 shadow0 emptySection"
-      style={{ paddingTop: 40, paddingBottom: 40, backgroundColor: 'rgb(0, 0, 0)' }}
+      style={{
+        backgroundColor: '#000',
+        paddingTop: 35,
+        paddingBottom: 35,
+      }}
     >
-      <div className="containerInner" style={{ maxWidth: 860, margin: '0 auto', padding: '0 20px', textAlign: 'center' }}>
-        <p style={{ color: '#888', fontSize: 13, marginBottom: 12 }}>{footer.address}</p>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 20, marginBottom: 20 }}>
-          <a href={footer.privacyUrl} style={{ color: '#888', fontSize: 12, textDecoration: 'underline' }}>
-            Privacy Policy
-          </a>
-          <a href={footer.termsUrl} style={{ color: '#888', fontSize: 12, textDecoration: 'underline' }}>
-            Terms of Service
-          </a>
+      <div
+        style={{
+          maxWidth: 1120,
+          margin: '0 auto',
+          padding: '20px 10px',
+          textAlign: 'center',
+        }}
+      >
+        <img
+            src={footer.logoUrl}
+            alt="Inside Success"
+            style={{
+              width: 100,
+              height: 'auto',
+              display: 'inline-block',
+            }}
+          />
+
+        <div style={{ marginTop: 15, color: '#fff', fontSize: 15, fontFamily: '"PT Sans Narrow", sans-serif' }}>
+          <div>
+            <a
+              href={footer.privacyUrl}
+              style={{
+                color: '#fff',
+                fontFamily: '"PT Sans Narrow", sans-serif',
+                fontWeight: 700,
+                textDecoration: 'none',
+              }}
+            >
+              {footer.privacyLabel}
+            </a>
+          </div>
+          <div>
+            <a
+              href={footer.termsUrl}
+              style={{
+                color: '#fff',
+                fontFamily: '"PT Sans Narrow", sans-serif',
+                fontWeight: 700,
+                textDecoration: 'none',
+                padding: '10px 0',
+                display: 'inline-block',
+              }}
+            >
+              {footer.termsLabel}
+            </a>
+          </div>
+
+          <div style={{ fontFamily: '"PT Sans Narrow", sans-serif', fontWeight: 700 }}>{footer.disclaimerHeadline}</div>
+
+          {footer.disclaimerParagraphs.map((p, i) => (
+            <div
+              key={i}
+              style={{
+                fontFamily: '"PT Sans Narrow", sans-serif',
+                fontWeight: 400,
+                lineHeight: 1.7,
+                marginTop: 16,
+              }}
+            >
+              {p}
+            </div>
+          ))}
+
+          <div
+            style={{
+              fontFamily: '"PT Sans Narrow", sans-serif',
+              fontWeight: 700,
+              marginTop: 16,
+              textTransform: 'uppercase',
+              whiteSpace: 'pre-line',
+            }}
+          >
+            {footer.address}
+          </div>
         </div>
-        <p style={{ color: '#555', fontSize: 11, lineHeight: 1.7, maxWidth: 700, margin: '0 auto' }}>
-          {footer.disclaimer}
-        </p>
       </div>
     </div>
   )

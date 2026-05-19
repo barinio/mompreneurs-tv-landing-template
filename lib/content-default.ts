@@ -44,8 +44,13 @@ export const contentDefault: ContentJson = {
   },
   problemSolution: { body: 'Describe the problem your audience faces and how your show solves it.' },
   aboutShow: {
+    eyebrow: 'ABOUT',
+    logoUrl: '/images/Mompreneurs-Logo.png',
     body: 'Describe your show, its mission, and who it features.',
     imageUrl: '/images/Mompreneurs-Poster.jpg',
+    standAmongHeadlineTop: "STAND AMONG AMERICA'S",
+    standAmongHeadlineBottom: 'MOST SUCCESSFUL MOMPRENEURS...',
+    body2: [],
   },
   tvPackages: {
     heading: 'YOUR TV FEATURE PACKAGE INCLUDES',
@@ -70,11 +75,15 @@ export const contentDefault: ContentJson = {
     ctaUrl: '#',
     imageUrl: '/images/wip-sec-img.png',
   },
-  howItWorks: [
-    { step: 1, title: 'Step 1', description: 'Describe step 1.' },
-    { step: 2, title: 'Step 2', description: 'Describe step 2.' },
-    { step: 3, title: 'Step 3', description: 'Describe step 3.' },
-  ],
+  howItWorks: {
+    eyebrow: 'Ready To Get Started?',
+    headline: "Here's How It Works:",
+    items: [
+      { title: 'Step 1', description: 'Describe step 1.' },
+      { title: 'Step 2', description: 'Describe step 2.' },
+      { title: 'Step 3', description: 'Describe step 3.' },
+    ],
+  },
   threePackages: [
     { title: 'Package 1', description: 'Describe this package.', features: ['Feature A', 'Feature B'] },
     { title: 'Package 2', description: 'Describe this package.', features: ['Feature A', 'Feature B'] },
@@ -85,6 +94,11 @@ export const contentDefault: ContentJson = {
     { stat: '44M', description: 'Annual viewer reach.' },
   ],
   aboutNetwork: {
+    eyebrow: 'WHAT IS',
+    headlineTop: 'INSIDE SUCCESS',
+    headlineBottom: 'Network?',
+    subheadline: 'Describe your network in one sentence ',
+    subheadlineBold: 'THAT SPARKS IMPACT.',
     body: 'Describe your production company and mission.',
     logoUrl: '/images/Inside-Success-Logo.png',
   },
@@ -95,14 +109,21 @@ export const contentDefault: ContentJson = {
     { question: 'How long does production take?', answer: 'Typically 6–12 months.' },
     { question: 'Do I need camera experience?', answer: 'No — we coach you through everything.' },
   ],
-  nineConsiderations: [
-    { title: '1. Consideration Title', body: 'Explain this consideration in detail.' },
-  ],
+  nineConsiderations: {
+    headline: 'Other Key Areas to Consider',
+    items: [
+      { title: '1. Consideration Title', body: 'Explain this consideration in detail.' },
+    ],
+  },
   footer: {
+    logoUrl: '/images/Inside-Success-Logo.png',
     address: 'Your Company Address',
     privacyUrl: '/privacy',
+    privacyLabel: 'Privacy Policy',
     termsUrl: '/terms',
-    disclaimer: 'Add your earnings disclaimer and legal notices here.',
+    termsLabel: 'Terms & Conditions / Disclaimer',
+    disclaimerHeadline: 'IMPORTANT: Earnings and Legal Disclaimers',
+    disclaimerParagraphs: ['Add your earnings disclaimer and legal notices here.'],
   },
   theme: {
     primaryColor: '#CAA97A',

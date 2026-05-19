@@ -5,16 +5,17 @@ export interface ContentJson {
     faviconUrl: string
     seoImageUrl: string
   }
+  navBar: {
+    announcementText: string
+    ctaText: string
+  }
   hero: {
+    bgImageUrl: string
     logoUrl: string
     headline: string
     subheadline?: string
     ctaText: string
     ctaUrl: string
-  }
-  cast: {
-    heading: string
-    images: Array<{ url: string; label: string }>
   }
   seriesInfo: {
     series: string
@@ -24,45 +25,116 @@ export interface ContentJson {
   }
   whoFor: Array<{ title: string; description: string }>
   whoNotFor: Array<{ text: string }>
-  transformation: {
+  joinShow: {
     headline: string
-    benefits: string[]
-    posterUrl: string
-  }
-  problemSolution: { body: string }
-  aboutShow: { body: string; imageUrl: string }
-  tvPackages: {
-    heading: string
-    features: Array<{ title: string; description: string; imageUrl: string }>
-  }
-  streamingPlatforms: {
-    heading: string
-    logosDesktopUrl: string
-    logosMobileUrl: string
-  }
-  mediaCredibility: {
-    screenshots: Array<{ url: string }>
-    stats: Array<{ text: string }>
-  }
-  womenInPower: {
-    heading: string
-    description: string
+    subheadline: string
     ctaText: string
     ctaUrl: string
-    imageUrl: string
   }
-  howItWorks: Array<{ step: number; title: string; description: string }>
-  threePackages: Array<{ title: string; description: string; features: string[] }>
-  whyTvStats: Array<{ stat: string; description: string }>
-  aboutNetwork: { body: string; logoUrl: string }
-  team: Array<{ name: string; role: string; imageUrl: string }>
+  transformation: {
+    headline: string
+    subheadline: string
+    benefits: Array<{ title: string; description: string }>
+    posterUrl: string
+  }
+  beingFeatured: {
+    backgroundUrl: string
+    headline: string
+    intro: string
+    createsHeadline: string
+    bullets: Array<{ title: string; description: string }>
+    closingTop: string
+    closingBold: string
+    closingBottom: string
+    closingExtra: string
+  }
+  trustedMedia: {
+    headline: string
+    screenshots: string[]
+  }
+  legendsLineup: {
+    headline: string
+    featured: Array<{ url: string; alt: string }>
+    grid: Array<{ url: string; alt: string }>
+  }
+  otherShows: {
+    headline: string
+    posters: Array<{ url: string; alt: string }>
+  }
+  tvPackageIncluded: {
+    headlineTop: string
+    logoUrl: string
+    headlineBottom: string
+    items: Array<{ title: string; description: string; imageUrl: string }>
+    closingParagraphs: Array<{ text: string; boldSuffix?: string }>
+  }
+  bigScreen: {
+    eyebrow: string
+    headline: string
+    logosUrl: string
+    body: string[]
+    phoneUrl: string
+  }
+  pressAwards: {
+    seenOnHeadline: string
+    seenOnLogosUrl: string
+    reviewsHeadline: string
+    reviewsImageDesktopUrl: string
+    reviewsImageMobileUrl: string
+    awardsHeadlineTop: string
+    awardsHeadlineBottom: string
+    awardsImageUrl: string
+  }
+  aboutShow: {
+    eyebrow: string
+    logoUrl: string
+    body: string
+    imageUrl: string
+    standAmongHeadlineTop: string
+    standAmongHeadlineBottom: string
+    body2: Array<{ text: string; bold?: boolean }>
+  }
+  itsTime: {
+    headlineTop: string
+    headlineBottom: string
+    bodyTop: string[]
+    realityIntro: string
+    realityPoints: string[]
+    headlineMidTop: string
+    headlineMidBottom: string
+    bodyMid: string[]
+    imageUrl: string
+    imagineHeadline: string
+    bullets: string[]
+  }
+  howItWorks: {
+    eyebrow: string
+    headline: string
+    items: Array<{ title: string; description: string }>
+  }
+  aboutNetwork: {
+    eyebrow: string
+    headlineTop: string
+    headlineBottom: string
+    subheadline: string
+    subheadlineBold: string
+    body: string
+    logoUrl: string
+  }
   faq: Array<{ question: string; answer: string }>
-  nineConsiderations: Array<{ title: string; body: string }>
+  nineConsiderations: {
+    headline: string
+    items: Array<{ title: string; body: string }>
+  }
   footer: {
+    logoUrl: string
     address: string
     privacyUrl: string
+    privacyLabel: string
     termsUrl: string
-    disclaimer: string
+    termsLabel: string
+    disclaimerHeadline: string
+    disclaimerParagraphs: string[]
   }
   theme: {
     primaryColor: string
