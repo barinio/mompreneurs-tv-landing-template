@@ -49,7 +49,11 @@ export async function setEnvVars(
   }
 }
 
-export async function triggerDeploy(projectId: string, githubOwner: string, githubRepo: string): Promise<string> {
+export async function triggerDeploy(
+  projectId: string,
+  githubRepo: string,
+  repoId: number
+): Promise<string> {
   const res = await fetch(`${VERCEL_API}/v13/deployments`, {
     method: 'POST',
     headers: headers(),
@@ -57,7 +61,7 @@ export async function triggerDeploy(projectId: string, githubOwner: string, gith
       name: githubRepo,
       gitSource: {
         type: 'github',
-        repoSlug: `${githubOwner}/${githubRepo}`,
+        repoId,
         ref: 'main',
       },
       target: 'production',

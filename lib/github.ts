@@ -97,6 +97,13 @@ export async function createFromTemplate(
   return { name: data.name, html_url: data.html_url }
 }
 
+// Vercel's v13 deployment API requires the numeric GitHub repo ID, not the slug.
+export async function getRepoId(owner: string, repo: string): Promise<number> {
+  const octokit = getOctokit()
+  const { data } = await octokit.repos.get({ owner, repo })
+  return data.id
+}
+
 // GitHub creates forks asynchronously — the repo + its files aren't immediately
 // queryable. Poll until content.json is readable, then we know the fork is ready.
 export async function waitForRepoReady(

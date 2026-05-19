@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createFromTemplate, readContentJson, writeContentJson, readSitesJson, writeSitesJson, waitForRepoReady } from '@/lib/github'
+import { createFromTemplate, readContentJson, writeContentJson, readSitesJson, writeSitesJson, waitForRepoReady, getRepoId } from '@/lib/github'
 import { createVercelProject, setEnvVars, triggerDeploy } from '@/lib/vercel'
 import { contentDefault } from '@/lib/content-default'
 import type { SiteEntry } from '@/lib/types'
@@ -57,8 +57,9 @@ export async function POST(req: NextRequest) {
     }
     await setEnvVars(project.id, cloneEnv)
 
-    // 5. Trigger first deployment
-    const siteUrl = await triggerDeploy(project.id, owner, name)
+    // 5. Trigger first deployment (Vercel v13 requires numeric GitHub repo ID)
+    const repoId = await getRepoId(owner, name)
+    const siteUrl = await triggerDeploy(project.id, name, repoId)
 
     // 6. Record new site in sites.json of template repo
     const { sites, sha } = await readSitesJson(owner, templateRepo)
