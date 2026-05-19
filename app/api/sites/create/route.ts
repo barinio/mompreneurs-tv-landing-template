@@ -39,14 +39,20 @@ export async function POST(req: NextRequest) {
     // 2. Poll until new repo is ready (generation is async on GitHub's side)
     await waitForRepoReady(owner, name)
 
-    // 3. Read existing SHA and reset content.json to blank template
+    // 3. Reset content.json to blank template
     const { sha: contentSha } = await readContentJson(owner, name)
     await writeContentJson(owner, name, contentDefault, contentSha)
 
-    // 4. Create Vercel project linked to new repo
+    // 4. Reset sites.json on the new clone to an empty list.
+    //    createUsingTemplate copies the master's sites.json verbatim, so without
+    //    this the new clone would show the master's children as its own.
+    const { sha: sitesSha } = await readSitesJson(owner, name)
+    await writeSitesJson(owner, name, [], sitesSha)
+
+    // 5. Create Vercel project linked to new repo
     const project = await createVercelProject(name, owner, name)
 
-    // 5. Set env vars on new project — every clone points at the same master.
+    // 6. Set env vars on new project — every clone points at the same master.
     //    Security: revisit before opening to untrusted users — every clone gets
     //    full Vercel token + GitHub PAT.
     //    Note: Vercel reserves the VERCEL_* prefix, so we use DEPLOY_VERCEL_* instead.
@@ -66,11 +72,11 @@ export async function POST(req: NextRequest) {
     }
     await setEnvVars(project.id, cloneEnv)
 
-    // 6. Trigger first deployment (Vercel v13 requires numeric GitHub repo ID)
+    // 7. Trigger first deployment (Vercel v13 requires numeric GitHub repo ID)
     const repoId = await getRepoId(owner, name)
     const siteUrl = await triggerDeploy(project.id, name, repoId)
 
-    // 7. Record new site in sites.json of CURRENT repo (so each level tracks
+    // 8. Record new site in sites.json of CURRENT repo (so each level tracks
     //    only the sites it created, not all sites globally)
     const { sites, sha } = await readSitesJson(owner, currentRepo)
     const entry: SiteEntry = {

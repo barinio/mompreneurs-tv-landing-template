@@ -120,8 +120,6 @@ Your client receives:
 | `GITHUB_TOKEN` | Yes | GitHub PAT with `repo` scope |
 | `GITHUB_OWNER` | Yes | GitHub username or org |
 | `GITHUB_REPO` | Yes | This repo's name |
-| `MASTER_TEMPLATE_OWNER` | Yes | GitHub owner of the master template (same as `GITHUB_OWNER` for the master itself) |
-| `MASTER_TEMPLATE_REPO` | Yes | Master template repo name — source for ALL new clones at every level |
 | `DEPLOY_VERCEL_TOKEN` | Template only | Vercel API token for creating clones (VERCEL_ prefix is reserved by Vercel) |
 | `DEPLOY_VERCEL_TEAM_ID` | Optional | Vercel team ID (blank for personal) |
 | `IS_TEMPLATE` | Yes | `"true"` on template, `"false"` on clones |
