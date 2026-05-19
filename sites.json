@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "name": "client1site",
+    "url": "https://client1site-5lpfja83x-barinios-projects.vercel.app",
+    "adminUrl": "https://client1site-5lpfja83x-barinios-projects.vercel.app/admin",
+    "createdAt": "2026-05-19T16:58:59.864Z",
+    "status": "deploying"
+  }
+]
