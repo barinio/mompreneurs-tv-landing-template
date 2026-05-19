@@ -34,7 +34,8 @@ export async function POST(req: NextRequest) {
     // 4. Set env vars on new project
     // NOTE: For multi-level cloning validation, propagate template powers to clone.
     // Each clone becomes a sub-template that can create its own clones.
-    // Security: revisit before opening to untrusted users — every clone gets full VERCEL_TOKEN + PAT.
+    // Security: revisit before opening to untrusted users — every clone gets full Vercel token + PAT.
+    // Note: Vercel reserves the VERCEL_* env var prefix for system vars, so we use DEPLOY_VERCEL_* instead.
     await setEnvVars(project.id, {
       ADMIN_PASSWORD: adminPassword,
       GITHUB_TOKEN: githubToken,
@@ -42,8 +43,8 @@ export async function POST(req: NextRequest) {
       GITHUB_REPO: name,
       IS_TEMPLATE: 'true',
       NEXT_PUBLIC_IS_TEMPLATE: 'true',
-      VERCEL_TOKEN: process.env.VERCEL_TOKEN ?? '',
-      VERCEL_TEAM_ID: process.env.VERCEL_TEAM_ID ?? '',
+      DEPLOY_VERCEL_TOKEN: process.env.DEPLOY_VERCEL_TOKEN ?? '',
+      DEPLOY_VERCEL_TEAM_ID: process.env.DEPLOY_VERCEL_TEAM_ID ?? '',
     })
 
     // 5. Trigger first deployment

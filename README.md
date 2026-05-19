@@ -56,7 +56,7 @@ cp .env.example .env.local
 # GITHUB_TOKEN=ghp_xxxx
 # GITHUB_OWNER=your-username
 # GITHUB_REPO=tv-landing-template
-# VERCEL_TOKEN=xxxx
+# DEPLOY_VERCEL_TOKEN=xxxx
 # IS_TEMPLATE=true
 
 # Install and run
@@ -120,8 +120,8 @@ Your client receives:
 | `GITHUB_TOKEN` | Yes | GitHub PAT with `repo` scope |
 | `GITHUB_OWNER` | Yes | GitHub username or org |
 | `GITHUB_REPO` | Yes | This repo's name |
-| `VERCEL_TOKEN` | Template only | Vercel API token for creating clones |
-| `VERCEL_TEAM_ID` | Optional | Vercel team ID (blank for personal) |
+| `DEPLOY_VERCEL_TOKEN` | Template only | Vercel API token for creating clones (VERCEL_ prefix is reserved by Vercel) |
+| `DEPLOY_VERCEL_TEAM_ID` | Optional | Vercel team ID (blank for personal) |
 | `IS_TEMPLATE` | Yes | `"true"` on template, `"false"` on clones |
 
 ---

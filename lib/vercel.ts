@@ -1,8 +1,8 @@
 const VERCEL_API = 'https://api.vercel.com'
 
 function headers() {
-  const token = process.env.VERCEL_TOKEN!
-  const teamId = process.env.VERCEL_TEAM_ID
+  const token = process.env.DEPLOY_VERCEL_TOKEN!
+  const teamId = process.env.DEPLOY_VERCEL_TEAM_ID
   return {
     Authorization: `Bearer ${token}`,
     'Content-Type': 'application/json',
