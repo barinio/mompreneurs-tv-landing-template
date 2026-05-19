@@ -1,8 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { forkRepo, readContentJson, writeContentJson, readSitesJson, writeSitesJson } from '@/lib/github'
+import { forkRepo, readContentJson, writeContentJson, readSitesJson, writeSitesJson, waitForRepoReady } from '@/lib/github'
 import { createVercelProject, setEnvVars, triggerDeploy } from '@/lib/vercel'
 import { contentDefault } from '@/lib/content-default'
 import type { SiteEntry } from '@/lib/types'
+
+// Provisioning a clone does fork + multiple GitHub/Vercel API round-trips,
+// often 30–60s total. Default 10s would time out.
+export const maxDuration = 60
 
 export async function POST(req: NextRequest) {
   const { name, adminPassword } = await req.json() as { name: string; adminPassword: string }
@@ -23,8 +27,10 @@ export async function POST(req: NextRequest) {
     // 1. Fork template repo
     await forkRepo(owner, templateRepo, name)
 
-    // 2. Wait briefly for fork to be ready, then read existing SHA and reset content.json to blank template
-    await new Promise((r) => setTimeout(r, 3000))
+    // 2. Poll until fork is ready (createFork is async on GitHub's side — can take 5-30s)
+    await waitForRepoReady(owner, name)
+
+    // 3. Read existing SHA and reset content.json to blank template
     const { sha: contentSha } = await readContentJson(owner, name)
     await writeContentJson(owner, name, contentDefault, contentSha)
 

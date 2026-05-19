@@ -75,6 +75,30 @@ export async function forkRepo(
   return { name: data.name, html_url: data.html_url }
 }
 
+// GitHub creates forks asynchronously — the repo + its files aren't immediately
+// queryable. Poll until content.json is readable, then we know the fork is ready.
+export async function waitForRepoReady(
+  owner: string,
+  repo: string,
+  maxAttempts = 20,
+  intervalMs = 2000
+): Promise<void> {
+  const octokit = getOctokit()
+  for (let i = 0; i < maxAttempts; i++) {
+    try {
+      await octokit.repos.getContent({ owner, repo, path: 'content.json' })
+      return
+    } catch {
+      if (i === maxAttempts - 1) {
+        throw new Error(
+          `Fork ${owner}/${repo} not ready after ${(maxAttempts * intervalMs) / 1000}s`
+        )
+      }
+      await new Promise((r) => setTimeout(r, intervalMs))
+    }
+  }
+}
+
 export async function readSitesJson(
   owner: string,
   repo: string
