@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { forkRepo, readContentJson, writeContentJson, readSitesJson, writeSitesJson, waitForRepoReady } from '@/lib/github'
+import { createFromTemplate, readContentJson, writeContentJson, readSitesJson, writeSitesJson, waitForRepoReady } from '@/lib/github'
 import { createVercelProject, setEnvVars, triggerDeploy } from '@/lib/vercel'
 import { contentDefault } from '@/lib/content-default'
 import type { SiteEntry } from '@/lib/types'
@@ -24,10 +24,10 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    // 1. Fork template repo
-    await forkRepo(owner, templateRepo, name)
+    // 1. Generate new repo from template (works for same-owner; fork doesn't)
+    await createFromTemplate(owner, templateRepo, owner, name)
 
-    // 2. Poll until fork is ready (createFork is async on GitHub's side — can take 5-30s)
+    // 2. Poll until new repo is ready (generation is async on GitHub's side)
     await waitForRepoReady(owner, name)
 
     // 3. Read existing SHA and reset content.json to blank template

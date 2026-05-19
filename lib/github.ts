@@ -75,6 +75,28 @@ export async function forkRepo(
   return { name: data.name, html_url: data.html_url }
 }
 
+// Create a new repo from a template repository.
+// Unlike forkRepo, this works when target owner == template owner (you can't
+// fork your own repo, but you can generate from your own template).
+// Requires the template repo to be marked as "Template repository" in Settings.
+export async function createFromTemplate(
+  templateOwner: string,
+  templateRepo: string,
+  targetOwner: string,
+  newName: string
+): Promise<{ name: string; html_url: string }> {
+  const octokit = getOctokit()
+  const { data } = await octokit.repos.createUsingTemplate({
+    template_owner: templateOwner,
+    template_repo: templateRepo,
+    owner: targetOwner,
+    name: newName,
+    private: false,
+    include_all_branches: false,
+  })
+  return { name: data.name, html_url: data.html_url }
+}
+
 // GitHub creates forks asynchronously — the repo + its files aren't immediately
 // queryable. Poll until content.json is readable, then we know the fork is ready.
 export async function waitForRepoReady(
