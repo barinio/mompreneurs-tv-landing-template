@@ -70,6 +70,11 @@ export async function POST(req: NextRequest) {
     if (process.env.DEPLOY_VERCEL_TEAM_ID) {
       cloneEnv.DEPLOY_VERCEL_TEAM_ID = process.env.DEPLOY_VERCEL_TEAM_ID
     }
+    // Clones share the master's Blob store. Image URLs are absolute CDN links,
+    // so a clone storing images in the master's store works fine.
+    if (process.env.BLOB_READ_WRITE_TOKEN) {
+      cloneEnv.BLOB_READ_WRITE_TOKEN = process.env.BLOB_READ_WRITE_TOKEN
+    }
     await setEnvVars(project.id, cloneEnv)
 
     // 7. Trigger first deployment (Vercel v13 requires numeric GitHub repo ID)

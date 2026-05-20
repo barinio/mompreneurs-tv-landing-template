@@ -50,26 +50,6 @@ export async function writeContentJson(
   })
 }
 
-export async function uploadImage(
-  owner: string,
-  repo: string,
-  filename: string,
-  base64Data: string,
-  existingSha?: string
-): Promise<string> {
-  const octokit = getOctokit()
-  const path = `public/images/${filename}`
-  await octokit.repos.createOrUpdateFileContents({
-    owner,
-    repo,
-    path,
-    message: `Upload image ${filename}`,
-    content: base64Data,
-    ...(existingSha ? { sha: existingSha } : {}),
-  })
-  return `/images/${filename}`
-}
-
 export async function forkRepo(
   owner: string,
   templateRepo: string,
