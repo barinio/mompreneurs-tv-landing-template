@@ -22,6 +22,7 @@
     ]
   },
   "whoFor": {
+    "bgImageUrl": "/images/Sec-BG-1.jpg",
     "headline": "WHO THIS IS FOR",
     "subheadline": "This opportunity is designed for successful Mompreneurs who have built real wealth while raising their children:",
     "items": [
@@ -319,6 +320,7 @@
     ]
   },
   "tvPackageIncluded": {
+    "bgImageUrl": "/images/Sec-BG-4.jpg",
     "headlineTop": "Here's What Is Included in Your",
     "logoUrl": "/images/Mompreneurs-Logo.png",
     "headlineBottom": "TV Package",
@@ -390,6 +392,7 @@
     "phoneUrl": "/images/Phone-Mockup-1-.png"
   },
   "pressAwards": {
+    "bgImageUrl": "/images/lm.jpg",
     "seenOnHeadline": "As Seen On",
     "seenOnLogosUrl": "/images/Logos-Desktop-2.png",
     "reviewsHeadline": "Reviews from the Media and Critics",
@@ -400,6 +403,7 @@
     "awardsImageUrl": "/images/img-2.png"
   },
   "aboutShow": {
+    "bgImageUrl": "/images/Sec-BG-6.jpg",
     "eyebrow": "ABOUT",
     "logoUrl": "/images/Mompreneurs-Logo.png",
     "body": "Behind every successful mompreneur is the knowledge most mothers never learn.\n\n\"Mompreneurs\" is a curated docuseries featuring mothers who have mastered business and wealth-building in the real world. They've often done it while managing e-commerce stores, real estate portfolios, coaching practices, product lines, and investment strategies.\n\nThese aren't corporate executives climbing someone else's ladder.\n\nThey are mothers and entrepreneurs who created their businesses. They found their own path to generating wealth and achieving financial freedom while still being present for their families.\n\nAcross each episode, mompreneurs break down their strategies, share their secrets, and teach practical business and financial wisdom that most mothers never learned.\n\nEach episode is carefully produced with authenticity and intention. The entire series focuses on real experience, proven strategies, and the realities of building wealth as a mother in today's world.\n\nThis is entrepreneurship beyond theory. It's told and shared by the mothers who live it and have mastered it.",
@@ -436,6 +440,7 @@
     ]
   },
   "itsTime": {
+    "bgImageUrl": "/images/Sec-BG-3.jpg",
     "headlineTop": "IT'S TIME MORE PEOPLE UNDERSTAND",
     "headlineBottom": "WHAT YOU'VE ACCOMPLISHED...",
     "bodyTop": [
@@ -472,6 +477,7 @@
     ]
   },
   "howItWorks": {
+    "bgImageUrl": "/images/Sec-BG-5.jpg",
     "eyebrow": "Ready To Get Started?",
     "headline": "Here's How It Works:",
     "items": [
@@ -498,6 +504,7 @@
     ]
   },
   "aboutNetwork": {
+    "bgImageUrl": "/images/bg3.jpg",
     "eyebrow": "WHAT IS",
     "headlineTop": "INSIDE SUCCESS",
     "headlineBottom": "Network?",
@@ -508,6 +515,7 @@
     "logoUrl": "/images/Inside-Success-Logo.png"
   },
   "faq": {
+    "bgImageUrl": "/images/Sec-BG-1.jpg",
     "headline": "FAQ",
     "items": [
     {

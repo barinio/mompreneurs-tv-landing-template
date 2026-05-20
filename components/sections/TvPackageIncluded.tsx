@@ -10,7 +10,7 @@ const CREAM_GOLD = 'rgba(255, 234, 180, 0.98)'
 export default function TvPackageIncluded({ tvPackageIncluded }: Props) {
   return (
     <div className="parallax-bg" style={{
-      backgroundImage: 'url(/images/Sec-BG-4.jpg)',
+      backgroundImage: show(tvPackageIncluded.bgImageUrl) ? `url(${tvPackageIncluded.bgImageUrl})` : undefined,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',

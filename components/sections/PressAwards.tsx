@@ -8,7 +8,7 @@ const CREAM = 'rgb(243, 240, 234)'
 export default function PressAwards({ pressAwards }: Props) {
   return (
     <div className="parallax-bg" style={{
-      backgroundImage: 'url(/images/lm.jpg)',
+      backgroundImage: show(pressAwards.bgImageUrl) ? `url(${pressAwards.bgImageUrl})` : undefined,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',

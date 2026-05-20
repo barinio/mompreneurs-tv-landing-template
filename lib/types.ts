@@ -17,6 +17,7 @@ export interface ContentJson {
     boxes: Array<{ icon: string; label: string; value: string }>
   }
   whoFor: {
+    bgImageUrl?: string
     headline?: string
     subheadline?: string
     items: Array<{ title: string; description: string }>
@@ -62,6 +63,7 @@ export interface ContentJson {
     posters: Array<{ url: string; alt: string }>
   }
   tvPackageIncluded: {
+    bgImageUrl?: string
     headlineTop?: string
     logoUrl?: string
     headlineBottom?: string
@@ -76,6 +78,7 @@ export interface ContentJson {
     phoneUrl?: string
   }
   pressAwards: {
+    bgImageUrl?: string
     seenOnHeadline?: string
     seenOnLogosUrl?: string
     reviewsHeadline?: string
@@ -86,6 +89,7 @@ export interface ContentJson {
     awardsImageUrl?: string
   }
   aboutShow: {
+    bgImageUrl?: string
     eyebrow?: string
     logoUrl?: string
     body?: string
@@ -95,6 +99,7 @@ export interface ContentJson {
     body2: Array<{ text: string; bold?: boolean }>
   }
   itsTime: {
+    bgImageUrl?: string
     headlineTop?: string
     headlineBottom?: string
     bodyTop: string[]
@@ -108,11 +113,13 @@ export interface ContentJson {
     bullets: string[]
   }
   howItWorks: {
+    bgImageUrl?: string
     eyebrow?: string
     headline?: string
     items: Array<{ title: string; description: string }>
   }
   aboutNetwork: {
+    bgImageUrl?: string
     eyebrow?: string
     headlineTop?: string
     headlineBottom?: string
@@ -123,6 +130,7 @@ export interface ContentJson {
     logoLinkUrl?: string
   }
   faq: {
+    bgImageUrl?: string
     headline?: string
     items: Array<{ question: string; answer: string }>
   }

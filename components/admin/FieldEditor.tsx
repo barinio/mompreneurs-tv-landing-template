@@ -203,6 +203,7 @@ export default function FieldEditor({ sectionKey, content, onChange }: Props) {
     case 'whoFor':
       return (
         <div>
+          <OptionalImage label="Background (Who For → Transformation)" value={s.bgImageUrl} onChange={(v) => set({ ...s, bgImageUrl: v })} />
           <OptionalText label="Section Headline" value={s.headline} onChange={(v) => set({ ...s, headline: v })} />
           <OptionalText label="Subheadline" value={s.subheadline} onChange={(v) => set({ ...s, subheadline: v })} multiline />
           <Field label="Categories">
@@ -267,6 +268,7 @@ export default function FieldEditor({ sectionKey, content, onChange }: Props) {
     case 'itsTime':
       return (
         <div>
+          <OptionalImage label="Section Background" value={s.bgImageUrl} onChange={(v) => set({ ...s, bgImageUrl: v })} />
           <OptionalText label="Headline Top" value={s.headlineTop} onChange={(v) => set({ ...s, headlineTop: v })} />
           <OptionalText label="Headline Bottom" value={s.headlineBottom} onChange={(v) => set({ ...s, headlineBottom: v })} />
           <Field label="Body (Top)">
@@ -407,6 +409,7 @@ export default function FieldEditor({ sectionKey, content, onChange }: Props) {
     case 'tvPackageIncluded':
       return (
         <div>
+          <OptionalImage label="Section Background" value={s.bgImageUrl} onChange={(v) => set({ ...s, bgImageUrl: v })} />
           <OptionalText label="Headline Top" value={s.headlineTop} onChange={(v) => set({ ...s, headlineTop: v })} />
           <OptionalImage label="Logo" value={s.logoUrl} onChange={(v) => set({ ...s, logoUrl: v })} />
           <OptionalText label="Headline Bottom" value={s.headlineBottom} onChange={(v) => set({ ...s, headlineBottom: v })} />
@@ -459,6 +462,7 @@ export default function FieldEditor({ sectionKey, content, onChange }: Props) {
     case 'pressAwards':
       return (
         <div>
+          <OptionalImage label="Section Background" value={s.bgImageUrl} onChange={(v) => set({ ...s, bgImageUrl: v })} />
           <OptionalText label="'As Seen On' Headline" value={s.seenOnHeadline} onChange={(v) => set({ ...s, seenOnHeadline: v })} />
           <OptionalImage label="'As Seen On' Logos" value={s.seenOnLogosUrl} onChange={(v) => set({ ...s, seenOnLogosUrl: v })} />
           <OptionalText label="Reviews Headline" value={s.reviewsHeadline} onChange={(v) => set({ ...s, reviewsHeadline: v })} />
@@ -473,6 +477,7 @@ export default function FieldEditor({ sectionKey, content, onChange }: Props) {
     case 'aboutShow':
       return (
         <div>
+          <OptionalImage label="Section Background" value={s.bgImageUrl} onChange={(v) => set({ ...s, bgImageUrl: v })} />
           <OptionalText label="Eyebrow" value={s.eyebrow} onChange={(v) => set({ ...s, eyebrow: v })} />
           <OptionalImage label="Logo" value={s.logoUrl} onChange={(v) => set({ ...s, logoUrl: v })} />
           <OptionalImage label="Supporting Image" value={s.imageUrl} onChange={(v) => set({ ...s, imageUrl: v })} />
@@ -497,6 +502,7 @@ export default function FieldEditor({ sectionKey, content, onChange }: Props) {
     case 'howItWorks':
       return (
         <div>
+          <OptionalImage label="Background (How It Works block)" value={s.bgImageUrl} onChange={(v) => set({ ...s, bgImageUrl: v })} />
           <OptionalText label="Eyebrow" value={s.eyebrow} onChange={(v) => set({ ...s, eyebrow: v })} />
           <OptionalText label="Headline" value={s.headline} onChange={(v) => set({ ...s, headline: v })} />
           <Field label="Steps">
@@ -516,6 +522,7 @@ export default function FieldEditor({ sectionKey, content, onChange }: Props) {
     case 'aboutNetwork':
       return (
         <div>
+          <OptionalImage label="Section Background" value={s.bgImageUrl} onChange={(v) => set({ ...s, bgImageUrl: v })} />
           <OptionalText label="Eyebrow" value={s.eyebrow} onChange={(v) => set({ ...s, eyebrow: v })} />
           <OptionalText label="Headline Top" value={s.headlineTop} onChange={(v) => set({ ...s, headlineTop: v })} />
           <OptionalText label="Headline Bottom" value={s.headlineBottom} onChange={(v) => set({ ...s, headlineBottom: v })} />
@@ -530,6 +537,7 @@ export default function FieldEditor({ sectionKey, content, onChange }: Props) {
     case 'faq':
       return (
         <div>
+          <OptionalImage label="Background (FAQ → Considerations)" value={s.bgImageUrl} onChange={(v) => set({ ...s, bgImageUrl: v })} />
           <OptionalText label="Section Headline" value={s.headline} onChange={(v) => set({ ...s, headline: v })} />
           <Field label="Questions">
             <ArrayEditor

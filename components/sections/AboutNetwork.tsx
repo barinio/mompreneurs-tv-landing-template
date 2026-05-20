@@ -22,7 +22,7 @@ export default function AboutNetwork({ aboutNetwork }: Props) {
     <div
       style={{
         backgroundColor: "rgb(3, 2, 0)",
-        backgroundImage: "url(/images/bg3.jpg)",
+        backgroundImage: show(aboutNetwork.bgImageUrl) ? `url(${aboutNetwork.bgImageUrl})` : undefined,
         backgroundPosition: "center top",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",

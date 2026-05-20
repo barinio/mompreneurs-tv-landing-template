@@ -36,7 +36,7 @@ export default function LandingPage() {
       <div
         className="parallax-bg"
         style={{
-          backgroundImage: "url(/images/Sec-BG-1.jpg)",
+          backgroundImage: c.whoFor.bgImageUrl ? `url(${c.whoFor.bgImageUrl})` : undefined,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -61,7 +61,7 @@ export default function LandingPage() {
       <div
         className="parallax-bg"
         style={{
-          backgroundImage: "url(/images/Sec-BG-3.jpg)",
+          backgroundImage: c.itsTime.bgImageUrl ? `url(${c.itsTime.bgImageUrl})` : undefined,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -88,7 +88,7 @@ export default function LandingPage() {
       <div
         className="parallax-bg"
         style={{
-          backgroundImage: "url(/images/Sec-BG-6.jpg)",
+          backgroundImage: c.aboutShow.bgImageUrl ? `url(${c.aboutShow.bgImageUrl})` : undefined,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -100,7 +100,7 @@ export default function LandingPage() {
       <div
         className="parallax-bg"
         style={{
-          backgroundImage: "url(/images/Sec-BG-5.jpg)",
+          backgroundImage: c.howItWorks.bgImageUrl ? `url(${c.howItWorks.bgImageUrl})` : undefined,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -121,7 +121,7 @@ export default function LandingPage() {
       <div
         className="parallax-bg"
         style={{
-          backgroundImage: "url(/images/Sec-BG-1.jpg)",
+          backgroundImage: c.faq.bgImageUrl ? `url(${c.faq.bgImageUrl})` : undefined,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
