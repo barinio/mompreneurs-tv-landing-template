@@ -1,5 +1,6 @@
 'use client'
 import { useRef, useState } from 'react'
+import { usePreviewRegister } from './PreviewContext'
 
 type Props = {
   value: string
@@ -8,6 +9,7 @@ type Props = {
 }
 
 export default function ImageUpload({ value, onChange, label }: Props) {
+  const registerPreview = usePreviewRegister()
   const [uploading, setUploading] = useState(false)
   const [error, setError] = useState('')
   // Once uploaded, the canonical path (e.g. /images/foo.png) won't load in
@@ -40,6 +42,8 @@ export default function ImageUpload({ value, onChange, label }: Props) {
       const { url } = await res.json()
       onChange(url)
       setJustUploaded(true)
+      // Register so the Live Preview can render this image before deploy.
+      if (dataUrl) registerPreview(url, dataUrl)
     } else {
       const { error: msg } = await res.json().catch(() => ({}))
       setError(msg || 'Upload failed')

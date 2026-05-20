@@ -1,10 +1,11 @@
 'use client'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import { useRouter } from 'next/navigation'
 import type { ContentJson, SectionKey } from '@/lib/types'
 import SectionNav from '@/components/admin/SectionNav'
 import FieldEditor from '@/components/admin/FieldEditor'
 import LivePreview from '@/components/admin/LivePreview'
+import { PreviewContext, applyPreviewOverrides } from '@/components/admin/PreviewContext'
 
 const IS_TEMPLATE = process.env.NEXT_PUBLIC_IS_TEMPLATE === 'true'
 
@@ -16,7 +17,17 @@ export default function EditorPage() {
   const [activeSection, setActiveSection] = useState<SectionKey>('hero')
   const [saving, setSaving] = useState(false)
   const [toast, setToast] = useState('')
+  const [previewOverrides, setPreviewOverrides] = useState<Record<string, string>>({})
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const registerPreview = useCallback((path: string, dataUrl: string) => {
+    setPreviewOverrides((prev) => ({ ...prev, [path]: dataUrl }))
+  }, [])
+
+  const previewContent = useMemo(
+    () => (content ? applyPreviewOverrides(content, previewOverrides) : content),
+    [content, previewOverrides]
+  )
 
   function showToast(msg: string) {
     if (toastTimer.current) clearTimeout(toastTimer.current)
@@ -60,9 +71,9 @@ export default function EditorPage() {
         } catch {
           // sha re-fetch failed — next save may conflict; non-fatal
         }
-        showToast('Збережено! Сайт оновиться за ~30 сек')
+        showToast('Saved! Site will update in ~30 sec')
       } else {
-        showToast('Помилка збереження. Спробуйте ще раз.')
+        showToast('Save failed. Please try again.')
       }
     } finally {
       setSaving(false)
@@ -78,12 +89,12 @@ export default function EditorPage() {
     return (
       <div className="min-h-screen bg-gray-900 flex items-center justify-center">
         <div className="text-center">
-          <p className="text-red-400 text-sm mb-3">Помилка завантаження контенту.</p>
+          <p className="text-red-400 text-sm mb-3">Failed to load content.</p>
           <button
             onClick={() => { setLoadError(false); window.location.reload() }}
             className="text-xs text-gray-300 border border-gray-600 rounded px-3 py-1 hover:text-white"
           >
-            Спробувати ще раз
+            Try again
           </button>
         </div>
       </div>
@@ -136,7 +147,9 @@ export default function EditorPage() {
             </h2>
           </div>
           <div className="flex-1 overflow-y-auto px-4 py-3">
-            <FieldEditor sectionKey={activeSection} content={content} onChange={handleChange} />
+            <PreviewContext.Provider value={{ register: registerPreview }}>
+              <FieldEditor sectionKey={activeSection} content={content} onChange={handleChange} />
+            </PreviewContext.Provider>
           </div>
           <div className="px-4 py-3 border-t border-gray-100">
             <button
@@ -144,7 +157,7 @@ export default function EditorPage() {
               disabled={saving}
               className="w-full bg-green-600 hover:bg-green-700 disabled:opacity-50 text-white text-sm font-semibold py-2 rounded transition"
             >
-              {saving ? 'Збереження...' : 'Зберегти і Деплоїти'}
+              {saving ? 'Saving...' : 'Save & Deploy'}
             </button>
             <p className="text-xs text-gray-400 text-center mt-1">~30 sec to publish</p>
           </div>
@@ -155,7 +168,7 @@ export default function EditorPage() {
           <div className="absolute top-2 left-2 text-xs text-gray-400 bg-white rounded px-2 py-0.5 shadow z-10">
             Live Preview
           </div>
-          <LivePreview content={content} activeSection={activeSection} />
+          <LivePreview content={previewContent ?? content} activeSection={activeSection} />
         </div>
       </div>
 
