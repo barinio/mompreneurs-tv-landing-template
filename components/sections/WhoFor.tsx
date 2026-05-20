@@ -1,4 +1,5 @@
 import type { ContentJson } from '@/lib/types'
+import { show } from '@/lib/show'
 
 type Props = { whoFor: ContentJson['whoFor']; theme: ContentJson['theme'] }
 
@@ -7,7 +8,7 @@ const ITEM_TITLE_STYLE = { textAlign: 'center' as const, fontSize: 'clamp(19px, 
 const ITEM_DESC_STYLE = { textAlign: 'center' as const, fontSize: 'clamp(17px, 2vw, 21px)', color: '#fff', marginTop: 8, marginBottom: 0, lineHeight: 1.3, fontWeight: 500 }
 const BROWN_BG = 'rgb(102, 69, 46)'
 
-function ItemCard({ item }: { item: ContentJson['whoFor'][number] }) {
+function ItemCard({ item }: { item: ContentJson['whoFor']['items'][number] }) {
   return (
     <div style={{ flex: '0 1 230px', boxSizing: 'border-box', padding: '10px' }}>
       <i className="fas fa-check-circle" style={ICON_STYLE} />
@@ -21,12 +22,18 @@ export default function WhoFor({ whoFor }: Props) {
   return (
     <div style={{ maxWidth: 995, width: '100%', margin: '0 auto' }}>
       {/* Title panel — overlaps slightly above */}
-      <div style={{ backgroundColor: BROWN_BG, padding: '20px 10px', marginTop: -40 }}>
-        <h1 style={{ textAlign: 'center', fontSize: 'clamp(40px, 8vw, 72px)', color: '#fff', margin: 0, lineHeight: 1.1, fontFamily: 'Imbue, sans-serif', fontWeight: 500 }}>WHO THIS IS FOR</h1>
-        <h2 style={{ textAlign: 'center', fontSize: 'clamp(18px, 2.4vw, 23px)', fontFamily: '"PT Sans Narrow", sans-serif', color: '#fff', marginTop: 8, marginBottom: 0, fontWeight: 'normal' }}>
-          This opportunity is designed for successful Mompreneurs who have built real wealth while raising their children:
-        </h2>
-      </div>
+      {(show(whoFor.headline) || show(whoFor.subheadline)) && (
+        <div style={{ backgroundColor: BROWN_BG, padding: '20px 10px', marginTop: -40 }}>
+          {show(whoFor.headline) && (
+            <h1 style={{ textAlign: 'center', fontSize: 'clamp(40px, 8vw, 72px)', color: '#fff', margin: 0, lineHeight: 1.1, fontFamily: 'Imbue, sans-serif', fontWeight: 500 }}>{whoFor.headline}</h1>
+          )}
+          {show(whoFor.subheadline) && (
+            <h2 style={{ textAlign: 'center', fontSize: 'clamp(18px, 2.4vw, 23px)', fontFamily: '"PT Sans Narrow", sans-serif', color: '#fff', marginTop: 8, marginBottom: 0, fontWeight: 'normal' }}>
+              {whoFor.subheadline}
+            </h2>
+          )}
+        </div>
+      )}
 
       {/* Items — centered, wrap evenly at every width */}
       <div style={{
@@ -36,7 +43,7 @@ export default function WhoFor({ whoFor }: Props) {
         justifyContent: 'center',
         padding: '0 0 40px',
       }}>
-        {whoFor.map((item, i) => <ItemCard key={i} item={item} />)}
+        {whoFor.items.map((item, i) => <ItemCard key={i} item={item} />)}
       </div>
     </div>
   )

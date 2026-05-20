@@ -1,4 +1,5 @@
 import type { ContentJson } from '@/lib/types'
+import { show } from '@/lib/show'
 
 type Props = { whoNotFor: ContentJson['whoNotFor'] }
 
@@ -9,19 +10,21 @@ export default function WhoNotFor({ whoNotFor }: Props) {
   return (
     <div style={{ maxWidth: 995, width: '100%', margin: '20px auto 0' }}>
       {/* Title strip */}
-      <div style={{ backgroundColor: 'rgba(255, 250, 239, 0.98)', padding: '25px 0 20px' }}>
-        <h1 style={{
-          textAlign: 'center',
-          fontSize: 'clamp(36px, 8vw, 72px)',
-          color: BROWN,
-          margin: 0,
-          lineHeight: 1.1,
-          fontFamily: 'Imbue, sans-serif',
-          fontWeight: 500,
-        }}>
-          WHO THIS IS NOT FOR:
-        </h1>
-      </div>
+      {show(whoNotFor.headline) && (
+        <div style={{ backgroundColor: 'rgba(255, 250, 239, 0.98)', padding: '25px 0 20px' }}>
+          <h1 style={{
+            textAlign: 'center',
+            fontSize: 'clamp(36px, 8vw, 72px)',
+            color: BROWN,
+            margin: 0,
+            lineHeight: 1.1,
+            fontFamily: 'Imbue, sans-serif',
+            fontWeight: 500,
+          }}>
+            {whoNotFor.headline}
+          </h1>
+        </div>
+      )}
 
       {/* Cards — centered, wrap evenly at every width */}
       <div style={{
@@ -33,7 +36,7 @@ export default function WhoNotFor({ whoNotFor }: Props) {
         justifyContent: 'center',
         gap: 20,
       }}>
-        {whoNotFor.map((item, i) => (
+        {whoNotFor.items.map((item, i) => (
           <div key={i} style={{
             flex: '0 1 280px',
             boxSizing: 'border-box',

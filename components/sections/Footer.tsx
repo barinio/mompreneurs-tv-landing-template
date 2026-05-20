@@ -1,4 +1,5 @@
 import type { ContentJson } from '@/lib/types'
+import { show } from '@/lib/show'
 
 type Props = { footer: ContentJson['footer'] }
 
@@ -19,7 +20,8 @@ export default function Footer({ footer }: Props) {
           textAlign: 'center',
         }}
       >
-        <img
+        {show(footer.logoUrl) && (
+          <img
             src={footer.logoUrl}
             alt="Inside Success"
             style={{
@@ -28,38 +30,45 @@ export default function Footer({ footer }: Props) {
               display: 'inline-block',
             }}
           />
+        )}
 
         <div style={{ marginTop: 15, color: '#fff', fontSize: 15, fontFamily: '"PT Sans Narrow", sans-serif' }}>
-          <div>
-            <a
-              href={footer.privacyUrl}
-              style={{
-                color: '#fff',
-                fontFamily: '"PT Sans Narrow", sans-serif',
-                fontWeight: 700,
-                textDecoration: 'none',
-              }}
-            >
-              {footer.privacyLabel}
-            </a>
-          </div>
-          <div>
-            <a
-              href={footer.termsUrl}
-              style={{
-                color: '#fff',
-                fontFamily: '"PT Sans Narrow", sans-serif',
-                fontWeight: 700,
-                textDecoration: 'none',
-                padding: '10px 0',
-                display: 'inline-block',
-              }}
-            >
-              {footer.termsLabel}
-            </a>
-          </div>
+          {show(footer.privacyLabel) && (
+            <div>
+              <a
+                href={footer.privacyUrl}
+                style={{
+                  color: '#fff',
+                  fontFamily: '"PT Sans Narrow", sans-serif',
+                  fontWeight: 700,
+                  textDecoration: 'none',
+                }}
+              >
+                {footer.privacyLabel}
+              </a>
+            </div>
+          )}
+          {show(footer.termsLabel) && (
+            <div>
+              <a
+                href={footer.termsUrl}
+                style={{
+                  color: '#fff',
+                  fontFamily: '"PT Sans Narrow", sans-serif',
+                  fontWeight: 700,
+                  textDecoration: 'none',
+                  padding: '10px 0',
+                  display: 'inline-block',
+                }}
+              >
+                {footer.termsLabel}
+              </a>
+            </div>
+          )}
 
-          <div style={{ fontFamily: '"PT Sans Narrow", sans-serif', fontWeight: 700 }}>{footer.disclaimerHeadline}</div>
+          {show(footer.disclaimerHeadline) && (
+            <div style={{ fontFamily: '"PT Sans Narrow", sans-serif', fontWeight: 700 }}>{footer.disclaimerHeadline}</div>
+          )}
 
           {footer.disclaimerParagraphs.map((p, i) => (
             <div
@@ -75,17 +84,19 @@ export default function Footer({ footer }: Props) {
             </div>
           ))}
 
-          <div
-            style={{
-              fontFamily: '"PT Sans Narrow", sans-serif',
-              fontWeight: 700,
-              marginTop: 16,
-              textTransform: 'uppercase',
-              whiteSpace: 'pre-line',
-            }}
-          >
-            {footer.address}
-          </div>
+          {show(footer.address) && (
+            <div
+              style={{
+                fontFamily: '"PT Sans Narrow", sans-serif',
+                fontWeight: 700,
+                marginTop: 16,
+                textTransform: 'uppercase',
+                whiteSpace: 'pre-line',
+              }}
+            >
+              {footer.address}
+            </div>
+          )}
         </div>
       </div>
     </div>

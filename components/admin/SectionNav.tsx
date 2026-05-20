@@ -2,6 +2,7 @@
 import type { SectionKey } from '@/lib/types'
 
 const SECTIONS: { key: SectionKey; label: string; icon: string }[] = [
+  { key: 'meta',               label: 'SEO / Meta',      icon: '🔍' },
   { key: 'navBar',             label: 'Nav Bar',         icon: '📢' },
   { key: 'hero',               label: 'Hero',            icon: '🏠' },
   { key: 'seriesInfo',         label: 'Series Info',     icon: 'ℹ️' },
@@ -23,6 +24,7 @@ const SECTIONS: { key: SectionKey; label: string; icon: string }[] = [
   { key: 'faq',                label: 'FAQ',             icon: '❓' },
   { key: 'nineConsiderations', label: 'Considerations',  icon: '💡' },
   { key: 'footer',             label: 'Footer',          icon: '🦶' },
+  { key: 'theme',              label: 'Theme',           icon: '🎨' },
 ]
 
 type Props = {

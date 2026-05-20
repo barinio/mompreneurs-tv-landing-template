@@ -1,4 +1,5 @@
 import type { ContentJson } from '@/lib/types'
+import { show } from '@/lib/show'
 
 type Props = { tvPackageIncluded: ContentJson['tvPackageIncluded'] }
 
@@ -19,38 +20,44 @@ export default function TvPackageIncluded({ tvPackageIncluded }: Props) {
     }}>
       <div style={{ maxWidth: 1100, width: '95%', margin: '0 auto' }}>
         {/* Headline */}
-        <h2 style={{
-          textAlign: 'center',
-          fontSize: 'clamp(24px, 4vw, 38px)',
-          color: '#fff',
-          margin: 0,
-          lineHeight: 1.1,
-          textTransform: 'uppercase',
-          fontFamily: 'Imbue, sans-serif',
-          fontWeight: 500,
-        }}>
-          {tvPackageIncluded.headlineTop}
-        </h2>
-        <div style={{ textAlign: 'center', marginTop: -5 }}>
-          <img
-            src={tvPackageIncluded.logoUrl}
-            alt=""
-            width={620}
-            style={{ width: 620, maxWidth: '100%', height: 'auto', display: 'inline-block' }}
-          />
-        </div>
-        <h2 style={{
-          textAlign: 'center',
-          fontSize: 'clamp(34px, 7vw, 60px)',
-          color: CREAM_GOLD,
-          margin: '-15px 0 0',
-          lineHeight: 1.05,
-          textTransform: 'uppercase',
-          fontFamily: 'Imbue, sans-serif',
-          fontWeight: 500,
-        }}>
-          {tvPackageIncluded.headlineBottom}
-        </h2>
+        {show(tvPackageIncluded.headlineTop) && (
+          <h2 style={{
+            textAlign: 'center',
+            fontSize: 'clamp(24px, 4vw, 38px)',
+            color: '#fff',
+            margin: 0,
+            lineHeight: 1.1,
+            textTransform: 'uppercase',
+            fontFamily: 'Imbue, sans-serif',
+            fontWeight: 500,
+          }}>
+            {tvPackageIncluded.headlineTop}
+          </h2>
+        )}
+        {show(tvPackageIncluded.logoUrl) && (
+          <div style={{ textAlign: 'center', marginTop: -5 }}>
+            <img
+              src={tvPackageIncluded.logoUrl}
+              alt=""
+              width={620}
+              style={{ width: 620, maxWidth: '100%', height: 'auto', display: 'inline-block' }}
+            />
+          </div>
+        )}
+        {show(tvPackageIncluded.headlineBottom) && (
+          <h2 style={{
+            textAlign: 'center',
+            fontSize: 'clamp(34px, 7vw, 60px)',
+            color: CREAM_GOLD,
+            margin: '-15px 0 0',
+            lineHeight: 1.05,
+            textTransform: 'uppercase',
+            fontFamily: 'Imbue, sans-serif',
+            fontWeight: 500,
+          }}>
+            {tvPackageIncluded.headlineBottom}
+          </h2>
+        )}
 
         {/* Cards */}
         <div style={{ marginTop: 40, display: 'flex', flexDirection: 'column', gap: 24 }}>

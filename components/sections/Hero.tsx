@@ -8,7 +8,7 @@ type Props = {
 export default function Hero({ hero }: Props) {
   return (
     <picture>
-      <source media="(max-width: 768px)" srcSet="/images/mompreneurs1-mob-1-.png" />
+      {hero.bgImageMobileUrl && <source media="(max-width: 768px)" srcSet={hero.bgImageMobileUrl} />}
       <img src={hero.bgImageUrl} alt="" className="hero-img" />
     </picture>
   )

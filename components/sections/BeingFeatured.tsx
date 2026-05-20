@@ -1,4 +1,5 @@
 import type { ContentJson } from '@/lib/types'
+import { show } from '@/lib/show'
 
 type Props = { beingFeatured: ContentJson['beingFeatured'] }
 
@@ -8,7 +9,7 @@ const BROWN_LINE = 'rgb(102, 69, 46)'
 export default function BeingFeatured({ beingFeatured }: Props) {
   return (
     <div className="parallax-bg being-featured-bg" style={{
-      backgroundImage: `url(${beingFeatured.backgroundUrl})`,
+      backgroundImage: show(beingFeatured.backgroundUrl) ? `url(${beingFeatured.backgroundUrl})` : undefined,
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundColor: '#000',
@@ -29,39 +30,45 @@ export default function BeingFeatured({ beingFeatured }: Props) {
 
         {/* Right column: content */}
         <div style={{ flex: '1 1 560px', color: '#fff' }}>
-          <h2 style={{
-            fontSize: 'clamp(32px, 6vw, 54px)',
-            color: '#fff',
-            margin: 0,
-            lineHeight: 1.1,
-            textTransform: 'uppercase',
-            fontFamily: 'Imbue, sans-serif',
-            fontWeight: 500,
-          }}>
-            {beingFeatured.headline}
-          </h2>
+          {show(beingFeatured.headline) && (
+            <h2 style={{
+              fontSize: 'clamp(32px, 6vw, 54px)',
+              color: '#fff',
+              margin: 0,
+              lineHeight: 1.1,
+              textTransform: 'uppercase',
+              fontFamily: 'Imbue, sans-serif',
+              fontWeight: 500,
+            }}>
+              {beingFeatured.headline}
+            </h2>
+          )}
 
-          <p style={{
-            fontSize: 24,
-            fontFamily: '"PT Sans Narrow", sans-serif',
-            fontWeight: 500,
-            color: '#fff',
-            margin: '20px 0 0',
-            lineHeight: 1.5,
-          }}>
-            {beingFeatured.intro}
-          </p>
+          {show(beingFeatured.intro) && (
+            <p style={{
+              fontSize: 24,
+              fontFamily: '"PT Sans Narrow", sans-serif',
+              fontWeight: 500,
+              color: '#fff',
+              margin: '20px 0 0',
+              lineHeight: 1.5,
+            }}>
+              {beingFeatured.intro}
+            </p>
+          )}
 
-          <h3 style={{
-            fontSize: 'clamp(26px, 4vw, 34px)',
-            color: GOLD,
-            margin: '30px 0 10px',
-            fontStyle: 'italic',
-            fontFamily: 'Imbue, sans-serif',
-            fontWeight: 500,
-          }}>
-            {beingFeatured.createsHeadline}
-          </h3>
+          {show(beingFeatured.createsHeadline) && (
+            <h3 style={{
+              fontSize: 'clamp(26px, 4vw, 34px)',
+              color: GOLD,
+              margin: '30px 0 10px',
+              fontStyle: 'italic',
+              fontFamily: 'Imbue, sans-serif',
+              fontWeight: 500,
+            }}>
+              {beingFeatured.createsHeadline}
+            </h3>
+          )}
 
           <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
             {beingFeatured.bullets.map((b, i) => (
@@ -80,18 +87,26 @@ export default function BeingFeatured({ beingFeatured }: Props) {
             ))}
           </ul>
 
-          <p style={{ fontSize: 22, fontFamily: '"PT Sans Narrow", sans-serif', fontWeight: 500, color: '#fff', margin: '28px 0 0', lineHeight: 1.5 }}>
-            {beingFeatured.closingTop}
-          </p>
-          <p style={{ fontSize: 22, fontFamily: '"PT Sans Narrow", sans-serif', fontWeight: 700, color: '#fff', margin: '14px 0 0', lineHeight: 1.5 }}>
-            {beingFeatured.closingBold}
-          </p>
-          <p style={{ fontSize: 22, fontFamily: '"PT Sans Narrow", sans-serif', fontWeight: 500, color: '#fff', margin: '14px 0 0', lineHeight: 1.5 }}>
-            {beingFeatured.closingBottom}
-          </p>
-          <p style={{ fontSize: 22, fontFamily: '"PT Sans Narrow", sans-serif', fontWeight: 700, color: '#fff', margin: '14px 0 0', lineHeight: 1.5 }}>
-            {beingFeatured.closingExtra}
-          </p>
+          {show(beingFeatured.closingTop) && (
+            <p style={{ fontSize: 22, fontFamily: '"PT Sans Narrow", sans-serif', fontWeight: 500, color: '#fff', margin: '28px 0 0', lineHeight: 1.5 }}>
+              {beingFeatured.closingTop}
+            </p>
+          )}
+          {show(beingFeatured.closingBold) && (
+            <p style={{ fontSize: 22, fontFamily: '"PT Sans Narrow", sans-serif', fontWeight: 700, color: '#fff', margin: '14px 0 0', lineHeight: 1.5 }}>
+              {beingFeatured.closingBold}
+            </p>
+          )}
+          {show(beingFeatured.closingBottom) && (
+            <p style={{ fontSize: 22, fontFamily: '"PT Sans Narrow", sans-serif', fontWeight: 500, color: '#fff', margin: '14px 0 0', lineHeight: 1.5 }}>
+              {beingFeatured.closingBottom}
+            </p>
+          )}
+          {show(beingFeatured.closingExtra) && (
+            <p style={{ fontSize: 22, fontFamily: '"PT Sans Narrow", sans-serif', fontWeight: 700, color: '#fff', margin: '14px 0 0', lineHeight: 1.5 }}>
+              {beingFeatured.closingExtra}
+            </p>
+          )}
         </div>
       </div>
     </div>

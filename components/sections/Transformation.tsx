@@ -1,4 +1,5 @@
 import type { ContentJson } from '@/lib/types'
+import { show } from '@/lib/show'
 
 type Props = { transformation: ContentJson['transformation']; hero: ContentJson['hero']; theme: ContentJson['theme'] }
 
@@ -9,29 +10,33 @@ export default function Transformation({ transformation }: Props) {
   return (
     <div style={{ maxWidth: 1140, width: '95%', margin: '50px auto 0', padding: '20px 0 25px' }}>
       {/* Title */}
-      <h1 style={{
-        textAlign: 'center',
-        fontSize: 'clamp(48px, 12vw, 110px)',
-        color: '#fff',
-        margin: 0,
-        lineHeight: 1,
-        textTransform: 'uppercase',
-        letterSpacing: '-1px',
-        fontFamily: 'Imbue, sans-serif',
-        fontWeight: 500,
-      }}>
-        {transformation.headline}
-      </h1>
-      <h2 style={{
-        textAlign: 'center',
-        fontSize: 'clamp(20px, 3vw, 28px)',
-        color: '#fff',
-        margin: '10px 0 0',
-        fontWeight: 'normal',
-        lineHeight: 1.3,
-      }}>
-        {transformation.subheadline}
-      </h2>
+      {show(transformation.headline) && (
+        <h1 style={{
+          textAlign: 'center',
+          fontSize: 'clamp(48px, 12vw, 110px)',
+          color: '#fff',
+          margin: 0,
+          lineHeight: 1,
+          textTransform: 'uppercase',
+          letterSpacing: '-1px',
+          fontFamily: 'Imbue, sans-serif',
+          fontWeight: 500,
+        }}>
+          {transformation.headline}
+        </h1>
+      )}
+      {show(transformation.subheadline) && (
+        <h2 style={{
+          textAlign: 'center',
+          fontSize: 'clamp(20px, 3vw, 28px)',
+          color: '#fff',
+          margin: '10px 0 0',
+          fontWeight: 'normal',
+          lineHeight: 1.3,
+        }}>
+          {transformation.subheadline}
+        </h2>
+      )}
 
       {/* 2-column row: bullets + poster */}
       <div style={{
@@ -64,9 +69,11 @@ export default function Transformation({ transformation }: Props) {
         </div>
 
         {/* Poster — right side */}
-        <div style={{ flex: '0 1 420px', textAlign: 'center' }}>
-          <img src={transformation.posterUrl} alt="" style={{ width: '100%', maxWidth: 420, height: 'auto' }} />
-        </div>
+        {show(transformation.posterUrl) && (
+          <div style={{ flex: '0 1 420px', textAlign: 'center' }}>
+            <img src={transformation.posterUrl} alt="" style={{ width: '100%', maxWidth: 420, height: 'auto' }} />
+          </div>
+        )}
       </div>
     </div>
   )

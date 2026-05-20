@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import type { ContentJson } from '@/lib/types'
+import { show } from '@/lib/show'
 
 type Props = { faq: ContentJson['faq']; theme: ContentJson['theme'] }
 
@@ -19,21 +20,23 @@ export default function Faq({ faq }: Props) {
 
   return (
     <div style={{ paddingTop: 30, paddingBottom: 30 }}>
-      <h2
-        style={{
-          textAlign: 'center',
-          fontSize: 'clamp(52px, 12vw, 90px)',
-          color: '#fff',
-          margin: '10px 0 30px',
-          fontFamily: 'Imbue, sans-serif',
-          fontWeight: 500,
-          letterSpacing: '-0.01em',
-          textTransform: 'uppercase',
-          lineHeight: 1,
-        }}
-      >
-        FAQ
-      </h2>
+      {show(faq.headline) && (
+        <h2
+          style={{
+            textAlign: 'center',
+            fontSize: 'clamp(52px, 12vw, 90px)',
+            color: '#fff',
+            margin: '10px 0 30px',
+            fontFamily: 'Imbue, sans-serif',
+            fontWeight: 500,
+            letterSpacing: '-0.01em',
+            textTransform: 'uppercase',
+            lineHeight: 1,
+          }}
+        >
+          {faq.headline}
+        </h2>
+      )}
       <div
         style={{
           width: 'min(92%, 780px)',
@@ -43,7 +46,7 @@ export default function Faq({ faq }: Props) {
           gap: 14,
         }}
       >
-        {faq.map((item, i) => {
+        {faq.items.map((item, i) => {
           const isOpen = open.has(i)
           const isHover = hover === i
           const buttonBg = isHover ? '#000' : 'rgb(102, 69, 46)'

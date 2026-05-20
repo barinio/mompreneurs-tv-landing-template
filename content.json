@@ -10,15 +10,21 @@
     "ctaText": "APPLY NOW"
   },
   "hero": {
-    "bgImageUrl": "/images/mompreneurs1-1.jpg"
+    "bgImageUrl": "/images/mompreneurs1-1.jpg",
+    "bgImageMobileUrl": "/images/mompreneurs1-mob-1-.png"
   },
   "seriesInfo": {
-    "series": "MOMPRENEURS",
-    "status": "Casting Open",
-    "location": "Miami, FL",
-    "filmingDate": "Autumn 2026"
+    "boxes": [
+      { "icon": "fas fa-film", "label": "SERIES", "value": "MOMPRENEURS" },
+      { "icon": "fas fa-users", "label": "STATUS", "value": "Casting Open" },
+      { "icon": "fas fa-map-marker-alt", "label": "FILM LOCATION", "value": "Miami, FL" },
+      { "icon": "fas fa-calendar-alt", "label": "FILMING DATE", "value": "Autumn 2026" }
+    ]
   },
-  "whoFor": [
+  "whoFor": {
+    "headline": "WHO THIS IS FOR",
+    "subheadline": "This opportunity is designed for successful Mompreneurs who have built real wealth while raising their children:",
+    "items": [
     {
       "title": "E-Commerce & Online Business Owners",
       "description": "Building thriving businesses from home while being present for your family..."
@@ -47,18 +53,22 @@
       "title": "Financial Educators for Moms",
       "description": "Teaching other mothers how to build wealth and financial independence..."
     }
-  ],
-  "whoNotFor": [
-    {
-      "text": "Stay-at-home moms not currently building a business..."
-    },
-    {
-      "text": "Moms working traditional 9-5 corporate jobs..."
-    },
-    {
-      "text": "Those just starting their business journey..."
-    }
-  ],
+    ]
+  },
+  "whoNotFor": {
+    "headline": "WHO THIS IS NOT FOR:",
+    "items": [
+      {
+        "text": "Stay-at-home moms not currently building a business..."
+      },
+      {
+        "text": "Moms working traditional 9-5 corporate jobs..."
+      },
+      {
+        "text": "Those just starting their business journey..."
+      }
+    ]
+  },
   "joinShow": {
     "headline": "JOIN THE SHOW NOW",
     "subheadline": "COMPLETE YOUR 5 MINUTE APPLICATION",
@@ -493,10 +503,13 @@
     "headlineBottom": "Network?",
     "subheadline": "We unite entertainment, brands + visionary creators to share compelling stories ",
     "subheadlineBold": "THAT SPARK IMPACT.",
+    "logoLinkUrl": "https://www.insidesuccesstv.com/",
     "body": "At Inside Success, we believe that storytelling through TV is one of the most powerful ways to inspire real change and leave a lasting impact. Every original production is crafted to spotlight essential causes and spark meaningful conversations, drawing in millions to participate, support, and take action.\n\nAs the creative force behind today's thriving brands, we turn entrepreneurs into industry icons. Inside Success believes every entrepreneur has a unique story to share.\n\nOur mission is to channel our passion and expertise to amplify your voice, giving your brand the recognition it deserves and positioning you as a go-to authority. We'll work with you to bring your vision to life, transforming it into an inspiration for audiences around the world.",
     "logoUrl": "/images/Inside-Success-Logo.png"
   },
-  "faq": [
+  "faq": {
+    "headline": "FAQ",
+    "items": [
     {
       "question": "How long will it take for my episode to be produced?",
       "answer": "Producing high-quality television takes time to deliver the impact your story deserves. The full process, from filming to editing and strategic release, typically takes between 6 to 12 months. This ensures your episode is polished, professionally edited, and launched alongside other successful mompreneurs in the series."
@@ -517,7 +530,8 @@
       "question": "How long will my episode be?",
       "answer": "The final runtime will be determined in post-production. But most episodes range between 15 and 30 minutes. This allows your story and journey to be told in a dynamic, high-impact format."
     }
-  ],
+    ]
+  },
   "nineConsiderations": {
     "headline": "Other Key Areas to Consider",
     "items": [

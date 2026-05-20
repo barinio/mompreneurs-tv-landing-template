@@ -6,129 +6,138 @@ export interface ContentJson {
     seoImageUrl: string
   }
   navBar: {
-    announcementText: string
-    ctaText: string
+    announcementText?: string
+    ctaText?: string
   }
   hero: {
     bgImageUrl: string
+    bgImageMobileUrl?: string
   }
   seriesInfo: {
-    series: string
-    status: string
-    location: string
-    filmingDate: string
+    boxes: Array<{ icon: string; label: string; value: string }>
   }
-  whoFor: Array<{ title: string; description: string }>
-  whoNotFor: Array<{ text: string }>
+  whoFor: {
+    headline?: string
+    subheadline?: string
+    items: Array<{ title: string; description: string }>
+  }
+  whoNotFor: {
+    headline?: string
+    items: Array<{ text: string }>
+  }
   joinShow: {
-    headline: string
-    subheadline: string
-    ctaText: string
+    headline?: string
+    subheadline?: string
+    ctaText?: string
     ctaUrl: string
   }
   transformation: {
-    headline: string
-    subheadline: string
+    headline?: string
+    subheadline?: string
     benefits: Array<{ title: string; description: string }>
-    posterUrl: string
+    posterUrl?: string
   }
   beingFeatured: {
-    backgroundUrl: string
-    headline: string
-    intro: string
-    createsHeadline: string
+    backgroundUrl?: string
+    headline?: string
+    intro?: string
+    createsHeadline?: string
     bullets: Array<{ title: string; description: string }>
-    closingTop: string
-    closingBold: string
-    closingBottom: string
-    closingExtra: string
+    closingTop?: string
+    closingBold?: string
+    closingBottom?: string
+    closingExtra?: string
   }
   trustedMedia: {
-    headline: string
+    headline?: string
     screenshots: string[]
   }
   legendsLineup: {
-    headline: string
+    headline?: string
     featured: Array<{ url: string; alt: string }>
     grid: Array<{ url: string; alt: string }>
   }
   otherShows: {
-    headline: string
+    headline?: string
     posters: Array<{ url: string; alt: string }>
   }
   tvPackageIncluded: {
-    headlineTop: string
-    logoUrl: string
-    headlineBottom: string
+    headlineTop?: string
+    logoUrl?: string
+    headlineBottom?: string
     items: Array<{ title: string; description: string; imageUrl: string }>
     closingParagraphs: Array<{ text: string; boldSuffix?: string }>
   }
   bigScreen: {
-    eyebrow: string
-    headline: string
-    logosUrl: string
+    eyebrow?: string
+    headline?: string
+    logosUrl?: string
     body: string[]
-    phoneUrl: string
+    phoneUrl?: string
   }
   pressAwards: {
-    seenOnHeadline: string
-    seenOnLogosUrl: string
-    reviewsHeadline: string
-    reviewsImageDesktopUrl: string
-    reviewsImageMobileUrl: string
-    awardsHeadlineTop: string
-    awardsHeadlineBottom: string
-    awardsImageUrl: string
+    seenOnHeadline?: string
+    seenOnLogosUrl?: string
+    reviewsHeadline?: string
+    reviewsImageDesktopUrl?: string
+    reviewsImageMobileUrl?: string
+    awardsHeadlineTop?: string
+    awardsHeadlineBottom?: string
+    awardsImageUrl?: string
   }
   aboutShow: {
-    eyebrow: string
-    logoUrl: string
-    body: string
-    imageUrl: string
-    standAmongHeadlineTop: string
-    standAmongHeadlineBottom: string
+    eyebrow?: string
+    logoUrl?: string
+    body?: string
+    imageUrl?: string
+    standAmongHeadlineTop?: string
+    standAmongHeadlineBottom?: string
     body2: Array<{ text: string; bold?: boolean }>
   }
   itsTime: {
-    headlineTop: string
-    headlineBottom: string
+    headlineTop?: string
+    headlineBottom?: string
     bodyTop: string[]
-    realityIntro: string
+    realityIntro?: string
     realityPoints: string[]
-    headlineMidTop: string
-    headlineMidBottom: string
+    headlineMidTop?: string
+    headlineMidBottom?: string
     bodyMid: string[]
-    imageUrl: string
-    imagineHeadline: string
+    imageUrl?: string
+    imagineHeadline?: string
     bullets: string[]
   }
   howItWorks: {
-    eyebrow: string
-    headline: string
+    eyebrow?: string
+    headline?: string
     items: Array<{ title: string; description: string }>
   }
   aboutNetwork: {
-    eyebrow: string
-    headlineTop: string
-    headlineBottom: string
-    subheadline: string
-    subheadlineBold: string
-    body: string
-    logoUrl: string
+    eyebrow?: string
+    headlineTop?: string
+    headlineBottom?: string
+    subheadline?: string
+    subheadlineBold?: string
+    body?: string
+    logoUrl?: string
+    logoLinkUrl?: string
   }
-  faq: Array<{ question: string; answer: string }>
+  faq: {
+    headline?: string
+    items: Array<{ question: string; answer: string }>
+  }
   nineConsiderations: {
-    headline: string
+    headline?: string
     items: Array<{ title: string; body: string }>
   }
   footer: {
-    logoUrl: string
-    address: string
-    privacyUrl: string
-    privacyLabel: string
-    termsUrl: string
-    termsLabel: string
-    disclaimerHeadline: string
+    logoUrl?: string
+    address?: string
+    privacyUrl?: string
+    privacyLabel?: string
+    termsUrl?: string
+    termsLabel?: string
+    disclaimerHeadline?: string
     disclaimerParagraphs: string[]
   }
   theme: {
@@ -138,7 +147,7 @@ export interface ContentJson {
   }
 }
 
-export type SectionKey = keyof Omit<ContentJson, 'meta' | 'theme'>
+export type SectionKey = keyof ContentJson
 
 export interface SiteEntry {
   name: string

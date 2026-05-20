@@ -1,4 +1,5 @@
 import type { ContentJson } from '@/lib/types'
+import { show } from '@/lib/show'
 
 type Props = { nineConsiderations: ContentJson['nineConsiderations']; theme: ContentJson['theme'] }
 
@@ -14,21 +15,23 @@ export default function NineConsiderations({ nineConsiderations }: Props) {
         boxSizing: 'border-box',
       }}
     >
-      <h1
-        style={{
-          textAlign: 'center',
-          fontSize: 'clamp(34px, 7vw, 60px)',
-          color: 'rgb(102, 69, 46)',
-          margin: 0,
-          fontFamily: 'Imbue, sans-serif',
-          fontWeight: 500,
-          textTransform: 'uppercase',
-          letterSpacing: '0',
-          lineHeight: 1,
-        }}
-      >
-        {nineConsiderations.headline}
-      </h1>
+      {show(nineConsiderations.headline) && (
+        <h1
+          style={{
+            textAlign: 'center',
+            fontSize: 'clamp(34px, 7vw, 60px)',
+            color: 'rgb(102, 69, 46)',
+            margin: 0,
+            fontFamily: 'Imbue, sans-serif',
+            fontWeight: 500,
+            textTransform: 'uppercase',
+            letterSpacing: '0',
+            lineHeight: 1,
+          }}
+        >
+          {nineConsiderations.headline}
+        </h1>
+      )}
       <div style={{ marginTop: 30, maxWidth: 1100, margin: '30px auto 0' }}>
         {nineConsiderations.items.map((item, i) => (
           <div key={i} style={{ marginBottom: 28 }}>

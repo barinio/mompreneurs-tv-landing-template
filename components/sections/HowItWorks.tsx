@@ -1,4 +1,5 @@
 import type { ContentJson } from '@/lib/types'
+import { show } from '@/lib/show'
 
 type Props = { howItWorks: ContentJson['howItWorks'] }
 
@@ -15,35 +16,39 @@ export default function HowItWorks({ howItWorks }: Props) {
           boxSizing: 'border-box',
         }}
       >
-        <h2
-          style={{
-            textAlign: 'center',
-            fontSize: 20,
-            fontFamily: '"PT Sans Narrow", sans-serif',
-            color: '#000',
-            margin: 0,
-            fontWeight: 700,
-            letterSpacing: '0.12em',
-            textTransform: 'uppercase',
-          }}
-        >
-          {howItWorks.eyebrow}
-        </h2>
-        <h1
-          style={{
-            textAlign: 'center',
-            fontSize: 'clamp(40px, 8vw, 72px)',
-            color: 'rgb(102, 69, 46)',
-            margin: '10px 0 0',
-            fontFamily: 'Imbue, sans-serif',
-            fontWeight: 500,
-            lineHeight: 1,
-            textTransform: 'uppercase',
-            letterSpacing: '-0.01em',
-          }}
-        >
-          {howItWorks.headline}
-        </h1>
+        {show(howItWorks.eyebrow) && (
+          <h2
+            style={{
+              textAlign: 'center',
+              fontSize: 20,
+              fontFamily: '"PT Sans Narrow", sans-serif',
+              color: '#000',
+              margin: 0,
+              fontWeight: 700,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+            }}
+          >
+            {howItWorks.eyebrow}
+          </h2>
+        )}
+        {show(howItWorks.headline) && (
+          <h1
+            style={{
+              textAlign: 'center',
+              fontSize: 'clamp(40px, 8vw, 72px)',
+              color: 'rgb(102, 69, 46)',
+              margin: '10px 0 0',
+              fontFamily: 'Imbue, sans-serif',
+              fontWeight: 500,
+              lineHeight: 1,
+              textTransform: 'uppercase',
+              letterSpacing: '-0.01em',
+            }}
+          >
+            {howItWorks.headline}
+          </h1>
+        )}
 
         <ul
           style={{

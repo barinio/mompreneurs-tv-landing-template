@@ -4,21 +4,6 @@ type Props = {
   seriesInfo: ContentJson["seriesInfo"];
 };
 
-const BOXES = [
-  { icon: "fas fa-film", label: "SERIES", key: "series" as const },
-  { icon: "fas fa-users", label: "STATUS", key: "status" as const },
-  {
-    icon: "fas fa-map-marker-alt",
-    label: "FILM LOCATION",
-    key: "location" as const,
-  },
-  {
-    icon: "fas fa-calendar-alt",
-    label: "FILMING DATE",
-    key: "filmingDate" as const,
-  },
-];
-
 export default function SeriesInfo({ seriesInfo }: Props) {
   return (
     <div style={{ backgroundColor: "#000000", padding: "24px 0 32px" }}>
@@ -38,9 +23,9 @@ export default function SeriesInfo({ seriesInfo }: Props) {
           gap: 16,
         }}
       >
-        {BOXES.map((box) => (
+        {seriesInfo.boxes.map((box, i) => (
           <div
-            key={box.key}
+            key={i}
             style={{
               flex: "0 1 200px",
               display: "flex",
@@ -65,7 +50,7 @@ export default function SeriesInfo({ seriesInfo }: Props) {
                 whiteSpace: "nowrap",
               }}
             >
-              <i className={box.icon} style={{ fontSize: "1em" }} />
+              {box.icon && <i className={box.icon} style={{ fontSize: "1em" }} />}
               {box.label}
             </p>
             <p
@@ -79,7 +64,7 @@ export default function SeriesInfo({ seriesInfo }: Props) {
                 letterSpacing: "0.02em",
               }}
             >
-              {seriesInfo[box.key]}
+              {box.value}
             </p>
           </div>
         ))}
