@@ -34,8 +34,9 @@ describe('GET /api/content', () => {
 describe('POST /api/content', () => {
   beforeEach(() => vi.clearAllMocks())
 
-  it('calls writeContentJson with merged content', async () => {
-    const body = { section: 'hero', data: { ctaText: 'GO' }, sha: 'abc' }
+  it('calls writeContentJson with the full content', async () => {
+    const content = { meta: { title: 'T' }, hero: { ctaText: 'GO' } }
+    const body = { content, sha: 'abc' }
     const req = new Request('http://localhost/api/content', {
       method: 'POST',
       body: JSON.stringify(body),
@@ -44,7 +45,7 @@ describe('POST /api/content', () => {
     expect(writeContentJson).toHaveBeenCalledWith(
       expect.any(String),
       expect.any(String),
-      expect.objectContaining({ hero: expect.objectContaining({ ctaText: 'GO' }) }),
+      content,
       'abc'
     )
   })

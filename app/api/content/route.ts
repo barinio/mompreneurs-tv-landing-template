@@ -32,24 +32,19 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
-  const { section, data, sha } = await req.json() as {
-    section: keyof ContentJson
-    data: unknown
+  const { content, sha } = await req.json() as {
+    content: ContentJson
     sha: string
   }
 
   if (!isGithubConfigured()) {
-    const { content: current } = readLocalContent()
-    const updated: ContentJson = { ...current, [section]: data }
-    writeLocalContent(updated)
+    writeLocalContent(content)
     return NextResponse.json({ ok: true })
   }
 
   const owner = process.env.GITHUB_OWNER!
   const repo = process.env.GITHUB_REPO!
-  const { content: current } = await readContentJson(owner, repo)
-  const updated: ContentJson = { ...current, [section]: data }
-  await writeContentJson(owner, repo, updated, sha)
+  await writeContentJson(owner, repo, content, sha)
 
   return NextResponse.json({ ok: true })
 }

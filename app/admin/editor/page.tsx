@@ -97,21 +97,24 @@ export default function EditorPage() {
     if (!content) return
     setSaving(true)
     try {
-      // Upload any images chosen for this section before persisting content.
-      let data = content[activeSection]
+      // Upload any pending images across ALL sections before persisting. The
+      // editor holds every section's edits in `content`, so we save the whole
+      // object — saving only the active section silently dropped edits made in
+      // other sections.
+      let fullContent: ContentJson
       try {
-        data = await uploadPendingImages(data, pendingUploads.current)
+        fullContent = await uploadPendingImages(content, pendingUploads.current)
       } catch (err) {
         showToast(err instanceof Error ? `Image upload failed: ${err.message}` : 'Image upload failed')
         return
       }
       // Reflect the uploaded Blob URLs in the editor state.
-      setContent((prev) => prev ? { ...prev, [activeSection]: data } : prev)
+      setContent(fullContent)
 
       const res = await fetch('/api/content', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ section: activeSection, data, sha }),
+        body: JSON.stringify({ content: fullContent, sha }),
       })
       if (res.ok) {
         try {
