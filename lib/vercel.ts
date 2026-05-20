@@ -84,5 +84,17 @@ export async function triggerDeploy(
   })
   const data = await res.json()
   if (!res.ok) throw new Error(data?.error?.message ?? 'Failed to trigger deploy')
+
+  // Prefer the production alias (e.g. "my-site-team.vercel.app") over the
+  // deployment-specific URL (e.g. "my-site-abc123-team.vercel.app"). The
+  // deployment URL is *pinned* to one build, so any later admin uploads
+  // never become visible there. The production alias auto-routes to the
+  // latest production deployment, so admin edits show up after each redeploy.
+  // Heuristic: the production alias is shorter — it lacks the random
+  // deployment hash that's wedged between name and team slug.
+  const aliases = (Array.isArray(data.alias) ? data.alias : [])
+    .filter((a: unknown): a is string => typeof a === 'string')
+    .sort((a: string, b: string) => a.length - b.length)
+  if (aliases[0]) return `https://${aliases[0]}`
   return data.url ? `https://${data.url}` : `https://${githubRepo}.vercel.app`
 }
