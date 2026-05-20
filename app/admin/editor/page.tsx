@@ -1,13 +1,54 @@
 'use client'
-import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import type { ContentJson, SectionKey } from '@/lib/types'
 import SectionNav from '@/components/admin/SectionNav'
 import FieldEditor from '@/components/admin/FieldEditor'
 import LivePreview from '@/components/admin/LivePreview'
-import { PreviewContext, applyPreviewOverrides } from '@/components/admin/PreviewContext'
+import { PreviewContext } from '@/components/admin/PreviewContext'
 
 const IS_TEMPLATE = process.env.NEXT_PUBLIC_IS_TEMPLATE === 'true'
+
+// Upload a pending File to Vercel Blob; returns its public URL.
+async function uploadFile(file: File): Promise<string> {
+  const fd = new FormData()
+  fd.append('file', file)
+  const res = await fetch('/api/upload', { method: 'POST', body: fd })
+  if (!res.ok) {
+    const { error } = await res.json().catch(() => ({}))
+    throw new Error(error || 'Upload failed')
+  }
+  const { url } = await res.json()
+  return url as string
+}
+
+// Walk a content value and replace every pending data-URL string with the URL
+// of its uploaded Blob. Only data URLs backed by a pending File are uploaded;
+// existing URLs pass through untouched.
+async function uploadPendingImages<T>(value: T, pending: Map<string, File>): Promise<T> {
+  if (typeof value === 'string') {
+    if (value.startsWith('data:')) {
+      const file = pending.get(value)
+      if (file) {
+        const url = await uploadFile(file)
+        pending.delete(value)
+        return url as T
+      }
+    }
+    return value
+  }
+  if (Array.isArray(value)) {
+    const out = []
+    for (const v of value) out.push(await uploadPendingImages(v, pending))
+    return out as T
+  }
+  if (value && typeof value === 'object') {
+    const out: Record<string, unknown> = {}
+    for (const [k, v] of Object.entries(value)) out[k] = await uploadPendingImages(v, pending)
+    return out as T
+  }
+  return value
+}
 
 export default function EditorPage() {
   const router = useRouter()
@@ -17,17 +58,14 @@ export default function EditorPage() {
   const [activeSection, setActiveSection] = useState<SectionKey>('hero')
   const [saving, setSaving] = useState(false)
   const [toast, setToast] = useState('')
-  const [previewOverrides, setPreviewOverrides] = useState<Record<string, string>>({})
+  // data URL -> File for images chosen but not yet uploaded. Uploaded to Blob
+  // only on Save & Deploy; cleared as each upload succeeds.
+  const pendingUploads = useRef<Map<string, File>>(new Map())
   const toastTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const registerPreview = useCallback((path: string, dataUrl: string) => {
-    setPreviewOverrides((prev) => ({ ...prev, [path]: dataUrl }))
+  const addPendingUpload = useCallback((dataUrl: string, file: File) => {
+    pendingUploads.current.set(dataUrl, file)
   }, [])
-
-  const previewContent = useMemo(
-    () => (content ? applyPreviewOverrides(content, previewOverrides) : content),
-    [content, previewOverrides]
-  )
 
   function showToast(msg: string) {
     if (toastTimer.current) clearTimeout(toastTimer.current)
@@ -59,10 +97,21 @@ export default function EditorPage() {
     if (!content) return
     setSaving(true)
     try {
+      // Upload any images chosen for this section before persisting content.
+      let data = content[activeSection]
+      try {
+        data = await uploadPendingImages(data, pendingUploads.current)
+      } catch (err) {
+        showToast(err instanceof Error ? `Image upload failed: ${err.message}` : 'Image upload failed')
+        return
+      }
+      // Reflect the uploaded Blob URLs in the editor state.
+      setContent((prev) => prev ? { ...prev, [activeSection]: data } : prev)
+
       const res = await fetch('/api/content', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ section: activeSection, data: content[activeSection], sha }),
+        body: JSON.stringify({ section: activeSection, data, sha }),
       })
       if (res.ok) {
         try {
@@ -147,7 +196,7 @@ export default function EditorPage() {
             </h2>
           </div>
           <div className="flex-1 overflow-y-auto px-4 py-3">
-            <PreviewContext.Provider value={{ register: registerPreview }}>
+            <PreviewContext.Provider value={{ addPendingUpload }}>
               <FieldEditor sectionKey={activeSection} content={content} onChange={handleChange} />
             </PreviewContext.Provider>
           </div>
@@ -168,7 +217,7 @@ export default function EditorPage() {
           <div className="absolute top-2 left-2 text-xs text-gray-400 bg-white rounded px-2 py-0.5 shadow z-10">
             Live Preview
           </div>
-          <LivePreview content={previewContent ?? content} activeSection={activeSection} />
+          <LivePreview content={content} activeSection={activeSection} />
         </div>
       </div>
 

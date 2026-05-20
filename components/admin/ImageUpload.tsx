@@ -1,6 +1,6 @@
 'use client'
 import { useRef, useState } from 'react'
-import { usePreviewRegister } from './PreviewContext'
+import { usePendingUpload } from './PreviewContext'
 
 type Props = {
   value: string
@@ -9,58 +9,45 @@ type Props = {
 }
 
 export default function ImageUpload({ value, onChange, label }: Props) {
-  const registerPreview = usePreviewRegister()
-  const [uploading, setUploading] = useState(false)
+  const addPendingUpload = usePendingUpload()
   const [error, setError] = useState('')
-  // Once uploaded, the canonical path (e.g. /images/foo.png) won't load in
-  // this browser tab — the file lives in GitHub but isn't in the currently-
-  // running Vercel build yet. We keep the just-selected file as a data URL
-  // so the preview shows the actual image until "Save & Deploy" rebuilds.
-  const [localPreview, setLocalPreview] = useState<string | null>(null)
-  const [justUploaded, setJustUploaded] = useState(false)
+  const [pendingName, setPendingName] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
 
+  // Selecting a file does NOT upload it. We read it as a data URL, store that
+  // as the field value (so the Live Preview shows the real image) and hand the
+  // File to the editor. The actual Vercel Blob upload happens only on
+  // "Save & Deploy" — unsaved previews are never persisted.
   async function handleFile(file: File) {
     if (file.size > 5 * 1024 * 1024) {
       setError('File must be under 5 MB')
       return
     }
+    setError('')
     const dataUrl = await new Promise<string>((resolve, reject) => {
       const r = new FileReader()
       r.onload = () => resolve(r.result as string)
       r.onerror = () => reject(r.error)
       r.readAsDataURL(file)
     }).catch(() => null)
-    if (dataUrl) setLocalPreview(dataUrl)
-
-    setUploading(true)
-    setError('')
-    const fd = new FormData()
-    fd.append('file', file)
-    const res = await fetch('/api/upload', { method: 'POST', body: fd })
-    if (res.ok) {
-      const { url } = await res.json()
-      onChange(url)
-      setJustUploaded(true)
-      // Register so the Live Preview can render this image before deploy.
-      if (dataUrl) registerPreview(url, dataUrl)
-    } else {
-      const { error: msg } = await res.json().catch(() => ({}))
-      setError(msg || 'Upload failed')
-      setLocalPreview(null)
+    if (!dataUrl) {
+      setError('Could not read file')
+      return
     }
-    setUploading(false)
+    setPendingName(file.name)
+    onChange(dataUrl)
+    addPendingUpload(dataUrl, file)
   }
 
-  const previewSrc = localPreview ?? value
+  const isPending = value.startsWith('data:')
 
   return (
     <div>
       {label && <label className="block text-xs text-gray-500 uppercase mb-1">{label}</label>}
       <div className="flex items-center gap-2">
-        {previewSrc && (
+        {value && (
           <img
-            src={previewSrc}
+            src={value}
             alt=""
             className="w-12 h-12 object-cover rounded border border-gray-200"
             onError={(e) => { (e.currentTarget as HTMLImageElement).style.visibility = 'hidden' }}
@@ -69,18 +56,18 @@ export default function ImageUpload({ value, onChange, label }: Props) {
         <div className="flex flex-col gap-1">
           <input
             type="text"
-            value={value}
-            onChange={(e) => { onChange(e.target.value); setLocalPreview(null); setJustUploaded(false) }}
+            value={isPending ? `📎 ${pendingName} (unsaved)` : value}
+            readOnly={isPending}
+            onChange={(e) => { onChange(e.target.value); setPendingName('') }}
             placeholder="Image URL"
             className="border border-gray-300 rounded px-2 py-1 text-xs w-48"
           />
           <button
             type="button"
-            disabled={uploading}
             onClick={() => inputRef.current?.click()}
-            className="text-xs bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded px-2 py-1 disabled:opacity-50"
+            className="text-xs bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded px-2 py-1"
           >
-            {uploading ? 'Uploading...' : '📎 Upload file'}
+            📎 Upload file
           </button>
         </div>
         <input
@@ -91,9 +78,9 @@ export default function ImageUpload({ value, onChange, label }: Props) {
           onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])}
         />
       </div>
-      {justUploaded && (
-        <p className="text-green-600 text-xs mt-1">
-          ✓ Uploaded. Click &ldquo;Save &amp; Deploy&rdquo; — image will appear on the live site after the rebuild (~60 sec).
+      {isPending && (
+        <p className="text-amber-600 text-xs mt-1">
+          Image added to preview. It will be uploaded when you click &ldquo;Save &amp; Deploy&rdquo;.
         </p>
       )}
       {error && <p className="text-red-500 text-xs mt-1">{error}</p>}

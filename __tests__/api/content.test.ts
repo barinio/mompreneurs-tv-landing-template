@@ -1,5 +1,12 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 
+// Exercise the GitHub-backed path (which is mocked below). Without these the
+// route falls back to reading/writing the real content.json on disk, which
+// both fails these assertions and clobbers the project's content.
+process.env.GITHUB_OWNER = 'owner'
+process.env.GITHUB_REPO = 'repo'
+process.env.GITHUB_TOKEN = 'token'
+
 vi.mock('@/lib/github', () => ({
   readContentJson: vi.fn().mockResolvedValue({
     content: { meta: { title: 'T' } },
