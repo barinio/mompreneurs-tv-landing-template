@@ -5,12 +5,5 @@
     "adminUrl": "https://client1site-5lpfja83x-barinios-projects.vercel.app/admin",
     "createdAt": "2026-05-19T16:58:59.864Z",
     "status": "deploying"
-  },
-  {
-    "name": "testik1",
-    "url": "https://testik1-barinios-projects.vercel.app",
-    "adminUrl": "https://testik1-barinios-projects.vercel.app/admin",
-    "createdAt": "2026-05-20T17:44:43.803Z",
-    "status": "deploying"
   }
 ]
