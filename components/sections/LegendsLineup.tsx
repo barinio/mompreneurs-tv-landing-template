@@ -25,8 +25,8 @@ export default function LegendsLineup({ legendsLineup }: Props) {
         <div style={{
           marginTop: 30,
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-          gap: 14,
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: 20,
         }}>
           {legendsLineup.featured.map((b, i) => (
             <img
@@ -46,10 +46,10 @@ export default function LegendsLineup({ legendsLineup }: Props) {
 
         {/* Lower grid */}
         <div style={{
-          marginTop: 24,
+          marginTop: 20,
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-          gap: 12,
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: 20,
         }}>
           {legendsLineup.grid.map((b, i) => (
             <img

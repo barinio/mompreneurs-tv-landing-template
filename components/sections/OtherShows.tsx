@@ -24,7 +24,7 @@ export default function OtherShows({ otherShows }: Props) {
         <div style={{
           marginTop: 40,
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
           gap: 24,
         }}>
           {otherShows.posters.map((p, i) => (
