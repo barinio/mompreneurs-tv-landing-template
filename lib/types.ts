@@ -11,11 +11,6 @@ export interface ContentJson {
   }
   hero: {
     bgImageUrl: string
-    logoUrl: string
-    headline: string
-    subheadline?: string
-    ctaText: string
-    ctaUrl: string
   }
   seriesInfo: {
     series: string
