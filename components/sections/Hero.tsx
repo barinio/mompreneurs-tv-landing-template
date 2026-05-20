@@ -2,20 +2,14 @@ import type { ContentJson } from '@/lib/types'
 
 type Props = {
   hero: ContentJson['hero']
-  theme: ContentJson['theme']
+  theme?: ContentJson['theme']
 }
 
-export default function Hero({ hero, theme }: Props) {
+export default function Hero({ hero }: Props) {
   return (
-    <div
-      style={{
-        backgroundImage: `url(${hero.bgImageUrl})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center top',
-        backgroundRepeat: 'no-repeat',
-        width: '100%',
-        height: '100vh',
-      }}
-    />
+    <picture>
+      <source media="(max-width: 768px)" srcSet="/images/mompreneurs1-mob-1-.png" />
+      <img src={hero.bgImageUrl} alt="" className="hero-img" />
+    </picture>
   )
 }

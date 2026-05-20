@@ -8,7 +8,7 @@ export default function OtherShows({ otherShows }: Props) {
       <div style={{ maxWidth: 1100, width: '95%', margin: '0 auto' }}>
         <h2 style={{
           textAlign: 'center',
-          fontSize: 46,
+          fontSize: 'clamp(26px, 5vw, 46px)',
           fontFamily: 'Montserrat, sans-serif',
           color: 'rgb(47, 47, 47)',
           margin: 0,
@@ -21,7 +21,7 @@ export default function OtherShows({ otherShows }: Props) {
         <div style={{
           marginTop: 40,
           display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
           gap: 24,
         }}>
           {otherShows.posters.map((p, i) => (

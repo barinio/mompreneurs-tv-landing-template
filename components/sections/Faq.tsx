@@ -22,7 +22,7 @@ export default function Faq({ faq }: Props) {
       <h2
         style={{
           textAlign: 'center',
-          fontSize: 90,
+          fontSize: 'clamp(52px, 12vw, 90px)',
           color: '#fff',
           margin: '10px 0 30px',
           fontFamily: 'Imbue, sans-serif',
@@ -36,8 +36,7 @@ export default function Faq({ faq }: Props) {
       </h2>
       <div
         style={{
-          maxWidth: 1200,
-          width: '65%',
+          width: 'min(92%, 780px)',
           margin: '0 auto',
           display: 'flex',
           flexDirection: 'column',

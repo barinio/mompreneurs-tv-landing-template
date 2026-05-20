@@ -8,11 +8,10 @@ const CREAM_GOLD = 'rgba(255, 234, 180, 0.98)'
 
 export default function TvPackageIncluded({ tvPackageIncluded }: Props) {
   return (
-    <div style={{
+    <div className="parallax-bg" style={{
       backgroundImage: 'url(/images/Sec-BG-4.jpg)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      backgroundAttachment: 'fixed',
       backgroundRepeat: 'no-repeat',
       backgroundColor: '#000',
       paddingTop: 60,
@@ -22,7 +21,7 @@ export default function TvPackageIncluded({ tvPackageIncluded }: Props) {
         {/* Headline */}
         <h2 style={{
           textAlign: 'center',
-          fontSize: 38,
+          fontSize: 'clamp(24px, 4vw, 38px)',
           color: '#fff',
           margin: 0,
           lineHeight: 1.1,
@@ -42,7 +41,7 @@ export default function TvPackageIncluded({ tvPackageIncluded }: Props) {
         </div>
         <h2 style={{
           textAlign: 'center',
-          fontSize: 60,
+          fontSize: 'clamp(34px, 7vw, 60px)',
           color: CREAM_GOLD,
           margin: '-15px 0 0',
           lineHeight: 1.05,
@@ -62,6 +61,7 @@ export default function TvPackageIncluded({ tvPackageIncluded }: Props) {
               display: 'flex',
               flexWrap: 'wrap',
               alignItems: 'center',
+              justifyContent: 'center',
               gap: 24,
             }}>
               <div style={{ flex: '0 0 260px' }}>
@@ -81,13 +81,13 @@ export default function TvPackageIncluded({ tvPackageIncluded }: Props) {
                   display: 'flex',
                   alignItems: 'flex-start',
                   gap: 10,
-                  fontSize: 28,
+                  fontSize: 'clamp(22px, 2.6vw, 28px)',
                   fontFamily: '"PT Sans Narrow", sans-serif',
                   fontWeight: 700,
                   color: BROWN_TITLE,
                   lineHeight: 1.3,
                 }}>
-                  <i className="fas fa-check-circle" style={{ color: GOLD, fontSize: 28, marginTop: 4, flexShrink: 0 }} />
+                  <i className="fas fa-check-circle" style={{ color: GOLD, fontSize: '1em', marginTop: 4, flexShrink: 0 }} />
                   <span>{item.title}</span>
                 </div>
                 <div style={{ borderTop: '1px solid rgb(216, 200, 178)', margin: '14px 0' }} />

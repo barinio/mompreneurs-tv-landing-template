@@ -6,11 +6,10 @@ const CREAM = 'rgb(243, 240, 234)'
 
 export default function PressAwards({ pressAwards }: Props) {
   return (
-    <div style={{
+    <div className="parallax-bg" style={{
       backgroundImage: 'url(/images/lm.jpg)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      backgroundAttachment: 'fixed',
       backgroundRepeat: 'no-repeat',
       backgroundColor: 'rgb(29, 29, 29)',
       paddingTop: 60,
@@ -19,7 +18,7 @@ export default function PressAwards({ pressAwards }: Props) {
       <div style={{ maxWidth: 1100, width: '95%', margin: '0 auto', textAlign: 'center' }}>
         {/* AS SEEN ON */}
         <h2 style={{
-          fontSize: 60,
+          fontSize: 'clamp(34px, 7vw, 60px)',
           color: '#fff',
           margin: 0,
           lineHeight: 1,
@@ -39,7 +38,7 @@ export default function PressAwards({ pressAwards }: Props) {
 
         {/* REVIEWS */}
         <h2 style={{
-          fontSize: 60,
+          fontSize: 'clamp(34px, 7vw, 60px)',
           color: '#fff',
           margin: '60px 0 0',
           lineHeight: 1,
@@ -62,7 +61,7 @@ export default function PressAwards({ pressAwards }: Props) {
 
         {/* AWARDS */}
         <h2 style={{
-          fontSize: 60,
+          fontSize: 'clamp(34px, 7vw, 60px)',
           color: CREAM,
           margin: '70px 0 0',
           lineHeight: 1.05,

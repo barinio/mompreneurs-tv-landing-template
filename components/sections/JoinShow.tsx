@@ -17,7 +17,7 @@ export default function JoinShow({
     <div style={{ padding: '20px 0', textAlign: 'center' }}>
       <h1 style={{
         textAlign: 'center',
-        fontSize: 72,
+        fontSize: 'clamp(38px, 8vw, 72px)',
         color: headlineColor,
         margin: 0,
         lineHeight: 1.1,
@@ -28,7 +28,7 @@ export default function JoinShow({
       </h1>
       <h1 style={{
         textAlign: 'center',
-        fontSize: 72,
+        fontSize: 'clamp(38px, 8vw, 72px)',
         color: subheadlineColor,
         margin: '-6px 0 0',
         lineHeight: 1,
@@ -62,15 +62,17 @@ export default function JoinShow({
         <a href={joinShow.ctaUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
           <button className="cta-btn" style={{
             color: '#fff',
-            fontSize: 28,
+            fontSize: 'clamp(20px, 3vw, 28px)',
             fontFamily: '"Roboto Condensed", sans-serif',
             fontWeight: 600,
-            padding: '18px 70px',
+            padding: '18px clamp(28px, 8vw, 70px)',
+            maxWidth: '100%',
             border: 'none',
             borderRadius: 6,
             cursor: 'pointer',
             letterSpacing: '0.02em',
             textTransform: 'uppercase',
+            whiteSpace: 'normal',
           }}>
             {joinShow.ctaText}
           </button>

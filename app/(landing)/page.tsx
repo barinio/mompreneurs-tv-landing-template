@@ -30,15 +30,15 @@ export default function LandingPage() {
       className="containerWrapper"
       style={{ fontFamily: c.theme.fontFamily + ", Helvetica, sans-serif" }}
     >
-      <NavBar ctaUrl={c.hero.ctaUrl} announcementText={c.navBar.announcementText} ctaText={c.navBar.ctaText} />
+      <NavBar ctaUrl={c.joinShow.ctaUrl} announcementText={c.navBar.announcementText} ctaText={c.navBar.ctaText} />
       <Hero hero={c.hero} theme={c.theme} />
       <SeriesInfo seriesInfo={c.seriesInfo} />
       <div
+        className="parallax-bg"
         style={{
           backgroundImage: "url(/images/Sec-BG-1.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: "fixed",
           backgroundRepeat: "no-repeat",
           backgroundColor: "#000",
           paddingTop: 60,
@@ -59,11 +59,11 @@ export default function LandingPage() {
         />
       </div>
       <div
+        className="parallax-bg"
         style={{
           backgroundImage: "url(/images/Sec-BG-3.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: "fixed",
           backgroundRepeat: "no-repeat",
           backgroundColor: "#5a4a3a",
           paddingTop: 20,
@@ -86,11 +86,11 @@ export default function LandingPage() {
       <BigScreen bigScreen={c.bigScreen} />
       <PressAwards pressAwards={c.pressAwards} />
       <div
+        className="parallax-bg"
         style={{
           backgroundImage: "url(/images/Sec-BG-6.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: "fixed",
           backgroundRepeat: "no-repeat",
           backgroundColor: "#000",
         }}
@@ -98,11 +98,11 @@ export default function LandingPage() {
         <AboutShow aboutShow={c.aboutShow} />
       </div>
       <div
+        className="parallax-bg"
         style={{
           backgroundImage: "url(/images/Sec-BG-5.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: "fixed",
           backgroundRepeat: "no-repeat",
           backgroundColor: "rgb(142, 123, 107)",
           paddingTop: 70,
@@ -119,11 +119,11 @@ export default function LandingPage() {
       </div>
       <AboutNetwork aboutNetwork={c.aboutNetwork} theme={c.theme} />
       <div
+        className="parallax-bg"
         style={{
           backgroundImage: "url(/images/Sec-BG-1.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: "fixed",
           backgroundRepeat: "no-repeat",
           backgroundColor: "rgb(102, 69, 46)",
           paddingTop: 20,

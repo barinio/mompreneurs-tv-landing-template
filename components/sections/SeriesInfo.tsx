@@ -27,57 +27,56 @@ export default function SeriesInfo({ seriesInfo }: Props) {
           backgroundColor: "#FAF5E4",
           maxWidth: 995,
           width: "100%",
-          height: 132,
           boxSizing: "border-box",
           margin: "0 auto",
           borderRadius: 4,
-          padding: "35px 36px",
+          padding: "clamp(20px, 4vw, 35px) clamp(16px, 4vw, 36px)",
           display: "flex",
+          flexWrap: "wrap",
           alignItems: "center",
-          gap: 0,
+          justifyContent: "center",
+          gap: 16,
         }}
       >
-        {BOXES.map((box, i) => (
+        {BOXES.map((box) => (
           <div
             key={box.key}
             style={{
-              flex: "1 1 0",
-              height: 62,
+              flex: "0 1 200px",
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              padding:
-                i === 0 ? "0 28px 0 0" : i === 3 ? "0 0 0 28px" : "0 28px",
+              gap: 6,
+              padding: "0 12px",
             }}
           >
             <p
               style={{
-                fontSize: 20,
+                fontSize: "clamp(15px, 1.8vw, 20px)",
                 fontWeight: 700,
                 fontFamily: '"PT Sans Narrow", sans-serif',
                 letterSpacing: "0.1em",
                 color: "rgba(209, 177, 95, 0.98)",
                 textTransform: "uppercase",
-                margin: "0 0 6px",
+                margin: 0,
                 display: "flex",
                 alignItems: "center",
                 gap: 6,
                 whiteSpace: "nowrap",
               }}
             >
-              <i className={box.icon} style={{ fontSize: 20 }} />
+              <i className={box.icon} style={{ fontSize: "1em" }} />
               {box.label}
             </p>
             <p
               style={{
-                fontSize: 24,
+                fontSize: "clamp(18px, 2.2vw, 24px)",
                 fontWeight: 700,
                 fontFamily: '"PT Sans Narrow", sans-serif',
                 color: "rgb(102, 69, 46)",
                 textTransform: "uppercase",
                 margin: 0,
                 letterSpacing: "0.02em",
-                whiteSpace: "nowrap",
               }}
             >
               {seriesInfo[box.key]}

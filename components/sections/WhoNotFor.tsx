@@ -12,7 +12,7 @@ export default function WhoNotFor({ whoNotFor }: Props) {
       <div style={{ backgroundColor: 'rgba(255, 250, 239, 0.98)', padding: '25px 0 20px' }}>
         <h1 style={{
           textAlign: 'center',
-          fontSize: 72,
+          fontSize: 'clamp(36px, 8vw, 72px)',
           color: BROWN,
           margin: 0,
           lineHeight: 1.1,
@@ -23,17 +23,20 @@ export default function WhoNotFor({ whoNotFor }: Props) {
         </h1>
       </div>
 
-      {/* Cards grid */}
+      {/* Cards — centered, wrap evenly at every width */}
       <div style={{
         backgroundColor: CREAM,
-        padding: '20px 50px 35px',
+        padding: 'clamp(20px, 5vw, 50px)',
         marginTop: -20,
-        display: 'grid',
-        gridTemplateColumns: `repeat(${whoNotFor.length}, 1fr)`,
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
         gap: 20,
       }}>
         {whoNotFor.map((item, i) => (
           <div key={i} style={{
+            flex: '0 1 280px',
+            boxSizing: 'border-box',
             border: `2px solid ${BROWN}`,
             padding: 25,
             display: 'flex',
@@ -43,7 +46,7 @@ export default function WhoNotFor({ whoNotFor }: Props) {
             <i className="fas fa-times-circle" style={{ color: 'rgb(168, 0, 0)', fontSize: 42, lineHeight: '1em' }} />
             <h2 style={{
               textAlign: 'center',
-              fontSize: 24,
+              fontSize: 'clamp(19px, 2.2vw, 24px)',
               fontFamily: '"PT Sans Narrow", sans-serif',
               color: '#000',
               margin: '15px 0 0',

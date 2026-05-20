@@ -13,3 +13,75 @@ body {
 .cta-btn:hover {
   box-shadow: inset 0 2px 2px 0 rgba(255, 255, 255, 0.22), inset 0 233px 233px 0 rgba(255, 255, 255, 0.12);
 }
+
+/* Parallax only on larger screens — background-attachment: fixed is broken on mobile/iOS */
+@media (min-width: 769px) {
+  .parallax-bg {
+    background-attachment: fixed;
+  }
+}
+
+/* Hero image: full-bleed cover on desktop, full graphic (no crop) on mobile.
+   Black backdrop shows through the mobile PNG's transparent top/bottom so its
+   white baked-in text stays legible (matches the original hero section bg). */
+.hero-img {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center top;
+  background-color: #1b0d04;
+}
+@media (max-width: 768px) {
+  .hero-img {
+    height: auto;
+  }
+}
+
+/* BeingFeatured: two-column layout (photo framed left) only on wide desktop.
+   Below the wrap point the columns stack, so drop the photo spacer and shift
+   the background to the darker right side where text overlays the image. */
+.being-featured-bg {
+  background-position: left center;
+}
+@media (max-width: 1126px) {
+  .being-featured-bg {
+    background-position: right center;
+  }
+  .being-featured-spacer {
+    display: none;
+  }
+}
+
+/* NavBar: 66/33 row on desktop, stacked on small screens */
+.navbar-row {
+  display: flex;
+  align-items: center;
+  padding: 20px 10px 15px;
+}
+.navbar-announcement {
+  flex: 0 0 66.66%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+.navbar-cta-wrap {
+  flex: 0 0 33.33%;
+  padding: 0 10px;
+  box-sizing: border-box;
+  text-align: left;
+}
+@media (max-width: 600px) {
+  .navbar-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .navbar-announcement,
+  .navbar-cta-wrap {
+    flex: 1 1 auto;
+    width: 100%;
+    text-align: center;
+  }
+  .navbar-cta {
+    width: 100%;
+  }
+}

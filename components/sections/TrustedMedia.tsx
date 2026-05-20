@@ -11,7 +11,7 @@ export default function TrustedMedia({ trustedMedia }: Props) {
     }}>
       <div style={{ maxWidth: 1140, width: '95%', margin: '0 auto', textAlign: 'center' }}>
         <h2 style={{
-          fontSize: 62,
+          fontSize: 'clamp(32px, 6vw, 62px)',
           color: '#fff',
           margin: 0,
           lineHeight: 1.1,

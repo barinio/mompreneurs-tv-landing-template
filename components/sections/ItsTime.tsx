@@ -25,7 +25,7 @@ export default function ItsTime({ itsTime }: Props) {
           backgroundColor: "#fff",
           width: "85%",
           maxWidth: 1000,
-          margin: "-120px auto 0",
+          margin: "clamp(-120px, -12vw, -40px) auto 0",
           padding: "55px 25px 30px",
           position: "relative",
         }}
@@ -35,7 +35,7 @@ export default function ItsTime({ itsTime }: Props) {
           <h1
             style={{
               textAlign: "center",
-              fontSize: 62,
+              fontSize: "clamp(34px, 7vw, 62px)",
               color: BROWN,
               margin: 0,
               lineHeight: 1.05,
@@ -48,7 +48,7 @@ export default function ItsTime({ itsTime }: Props) {
           <h1
             style={{
               textAlign: "center",
-              fontSize: 62,
+              fontSize: "clamp(34px, 7vw, 62px)",
               color: GOLD,
               margin: "6px 0 0",
               lineHeight: 1.05,
@@ -82,7 +82,7 @@ export default function ItsTime({ itsTime }: Props) {
           <h1
             style={{
               textAlign: "center",
-              fontSize: 80,
+              fontSize: "clamp(44px, 9vw, 80px)",
               color: GOLD,
               margin: "35px 0 0",
               lineHeight: 1,
@@ -95,7 +95,7 @@ export default function ItsTime({ itsTime }: Props) {
           <h1
             style={{
               textAlign: "center",
-              fontSize: 62,
+              fontSize: "clamp(34px, 7vw, 62px)",
               color: BROWN,
               margin: "4px 0 0",
               lineHeight: 1.05,

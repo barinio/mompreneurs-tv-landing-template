@@ -11,21 +11,21 @@ export default function NavBar({ ctaUrl, announcementText, ctaText }: Props) {
     <div
       style={{ paddingTop: 0, paddingBottom: 3, backgroundColor: 'rgba(22, 10, 1, 0.97)', position: 'sticky', top: 0, zIndex: 99 }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', padding: '20px 10px 15px' }}>
-        <div style={{ flex: '0 0 66.66%', padding: '0 10px', boxSizing: 'border-box' }}>
-          <div style={{ color: '#fff', fontSize: 22, fontWeight: 700, fontFamily: 'sans-serif', lineHeight: 1.4, textAlign: 'center' }}>
+      <div className="navbar-row">
+        <div className="navbar-announcement">
+          <div style={{ color: '#fff', fontSize: 'clamp(15px, 2.6vw, 22px)', fontWeight: 700, fontFamily: 'sans-serif', lineHeight: 1.4, textAlign: 'center' }}>
             {lines.map((line, i) => (
               <span key={i}>{line}{i < lines.length - 1 && <br />}</span>
             ))}
           </div>
         </div>
-        <div style={{ flex: '0 0 33.33%', padding: '0 10px', boxSizing: 'border-box', textAlign: 'left' }}>
+        <div className="navbar-cta-wrap">
           <a
             href={ctaUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="cta-btn"
-            style={{ color: '#fff', fontSize: 22, fontWeight: 600, fontFamily: '"Roboto Condensed", sans-serif', width: 211, height: 54, padding: 0, textDecoration: 'none', borderRadius: 4, whiteSpace: 'nowrap', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', boxSizing: 'border-box' }}
+            className="cta-btn navbar-cta"
+            style={{ color: '#fff', fontSize: 'clamp(16px, 2.4vw, 22px)', fontWeight: 600, fontFamily: '"Roboto Condensed", sans-serif', width: 211, maxWidth: '100%', height: 54, padding: 0, textDecoration: 'none', borderRadius: 4, whiteSpace: 'nowrap', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', boxSizing: 'border-box' }}
           >
             {ctaText ?? 'APPLY NOW'}
           </a>

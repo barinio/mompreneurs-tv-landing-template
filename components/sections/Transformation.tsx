@@ -11,7 +11,7 @@ export default function Transformation({ transformation }: Props) {
       {/* Title */}
       <h1 style={{
         textAlign: 'center',
-        fontSize: 110,
+        fontSize: 'clamp(48px, 12vw, 110px)',
         color: '#fff',
         margin: 0,
         lineHeight: 1,
@@ -24,7 +24,7 @@ export default function Transformation({ transformation }: Props) {
       </h1>
       <h2 style={{
         textAlign: 'center',
-        fontSize: 28,
+        fontSize: 'clamp(20px, 3vw, 28px)',
         color: '#fff',
         margin: '10px 0 0',
         fontWeight: 'normal',
@@ -38,6 +38,7 @@ export default function Transformation({ transformation }: Props) {
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'flex-start',
+        justifyContent: 'center',
         gap: 30,
         marginTop: 40,
         padding: '0 20px',

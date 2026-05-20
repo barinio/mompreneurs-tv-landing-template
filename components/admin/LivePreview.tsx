@@ -69,7 +69,7 @@ export default function LivePreview({ content: c, activeSection }: Props) {
       className="overflow-y-auto h-full"
       style={{ fontFamily: c.theme.fontFamily + ', Helvetica, sans-serif', fontSize: '60%', transformOrigin: 'top left' }}
     >
-      {sec('navBar', <NavBar ctaUrl={c.hero.ctaUrl} announcementText={c.navBar.announcementText} ctaText={c.navBar.ctaText} />)}
+      {sec('navBar', <NavBar ctaUrl={c.joinShow.ctaUrl} announcementText={c.navBar.announcementText} ctaText={c.navBar.ctaText} />)}
       {sec('hero', <Hero hero={c.hero} theme={c.theme} />)}
       {sec('seriesInfo', <SeriesInfo seriesInfo={c.seriesInfo} />)}
       <div

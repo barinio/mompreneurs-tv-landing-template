@@ -11,7 +11,7 @@ export default function HowItWorks({ howItWorks }: Props) {
           width: '95%',
           margin: '0 auto',
           backgroundColor: '#fff',
-          padding: '40px 35px 25px',
+          padding: 'clamp(24px, 5vw, 40px) clamp(18px, 4vw, 35px) 25px',
           boxSizing: 'border-box',
         }}
       >
@@ -32,7 +32,7 @@ export default function HowItWorks({ howItWorks }: Props) {
         <h1
           style={{
             textAlign: 'center',
-            fontSize: 72,
+            fontSize: 'clamp(40px, 8vw, 72px)',
             color: 'rgb(102, 69, 46)',
             margin: '10px 0 0',
             fontFamily: 'Imbue, sans-serif',

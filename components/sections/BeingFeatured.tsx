@@ -7,11 +7,9 @@ const BROWN_LINE = 'rgb(102, 69, 46)'
 
 export default function BeingFeatured({ beingFeatured }: Props) {
   return (
-    <div style={{
+    <div className="parallax-bg being-featured-bg" style={{
       backgroundImage: `url(${beingFeatured.backgroundUrl})`,
       backgroundSize: 'cover',
-      backgroundPosition: 'left center',
-      backgroundAttachment: 'fixed',
       backgroundRepeat: 'no-repeat',
       backgroundColor: '#000',
       paddingTop: 60,
@@ -26,13 +24,13 @@ export default function BeingFeatured({ beingFeatured }: Props) {
         alignItems: 'center',
         gap: 30,
       }}>
-        {/* Spacer for left photo (background sits behind) */}
-        <div style={{ flex: '1 1 480px', minHeight: 600 }} />
+        {/* Spacer for left photo (background sits behind) — desktop only */}
+        <div className="being-featured-spacer" style={{ flex: '1 1 480px', minHeight: 'clamp(260px, 55vw, 600px)' }} />
 
         {/* Right column: content */}
         <div style={{ flex: '1 1 560px', color: '#fff' }}>
           <h2 style={{
-            fontSize: 54,
+            fontSize: 'clamp(32px, 6vw, 54px)',
             color: '#fff',
             margin: 0,
             lineHeight: 1.1,
@@ -55,7 +53,7 @@ export default function BeingFeatured({ beingFeatured }: Props) {
           </p>
 
           <h3 style={{
-            fontSize: 34,
+            fontSize: 'clamp(26px, 4vw, 34px)',
             color: GOLD,
             margin: '30px 0 10px',
             fontStyle: 'italic',

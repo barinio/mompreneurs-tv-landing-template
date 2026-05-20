@@ -13,6 +13,7 @@ export default function AboutShow({ aboutShow }: Props) {
             display: 'flex',
             flexWrap: 'wrap',
             alignItems: 'flex-start',
+            justifyContent: 'center',
             gap: 40,
             marginBottom: 70,
           }}
@@ -27,7 +28,7 @@ export default function AboutShow({ aboutShow }: Props) {
           <div style={{ flex: '1 1 480px', minWidth: 280 }}>
             <h2
               style={{
-                fontSize: 34,
+                fontSize: 'clamp(26px, 4vw, 34px)',
                 fontFamily: '"PT Sans Narrow", sans-serif',
                 fontWeight: 700,
                 color: '#FFFFFF',
@@ -71,11 +72,11 @@ export default function AboutShow({ aboutShow }: Props) {
           </div>
         </div>
 
-        <div style={{ marginTop: 0, textAlign: 'center', padding: '0 40px' }}>
+        <div style={{ marginTop: 0, textAlign: 'center', padding: '0 clamp(8px, 4vw, 40px)' }}>
           <h3
             style={{
               fontStyle: 'italic',
-              fontSize: 70,
+              fontSize: 'clamp(38px, 8vw, 70px)',
               fontFamily: 'Imbue, sans-serif',
               fontWeight: 500,
               lineHeight: 1.1,

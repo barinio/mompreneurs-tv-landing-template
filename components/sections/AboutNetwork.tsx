@@ -28,7 +28,7 @@ export default function AboutNetwork({ aboutNetwork }: Props) {
           padding: "0 20px",
         }}
       >
-        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 40 }}>
+        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: 40 }}>
           <div style={{ flex: "1 1 460px", minWidth: 280 }}>
             <h2
               style={{
@@ -45,7 +45,7 @@ export default function AboutNetwork({ aboutNetwork }: Props) {
             </h2>
             <h1
               style={{
-                fontSize: 90,
+                fontSize: "clamp(48px, 11vw, 90px)",
                 color: "#fff",
                 margin: "16px 0 0",
                 fontFamily: 'Imbue, sans-serif',
@@ -99,7 +99,7 @@ export default function AboutNetwork({ aboutNetwork }: Props) {
           style={{
             backgroundColor: "rgba(9, 9, 9, 0.78)",
             borderRadius: 24,
-            padding: "48px 80px",
+            padding: "clamp(28px, 6vw, 48px) clamp(20px, 8vw, 80px)",
             margin: "60px auto 0",
             maxWidth: 936,
           }}

@@ -17,9 +17,9 @@ export default function BigScreen({ bigScreen }: Props) {
         gap: 40,
       }}>
         {/* Left column */}
-        <div style={{ flex: '1 1 480px', minWidth: 300 }}>
+        <div style={{ flex: '1 1 480px', minWidth: 260 }}>
           <p style={{
-            fontSize: 30,
+            fontSize: 'clamp(22px, 3vw, 30px)',
             color: '#000',
             margin: 0,
             lineHeight: 1.2,
@@ -31,7 +31,7 @@ export default function BigScreen({ bigScreen }: Props) {
             {bigScreen.eyebrow}
           </p>
           <h2 style={{
-            fontSize: 64,
+            fontSize: 'clamp(38px, 7vw, 64px)',
             color: BROWN,
             margin: '6px 0 0',
             lineHeight: 1.05,
@@ -67,7 +67,7 @@ export default function BigScreen({ bigScreen }: Props) {
         </div>
 
         {/* Right column - phone mockup */}
-        <div style={{ flex: '1 1 360px', minWidth: 280, textAlign: 'center' }}>
+        <div style={{ flex: '1 1 360px', minWidth: 240, textAlign: 'center' }}>
           <img
             src={bigScreen.phoneUrl}
             alt=""

@@ -7,7 +7,7 @@ export default function NineConsiderations({ nineConsiderations }: Props) {
     <div
       style={{
         backgroundColor: 'rgb(255, 253, 246)',
-        padding: '60px 80px',
+        padding: 'clamp(32px, 6vw, 60px) clamp(18px, 7vw, 80px)',
         margin: '45px auto 0',
         maxWidth: 1170,
         width: '100%',
@@ -17,7 +17,7 @@ export default function NineConsiderations({ nineConsiderations }: Props) {
       <h1
         style={{
           textAlign: 'center',
-          fontSize: 60,
+          fontSize: 'clamp(34px, 7vw, 60px)',
           color: 'rgb(102, 69, 46)',
           margin: 0,
           fontFamily: 'Imbue, sans-serif',
